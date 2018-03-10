@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexLib", "FlexLib\FlexLib.csproj", "{AB18DC68-4544-4418-8EC0-2EAF00D35A29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexLibTests", "FlexLibTests\FlexLibTests.csproj", "{C59337D2-7160-49E1-92DE-BC94C5A030A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AB18DC68-4544-4418-8EC0-2EAF00D35A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB18DC68-4544-4418-8EC0-2EAF00D35A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB18DC68-4544-4418-8EC0-2EAF00D35A29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C59337D2-7160-49E1-92DE-BC94C5A030A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C59337D2-7160-49E1-92DE-BC94C5A030A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C59337D2-7160-49E1-92DE-BC94C5A030A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C59337D2-7160-49E1-92DE-BC94C5A030A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
