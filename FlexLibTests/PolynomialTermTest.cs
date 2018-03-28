@@ -13,6 +13,18 @@ namespace FlexLibTests
         }
 
         [TestMethod]
+        public void TestGetters()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestSetters()
+        {
+
+        }
+
+        [TestMethod]
         public void TestEvaluation()
         {
 
