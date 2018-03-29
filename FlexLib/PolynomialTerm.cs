@@ -2,10 +2,10 @@
 
 namespace FlexLib
 {
-    class PolynomialTerm
+    public class PolynomialTerm
     {
         public double Coefficient { get; set; }
-        private double Degree { get; set; }
+        public double Degree { get; set; }
 
         public PolynomialTerm(double coeff, double degree)
         {
@@ -28,7 +28,7 @@ namespace FlexLib
             if (Degree == -1)
                 return null;
             else
-                return new PolynomialTerm(Coefficient / (Degree + 1), Degree + 1);
+                return new PolynomialTerm(Coefficient / (Degree + 1.0), Degree + 1.0);
         }
     }
 }
