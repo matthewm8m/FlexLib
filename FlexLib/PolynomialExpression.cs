@@ -18,6 +18,14 @@ namespace FlexLib
         {
             Terms = terms.ToArray();
         }
+        public PolynomialExpression(double[] coeffs, double[] degrees)
+        {
+
+        }
+        public PolynomialExpression(IEnumerable<double> coeffs, IEnumerable<double> degrees)
+        {
+
+        }
 
         public double Evaluate(double indeterminate)
         {
