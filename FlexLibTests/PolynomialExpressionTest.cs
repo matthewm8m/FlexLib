@@ -84,6 +84,29 @@ namespace FlexLibTests
         [TestMethod]
         public void TestEvaluation()
         {
+            // Test Expression A
+            Assert.AreEqual(0.0, ExpressionA.Evaluate(0.0));
+            Assert.AreEqual(6.0, ExpressionA.Evaluate(1.0));
+            Assert.AreEqual(-2.0, ExpressionA.Evaluate(-1.0));
+            Assert.AreEqual(3108.0, ExpressionA.Evaluate(4.0));
+
+            // Test Expression B
+            Assert.AreEqual(double.PositiveInfinity, ExpressionB.Evaluate(0.0));
+            Assert.AreEqual(2.0, ExpressionB.Evaluate(1.0));
+            Assert.AreEqual(double.NaN, ExpressionB.Evaluate(-1.0));
+            Assert.AreEqual(2.5, ExpressionB.Evaluate(4.0));
+
+            // Test Expression C
+            Assert.AreEqual(3.0, ExpressionC.Evaluate(0.0));
+            Assert.AreEqual(4.0, ExpressionC.Evaluate(1.0));
+            Assert.AreEqual(2.0, ExpressionC.Evaluate(-1.0));
+            Assert.AreEqual(7.0, ExpressionC.Evaluate(4.0));
+
+            // Test Expression D
+            Assert.AreEqual(double.PositiveInfinity, ExpressionD.Evaluate(0.0));
+            Assert.AreEqual(6.0, ExpressionD.Evaluate(1.0));
+            Assert.AreEqual(4.0, ExpressionD.Evaluate(-1.0));
+            Assert.AreEqual(0.5625, ExpressionD.Evaluate(4.0));
         }
 
         [TestMethod]
