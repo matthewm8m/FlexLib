@@ -14,18 +14,25 @@ namespace FlexLib
         {
             Terms = terms;
         }
-        public PolynomialExpression(IEnumerable<PolynomialTerm> terms)
-        {
-            Terms = terms.ToArray();
-        }
+        public PolynomialExpression(IEnumerable<PolynomialTerm> terms) :
+            this(terms.ToArray()) {}
         public PolynomialExpression(double[] coeffs, double[] degrees)
         {
+            // Throw error if arrays are not the same size
+            if (coeffs.Length != degrees.Length)
+            {
+                throw new ArgumentException("Coefficient and Degree collections are not the same size.");
+            }
 
+            // Create terms array
+            Terms = new PolynomialTerm[coeffs.Length];
+            for (int i = 0; i < coeffs.Length; i++)
+            {
+                Terms[i] = new PolynomialTerm(coeffs[i], degrees[i]);
+            }
         }
-        public PolynomialExpression(IEnumerable<double> coeffs, IEnumerable<double> degrees)
-        {
-
-        }
+        public PolynomialExpression(IEnumerable<double> coeffs, IEnumerable<double> degrees) :
+            this(coeffs.ToArray(), degrees.ToArray()) {}
 
         public double Evaluate(double indeterminate)
         {
