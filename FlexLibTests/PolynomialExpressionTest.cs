@@ -112,7 +112,33 @@ namespace FlexLibTests
         [TestMethod]
         public void TestDerivative()
         {
+            // Test Expression A
+            PolynomialExpression ExpressionAPrime = ExpressionA.Derivative();
+            Assert.AreEqual(1.0, ExpressionAPrime.Evaluate(1.0));
+            Assert.AreEqual(25.0, ExpressionAPrime.Evaluate(1.0));
+            Assert.AreEqual(7.0, ExpressionAPrime.Evaluate(1.0));
+            Assert.AreEqual(3877.0, ExpressionAPrime.Evaluate(1.0));
 
+            // Test Expression B
+            PolynomialExpression ExpressionBPrime = ExpressionB.Derivative();
+            Assert.AreEqual(double.NaN, ExpressionBPrime.Evaluate(1.0));
+            Assert.AreEqual(double.NaN, ExpressionBPrime.Evaluate(1.0));
+            Assert.AreEqual(0.0, ExpressionBPrime.Evaluate(1.0));
+            Assert.AreEqual(0.1875, ExpressionBPrime.Evaluate(1.0));
+
+            // Test Expression C
+            PolynomialExpression ExpressionCPrime = ExpressionC.Derivative();
+            Assert.AreEqual(1.0, ExpressionCPrime.Evaluate(1.0));
+            Assert.AreEqual(1.0, ExpressionCPrime.Evaluate(1.0));
+            Assert.AreEqual(1.0, ExpressionCPrime.Evaluate(1.0));
+            Assert.AreEqual(1.0, ExpressionCPrime.Evaluate(1.0));
+
+            // Test Expression D
+            PolynomialExpression ExpressionDPrime = ExpressionD.Derivative();
+            Assert.AreEqual(double.NaN, ExpressionDPrime.Evaluate(1.0));
+            Assert.AreEqual(-11.0, ExpressionDPrime.Evaluate(1.0));
+            Assert.AreEqual(9.0, ExpressionDPrime.Evaluate(1.0));
+            Assert.AreEqual(-0.21875, ExpressionDPrime.Evaluate(1.0));
         }
 
         [TestMethod]
