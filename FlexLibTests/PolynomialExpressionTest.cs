@@ -114,31 +114,31 @@ namespace FlexLibTests
         {
             // Test Expression A
             PolynomialExpression ExpressionAPrime = ExpressionA.Derivative();
-            Assert.AreEqual(1.0, ExpressionAPrime.Evaluate(1.0));
-            Assert.AreEqual(25.0, ExpressionAPrime.Evaluate(1.0));
-            Assert.AreEqual(7.0, ExpressionAPrime.Evaluate(1.0));
-            Assert.AreEqual(3877.0, ExpressionAPrime.Evaluate(1.0));
+            Assert.AreEqual(1.0, ExpressionAPrime.Evaluate(0.0));
+            Assert.AreEqual(20.0, ExpressionAPrime.Evaluate(1.0));
+            Assert.AreEqual(12.0, ExpressionAPrime.Evaluate(-1.0));
+            Assert.AreEqual(3857.0, ExpressionAPrime.Evaluate(4.0));
 
             // Test Expression B
             PolynomialExpression ExpressionBPrime = ExpressionB.Derivative();
-            Assert.AreEqual(double.NaN, ExpressionBPrime.Evaluate(1.0));
-            Assert.AreEqual(double.NaN, ExpressionBPrime.Evaluate(1.0));
+            Assert.AreEqual(double.NaN, ExpressionBPrime.Evaluate(0.0));
             Assert.AreEqual(0.0, ExpressionBPrime.Evaluate(1.0));
-            Assert.AreEqual(0.1875, ExpressionBPrime.Evaluate(1.0));
+            Assert.AreEqual(double.NaN, ExpressionBPrime.Evaluate(-1.0));
+            Assert.AreEqual(0.1875, ExpressionBPrime.Evaluate(4.0));
 
             // Test Expression C
             PolynomialExpression ExpressionCPrime = ExpressionC.Derivative();
+            Assert.AreEqual(1.0, ExpressionCPrime.Evaluate(0.0));
             Assert.AreEqual(1.0, ExpressionCPrime.Evaluate(1.0));
-            Assert.AreEqual(1.0, ExpressionCPrime.Evaluate(1.0));
-            Assert.AreEqual(1.0, ExpressionCPrime.Evaluate(1.0));
-            Assert.AreEqual(1.0, ExpressionCPrime.Evaluate(1.0));
+            Assert.AreEqual(1.0, ExpressionCPrime.Evaluate(-1.0));
+            Assert.AreEqual(1.0, ExpressionCPrime.Evaluate(4.0));
 
             // Test Expression D
             PolynomialExpression ExpressionDPrime = ExpressionD.Derivative();
-            Assert.AreEqual(double.NaN, ExpressionDPrime.Evaluate(1.0));
+            Assert.AreEqual(double.NegativeInfinity, ExpressionDPrime.Evaluate(0.0));
             Assert.AreEqual(-11.0, ExpressionDPrime.Evaluate(1.0));
-            Assert.AreEqual(9.0, ExpressionDPrime.Evaluate(1.0));
-            Assert.AreEqual(-0.21875, ExpressionDPrime.Evaluate(1.0));
+            Assert.AreEqual(9.0, ExpressionDPrime.Evaluate(-1.0));
+            Assert.AreEqual(-0.21875, ExpressionDPrime.Evaluate(4.0));
         }
 
         [TestMethod]

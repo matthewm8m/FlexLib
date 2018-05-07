@@ -15,6 +15,8 @@ namespace FlexLib
 
         public double Evaluate(double indeterminate)
         {
+            if (Coefficient == 0.0)
+                return 0.0;
             return Coefficient * Math.Pow(indeterminate, Degree);
         }
 
