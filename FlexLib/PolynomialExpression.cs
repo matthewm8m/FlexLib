@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlexLib
 {
-    class PolynomialExpression
+    public class PolynomialExpression
     {
         private PolynomialTerm[] Terms;
 
