@@ -36,7 +36,12 @@ namespace FlexLib
 
         public double Evaluate(double indeterminate)
         {
-            return 0;
+            double total = 0;
+            foreach (PolynomialTerm term in Terms)
+            {
+                total += term.Evaluate(indeterminate);
+            }
+            return total;
         }
 
         public PolynomialExpression Derivative()
