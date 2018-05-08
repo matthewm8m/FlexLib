@@ -22,5 +22,10 @@ namespace FlexLib
             Rows = rows;
             Columns = cols;
         }
+
+        public bool Evaluate()
+        {
+            return false;
+        }
     }
 }

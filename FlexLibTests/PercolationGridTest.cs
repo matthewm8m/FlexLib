@@ -25,11 +25,13 @@ namespace FlexLibTests
 
             // Create and setup Grid B (5x3 Percolation)
             GridB = new PercolationGrid(5, 3);
+            GridB[0, 0] = true;
             GridB[1, 0] = true;
-            GridB[1, 1] = true;
-            GridB[1, 2] = true;
-            GridB[1, 3] = true;
-            GridB[1, 4] = true;
+            GridB[2, 0] = true;
+            GridB[2, 1] = true;
+            GridB[2, 2] = true;
+            GridB[3, 2] = true;
+            GridB[4, 2] = true;
 
             // Create and setup Grid C (3x5 Percolation)
             GridC = new PercolationGrid(3, 5);
@@ -72,7 +74,26 @@ namespace FlexLibTests
         [TestMethod]
         public void TestEvaluation()
         {
+            // Test Grid A No Percolation
+            Assert.IsFalse(GridA.Evaluate());
 
+            // Test Grid A Percolation
+            GridA[2, 1] = true;
+            Assert.IsTrue(GridA.Evaluate());
+
+            // Test Grid B Percolation
+            Assert.IsTrue(GridB.Evaluate());
+
+            // Test Grid B No Percolation
+            GridB[4, 2] = false;
+            Assert.IsFalse(GridB.Evaluate());
+
+            // Test Grid C Percolation
+            Assert.IsTrue(GridC.Evaluate());
+
+            // Test Grid C No Percolation
+            GridC[1, 1] = false;
+            Assert.IsFalse(GridC.Evaluate());
         }
     }
 }
