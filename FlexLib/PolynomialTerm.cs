@@ -22,13 +22,13 @@ namespace FlexLib
 
         public PolynomialTerm Derivative()
         {
-            return new PolynomialTerm(Coefficient * Degree, Degree - 1);
+            return new PolynomialTerm(Coefficient * Degree, Degree - 1.0);
         }
 
-        public PolynomialTerm AntiDerivative()
+        public PolynomialTerm Antiderivative()
         {
-            if (Degree == -1)
-                return null;
+            if (Degree == -1.0)
+                return new PolynomialTerm(double.NaN, 0.0);
             else
                 return new PolynomialTerm(Coefficient / (Degree + 1.0), Degree + 1.0);
         }

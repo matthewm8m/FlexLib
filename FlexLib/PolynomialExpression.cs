@@ -56,7 +56,12 @@ namespace FlexLib
 
         public PolynomialExpression Antiderivative()
         {
-            return null;
+            PolynomialTerm[] TermsPrime = new PolynomialTerm[Terms.Length];
+            for (int i = 0; i < Terms.Length; i++)
+            {
+                TermsPrime[i] = Terms[i].Antiderivative();
+            }
+            return new PolynomialExpression(TermsPrime);
         }
     }
 }

@@ -110,38 +110,39 @@ namespace FlexLibTests
         public void TestAntiderivative()
         {
             // Test Term A
-            PolynomialTerm TermAPrime = TermA.AntiDerivative();
+            PolynomialTerm TermAPrime = TermA.Antiderivative();
             Assert.AreEqual(0.5, TermAPrime.Coefficient);
             Assert.AreEqual(2.0, TermAPrime.Degree);
 
             // Test Term B
-            PolynomialTerm TermBPrime = TermB.AntiDerivative();
+            PolynomialTerm TermBPrime = TermB.Antiderivative();
             Assert.AreEqual(1.25, TermBPrime.Coefficient);
             Assert.AreEqual(4.0, TermBPrime.Degree);
 
             // Test Term C
-            PolynomialTerm TermCPrime = TermC.AntiDerivative();
+            PolynomialTerm TermCPrime = TermC.Antiderivative();
             Assert.AreEqual(2.0 / 3.0, TermCPrime.Coefficient);
             Assert.AreEqual(3.0, TermCPrime.Degree);
 
             // Test Term D
-            PolynomialTerm TermDPrime = TermD.AntiDerivative();
+            PolynomialTerm TermDPrime = TermD.Antiderivative();
             Assert.AreEqual(-1.0, TermDPrime.Coefficient);
             Assert.AreEqual(1.5, TermDPrime.Degree);
 
             // Test Term E
-            PolynomialTerm TermEPrime = TermE.AntiDerivative();
+            PolynomialTerm TermEPrime = TermE.Antiderivative();
             Assert.AreEqual(28.0 / 3.0, TermEPrime.Coefficient);
             Assert.AreEqual(0.75, TermEPrime.Degree);
 
             // Test Term F
-            PolynomialTerm TermFPrime = TermF.AntiDerivative();
+            PolynomialTerm TermFPrime = TermF.Antiderivative();
             Assert.AreEqual(2.0, TermFPrime.Coefficient);
             Assert.AreEqual(1.0, TermFPrime.Degree);
 
             // Test Term G
-            PolynomialTerm TermGPrime = TermG.AntiDerivative();
-            Assert.AreEqual(null, TermGPrime);
+            PolynomialTerm TermGPrime = TermG.Antiderivative();
+            Assert.AreEqual(double.NaN, TermGPrime.Coefficient);
+            Assert.AreEqual(0.0, TermGPrime.Degree);
         }
     }
 }

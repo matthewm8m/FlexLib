@@ -144,7 +144,33 @@ namespace FlexLibTests
         [TestMethod]
         public void TestAntiderivative()
         {
+            // Test Expression A
+            PolynomialExpression ExpressionAPrime = ExpressionA.Antiderivative();
+            Assert.AreEqual(0.0, ExpressionAPrime.Evaluate(0.0));
+            Assert.AreEqual(5.0 / 3.0, ExpressionAPrime.Evaluate(1.0), 1.0e-8);
+            Assert.AreEqual(1.0 / 3.0, ExpressionAPrime.Evaluate(-1.0), 1.0e-8);
+            Assert.AreEqual(6296.0 / 3.0, ExpressionAPrime.Evaluate(4.0), 1.0e-8);
 
+            // Test Expression B
+            PolynomialExpression ExpressionBPrime = ExpressionB.Antiderivative();
+            Assert.AreEqual(0.0, ExpressionBPrime.Evaluate(0.0));
+            Assert.AreEqual(8.0 / 3.0, ExpressionBPrime.Evaluate(1.0), 1.0e-8);
+            Assert.AreEqual(double.NaN, ExpressionBPrime.Evaluate(-1.0));
+            Assert.AreEqual(28.0 / 3.0, ExpressionBPrime.Evaluate(4.0), 1.0e-8);
+
+            // Test Expression C
+            PolynomialExpression ExpressionCPrime = ExpressionC.Antiderivative();
+            Assert.AreEqual(0.0, ExpressionCPrime.Evaluate(0.0));
+            Assert.AreEqual(3.5, ExpressionCPrime.Evaluate(1.0));
+            Assert.AreEqual(-2.5, ExpressionCPrime.Evaluate(-1.0));
+            Assert.AreEqual(20.0, ExpressionCPrime.Evaluate(4.0));
+
+            // Test Expression D
+            PolynomialExpression ExpressionDPrime = ExpressionD.Antiderivative();
+            Assert.AreEqual(double.NaN, ExpressionDPrime.Evaluate(0.0));
+            Assert.AreEqual(double.NaN, ExpressionDPrime.Evaluate(1.0));
+            Assert.AreEqual(double.NaN, ExpressionDPrime.Evaluate(-1.0));
+            Assert.AreEqual(double.NaN, ExpressionDPrime.Evaluate(4.0));
         }
     }
 }
