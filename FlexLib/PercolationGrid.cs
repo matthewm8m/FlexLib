@@ -8,24 +8,19 @@ namespace FlexLib
 {
     public class PercolationGrid
     {
+        public readonly int Rows;
+        public readonly int Columns;
+
         public bool this[int i, int j]
         {
             get { return false; }
             set { }
         }
 
-        public int Rows
-        {
-            get { return 0; }
-        }
-        public int Columns
-        {
-            get { return 0; }
-        }
-
         public PercolationGrid(int rows, int cols)
         {
-
+            Rows = rows;
+            Columns = cols;
         }
     }
 }
