@@ -14,6 +14,15 @@ namespace FlexLib
             set { }
         }
 
+        public int Rows
+        {
+            get { return 0; }
+        }
+        public int Columns
+        {
+            get { return 0; }
+        }
+
         public PercolationGrid(int rows, int cols)
         {
 

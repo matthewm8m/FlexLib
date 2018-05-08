@@ -46,7 +46,21 @@ namespace FlexLibTests
         [TestMethod]
         public void TestDimensions()
         {
+            // Test Grid A
+            Assert.AreEqual(3, GridA.Rows);
+            Assert.AreEqual(3, GridA.Columns);
 
+            // Test Grid B
+            Assert.AreEqual(5, GridB.Rows);
+            Assert.AreEqual(3, GridB.Columns);
+
+            // Test Grid C
+            Assert.AreEqual(3, GridC.Rows);
+            Assert.AreEqual(5, GridC.Columns);
+
+            // Test Random Grid
+            Assert.AreEqual(5, GridRandom.Rows);
+            Assert.AreEqual(5, GridRandom.Columns);
         }
 
         [TestMethod]
