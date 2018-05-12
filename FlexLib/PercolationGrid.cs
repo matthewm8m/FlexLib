@@ -33,6 +33,30 @@ namespace FlexLib
             PercolateData = new int[rows, cols];
         }
 
+        private void UpdateGrid()
+        {
+            for (int j = 0; j < Columns; j++)
+                for (int i = 0; i < Rows; i++)
+                    PercolateData[i, j] = 0;
+
+            for (int j = 0; j < Columns; j++)
+                if (OpenData[0, j])
+                    UpdateCell(0, j);
+        }
+
+        public void Randomize(double probability)
+        {
+            Random random = new Random();
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    OpenData[i, j] = random.NextDouble() < probability;
+                }
+            }
+            UpdateGrid();
+        }
+
         private int PercolateValueNeighbor(int i, int j)
         {
             int percolateVal = int.MaxValue;
@@ -49,13 +73,13 @@ namespace FlexLib
 
         private void UpdateFilledNeighbors(int i, int j)
         {
-            if (i - 1 >= 0 && OpenData[i - 1, j] && PercolateData[i - 1, j] != 0)
+            if (i - 1 >= 0 && OpenData[i - 1, j] && PercolateData[i - 1, j] > 1)
                 UpdateCell(i - 1, j);
-            if (i + 1 < Rows && OpenData[i + 1, j] && PercolateData[i + 1, j] != 0)
+            if (i + 1 < Rows && OpenData[i + 1, j] && PercolateData[i + 1, j] > 1)
                 UpdateCell(i + 1, j);
-            if (j - 1 >= 0 && OpenData[i, j - 1] && PercolateData[i, j - 1] != 0)
+            if (j - 1 >= 0 && OpenData[i, j - 1] && PercolateData[i, j - 1] > 1)
                 UpdateCell(i, j - 1);
-            if (j + 1 < Columns && OpenData[i, j + 1] && PercolateData[i, j + 1] != 0)
+            if (j + 1 < Columns && OpenData[i, j + 1] && PercolateData[i, j + 1] > 1)
                 UpdateCell(i, j + 1);
         }
 

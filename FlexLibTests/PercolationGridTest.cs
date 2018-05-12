@@ -8,6 +8,30 @@ namespace FlexLibTests
     public class PercolationGridTest
     {
         private PercolationGrid GridA, GridB, GridC, GridRandom;
+        private const double RANDOM_THRESHOLD = 0.10;
+
+        private double FindProbability(PercolationGrid grid, int trials, double probability)
+        {
+            double totalProbability = 0.00;
+
+            for (int n = 0; n < trials; n++)
+            {
+                // Randomize grid
+                grid.Randomize(probability);
+
+                // Count open cells in grid
+                int open = 0;
+                for (int i = 0; i < grid.Rows; i++)
+                    for (int j = 0; j < grid.Columns; j++)
+                        if (grid[i, j])
+                            open++;
+
+                // Sum probability
+                totalProbability += (double)open / (grid.Rows * grid.Columns);
+            }
+
+            return totalProbability / trials;
+        }
 
         [TestInitialize]
         public void TestInitialize()
@@ -68,7 +92,15 @@ namespace FlexLibTests
         [TestMethod]
         public void TestRandomization()
         {
-
+            // Test Random Probability = 0.00, 0.25, 0.50, 0.75, 1.00
+            for (double p = 0.00; p <= 1.00; p += 0.25) {
+                double trueProbability = FindProbability(GridRandom, 40000, p);
+                if (trueProbability < p - RANDOM_THRESHOLD ||
+                    trueProbability > p + RANDOM_THRESHOLD)
+                {
+                    Assert.Fail();
+                }
+            }
         }
 
         [TestMethod]
