@@ -52,6 +52,7 @@
     <Compile Include="PolynomialTermTest.cs" />
     <Compile Include="PolynomialExpressionTest.cs" />
     <Compile Include="PercolationGridTest.cs" />
+    <Compile Include="SineTermTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
