@@ -17,22 +17,49 @@ namespace FlexLib
 
         public SineTerm(SinusoidalType type, double amp, double freq, double shift)
         {
-
+            Type = type;
+            Amplitude = amp;
+            Frequency = freq;
+            Shift = shift;
         }
 
         public double Evaluate(double indeterminate)
         {
-            return 0;
+            switch (Type)
+            {
+                case SinusoidalType.SINE:
+                    return Amplitude * Math.Sin(Frequency * indeterminate + Shift);
+                case SinusoidalType.COSINE:
+                    return Amplitude * Math.Cos(Frequency * indeterminate + Shift);
+                default:
+                    return 0.0;
+            }
         }
 
         public SineTerm Derivative()
         {
-            return null;
+            switch (Type)
+            {
+                case SinusoidalType.SINE:
+                    return new SineTerm(SinusoidalType.COSINE, Amplitude * Frequency, Frequency, Shift);
+                case SinusoidalType.COSINE:
+                    return new SineTerm(SinusoidalType.SINE, -Amplitude * Frequency, Frequency, Shift);
+                default:
+                    return null;
+            }
         }
 
         public SineTerm Antiderivative()
         {
-            return null;
+            switch (Type)
+            {
+                case SinusoidalType.SINE:
+                    return new SineTerm(SinusoidalType.COSINE, -Amplitude / Frequency, Frequency, Shift);
+                case SinusoidalType.COSINE:
+                    return new SineTerm(SinusoidalType.SINE, Amplitude / Frequency, Frequency, Shift);
+                default:
+                    return null;
+            }
         }
     }
 }
