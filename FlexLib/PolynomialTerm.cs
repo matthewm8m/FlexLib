@@ -20,17 +20,34 @@ namespace FlexLib
             return Coefficient * Math.Pow(indeterminate, Degree);
         }
 
-        public PolynomialTerm Derivative()
+        public PolynomialTerm Derivative(int degree=1)
         {
-            return new PolynomialTerm(Coefficient * Degree, Degree - 1.0);
+            PolynomialTerm derivative = new PolynomialTerm(Coefficient, Degree);
+            for (int i = 0; i < degree; i++)
+            {
+                derivative.Coefficient *= derivative.Degree;
+                derivative.Degree -= 1;
+            }
+            return derivative;
         }
 
-        public PolynomialTerm Antiderivative()
+        public PolynomialTerm Antiderivative(int degree=1)
         {
-            if (Degree == -1.0)
-                return new PolynomialTerm(double.NaN, 0.0);
-            else
-                return new PolynomialTerm(Coefficient / (Degree + 1.0), Degree + 1.0);
+            PolynomialTerm antiderivative = new PolynomialTerm(Coefficient, Degree);
+            for (int i = 0; i < degree; i++)
+            {
+                if (antiderivative.Degree == -1.0)
+                {
+                    antiderivative.Coefficient = double.NaN;
+                    antiderivative.Degree = 0.0;
+                }
+                else
+                {
+                    antiderivative.Coefficient /= antiderivative.Degree + 1.0;
+                    antiderivative.Degree += 1.0;
+                }
+            }
+            return antiderivative;
         }
     }
 }

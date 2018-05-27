@@ -36,30 +36,22 @@ namespace FlexLib
             }
         }
 
-        public SineTerm Derivative()
+        public SineTerm Derivative(int degree=1)
         {
-            switch (Type)
-            {
-                case SinusoidalType.SINE:
-                    return new SineTerm(SinusoidalType.COSINE, Amplitude * Frequency, Frequency, Shift);
-                case SinusoidalType.COSINE:
-                    return new SineTerm(SinusoidalType.SINE, -Amplitude * Frequency, Frequency, Shift);
-                default:
-                    return null;
-            }
+            int phase = (Type == SinusoidalType.SINE ? 0 : 1) + degree;
+            return new SineTerm(
+                phase % 2 == 0 ? SinusoidalType.SINE : SinusoidalType.COSINE,
+                ((phase % 4) / 2 == 0 ? 1 : -1) * Amplitude * Math.Pow(Frequency, degree),
+                Frequency, Shift);
         }
 
-        public SineTerm Antiderivative()
+        public SineTerm Antiderivative(int degree=1)
         {
-            switch (Type)
-            {
-                case SinusoidalType.SINE:
-                    return new SineTerm(SinusoidalType.COSINE, -Amplitude / Frequency, Frequency, Shift);
-                case SinusoidalType.COSINE:
-                    return new SineTerm(SinusoidalType.SINE, Amplitude / Frequency, Frequency, Shift);
-                default:
-                    return null;
-            }
+            int phase = (Type == SinusoidalType.SINE ? 1 : 0) + degree;
+            return new SineTerm(
+                phase % 2 == 0 ? SinusoidalType.COSINE : SinusoidalType.SINE,
+                ((phase % 4) / 2 == 0 ? 1 : -1) * Amplitude / Math.Pow(Frequency, degree),
+                Frequency, Shift);
         }
     }
 }

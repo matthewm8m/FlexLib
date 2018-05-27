@@ -44,22 +44,22 @@ namespace FlexLib
             return total;
         }
 
-        public PolynomialExpression Derivative()
+        public PolynomialExpression Derivative(int degree=1)
         {
             PolynomialTerm[] TermsPrime = new PolynomialTerm[Terms.Length];
             for (int i = 0; i < Terms.Length; i++)
             {
-                TermsPrime[i] = Terms[i].Derivative();
+                TermsPrime[i] = Terms[i].Derivative(degree);
             }
             return new PolynomialExpression(TermsPrime);
         }
 
-        public PolynomialExpression Antiderivative()
+        public PolynomialExpression Antiderivative(int degree=1)
         {
             PolynomialTerm[] TermsPrime = new PolynomialTerm[Terms.Length];
             for (int i = 0; i < Terms.Length; i++)
             {
-                TermsPrime[i] = Terms[i].Antiderivative();
+                TermsPrime[i] = Terms[i].Antiderivative(degree);
             }
             return new PolynomialExpression(TermsPrime);
         }
