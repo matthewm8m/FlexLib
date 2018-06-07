@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FlexLib
+{
+    public abstract class FlexObject
+    {
+        public virtual object Call(string method, params object[] args)
+        {
+            // Perform specific operations based on method and arguments
+            switch (method)
+            {
+                // Equals checks if all parameter objects are equal to this object
+                case "equals":
+                    if (args.Length == 0)
+                        throw new NotSupportedException($"{method} must have 1 or more objects to compare to.");
+
+                    for (int i = 0; i < args.Length; i++)
+                        if (!Equals(args[i]))
+                            return false;
+                    return true;
+
+                // Representation simply converts this object into a string representation
+                case "representation":
+                    return ToString();
+                
+                // If method is not found, throw an exception
+                default:
+                    throw new InvalidOperationException($"{method} is not a valid method.");
+            }
+        }
+    }
+}
