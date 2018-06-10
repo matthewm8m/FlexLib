@@ -1,13 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FlexLib
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class FlexObject
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="method"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public virtual object Call(string method, params object[] args)
         {
             // Perform specific operations based on method and arguments

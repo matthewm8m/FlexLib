@@ -19,7 +19,7 @@ namespace FlexLib
         /// </summary>
         /// <param name="rows">The number of rows in the grid.</param>
         /// <param name="cols">The number of columns in the grid.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when number or rows or columns is negative.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when number or rows or columns is negative.</exception>
         public PercolationGrid(int rows, int cols)
         {
             // Verify that dimensions are non-negative.
@@ -43,7 +43,7 @@ namespace FlexLib
         /// <param name="i">The row index.</param>
         /// <param name="j">The column index.</param>
         /// <returns>Is the cell open.</returns>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown if row index or column index is not in valid range.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown if row index or column index is not in valid range.</exception>
         public bool GetIsOpen(int i, int j)
         {
             // Check to make sure row and column indices are in correct range
@@ -60,7 +60,7 @@ namespace FlexLib
         /// <param name="i">The row index.</param>
         /// <param name="j">The column index.</param>
         /// <param name="isOpen">Is the cell open.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown if row index or column index is not in valid range.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown if row index or column index is not in valid range.</exception>
         public void SetIsOpen(int i, int j, bool isOpen)
         {
             // Check to make sure row and column indices are in correct range
