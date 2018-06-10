@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FlexObject.cs" />
     <Compile Include="PercolationGrid.cs" />
     <Compile Include="PolynomialExpression.cs" />
     <Compile Include="PolynomialTerm.cs" />
