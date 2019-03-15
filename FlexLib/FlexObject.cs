@@ -1,13 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FlexLib
 {
+    /// <summary>
+    /// Implements a basic object that all FlexLib objects should inherit.
+    /// </summary>
     public abstract class FlexObject
     {
+        public static bool CallEquals(FlexObject that, params object[] args)
+        {
+            return that.Equals(args);
+        }
+
+        public static string CallToString(FlexObject that, params object[] args)
+        {
+            return that.ToString();
+        }
+
+        /// <summary>
+        /// Calls a method of the object with specified arguments.
+        /// Classes that override this method should call the base class to implement remaining functionality.
+        /// </summary>
+        /// <param name="method">The method to call.</param>
+        /// <param name="args">The arguments to the method.</param>
+        /// <returns>The results of calling the method.</returns>
+        /// <exception cref="InvalidOperationException">Thrown when a method does not exist.</exception>
         public virtual object Call(string method, params object[] args)
         {
             // Perform specific operations based on method and arguments

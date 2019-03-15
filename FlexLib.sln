@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexLib", "FlexLib\FlexLib.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexLibTests", "FlexLibTests\FlexLibTests.csproj", "{C59337D2-7160-49E1-92DE-BC94C5A030A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathemediaConsole", "MathemediaConsole\MathemediaConsole.csproj", "{D5B66864-54DF-41DC-A752-15518F2C88EA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AB18DC68-4544-4418-8EC0-2EAF00D35A29} = {AB18DC68-4544-4418-8EC0-2EAF00D35A29}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,12 +20,16 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AB18DC68-4544-4418-8EC0-2EAF00D35A29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AB18DC68-4544-4418-8EC0-2EAF00D35A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB18DC68-4544-4418-8EC0-2EAF00D35A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB18DC68-4544-4418-8EC0-2EAF00D35A29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB18DC68-4544-4418-8EC0-2EAF00D35A29}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB18DC68-4544-4418-8EC0-2EAF00D35A29}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{C59337D2-7160-49E1-92DE-BC94C5A030A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C59337D2-7160-49E1-92DE-BC94C5A030A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C59337D2-7160-49E1-92DE-BC94C5A030A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C59337D2-7160-49E1-92DE-BC94C5A030A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C59337D2-7160-49E1-92DE-BC94C5A030A9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C59337D2-7160-49E1-92DE-BC94C5A030A9}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{D5B66864-54DF-41DC-A752-15518F2C88EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5B66864-54DF-41DC-A752-15518F2C88EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5B66864-54DF-41DC-A752-15518F2C88EA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5B66864-54DF-41DC-A752-15518F2C88EA}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
