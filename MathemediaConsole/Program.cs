@@ -10,7 +10,7 @@ namespace MathemediaConsole
         {
             string inputIndicator = "? ";
             string outputIndicator = "! ";
-
+            
             TokenRule tokenRuleInt = new TokenRule(@"\d+", s => int.Parse(s));
             TokenRule tokenRuleOperator = new TokenRule(@"[=\+\-\*\\]", s => s);
             TokenRule tokenRuleUnknown = new TokenRule(@".", s => null);

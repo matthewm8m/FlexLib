@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MathemediaConsole
 {
-    public struct TokenRule
+    public class TokenRule
     {
         public readonly string Pattern;
         public readonly Func<string, object> Parse;
@@ -19,7 +17,7 @@ namespace MathemediaConsole
         }
     }
 
-    public struct Token
+    public class Token
     {
         public readonly string Text;
         public readonly int Position;
