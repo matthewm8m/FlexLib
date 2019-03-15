@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MathemediaConsole
 {
@@ -6,6 +7,9 @@ namespace MathemediaConsole
     {
         static void Main(string[] args)
         {
+            TokenRule tokenRuleInt = new TokenRule(@"\d+", s => int.Parse(s));
+            Tokenizer tokenizer = new Tokenizer(new List<TokenRule> { tokenRuleInt });
+
             // Get user input from user until interrupt.
             string userInput;
             while (true)
@@ -25,6 +29,11 @@ namespace MathemediaConsole
                 // Write out output indicator.
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("! ");
+
+                foreach (Token token in tokenizer.Tokenize(userInput))
+                {
+                    Console.WriteLine(token.Value);
+                }
             }
             Console.ResetColor();
         }

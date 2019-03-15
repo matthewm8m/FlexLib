@@ -41,9 +41,9 @@ namespace MathemediaConsole
         public Tokenizer(List<TokenRule> tokenRules)
         {
             TokenRules = tokenRules;
-            Rule = new Regex($@"\s*{
-                    string.Join(@"|", tokenRules.Select(s => $@"({s})"))
-                }|(.)\s*", RegexOptions.Compiled);
+            Rule = new Regex($@"\s*(?:{
+                    string.Join(@"|", tokenRules.Select(r => $@"({r.Pattern})"))
+                }|(.))\s*", RegexOptions.Compiled);
         }
 
         public IEnumerable<Token> Tokenize(string text, int start = 0)
