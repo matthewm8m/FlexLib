@@ -55,7 +55,7 @@ namespace MathemediaConsole
                 bool tokenized = false;
                 for (int i = 0; i < TokenRules.Count; i++)
                 {
-                    if (!string.IsNullOrEmpty(match.Groups[i].Value))
+                    if (!string.IsNullOrEmpty(match.Groups[i + 1].Value))
                     {
                         yield return new Token(match.Value, match.Index, TokenRules[i].Parse(match.Value));
                         tokenized = true;
@@ -64,7 +64,7 @@ namespace MathemediaConsole
                 }
 
                 if (!tokenized)
-                    throw new Exception($"Syntax error: Unexpected symbol {match.Value}");
+                    throw new Exception($"Syntax error: Unexpected symbol '{match.Value}'");
             }
         }
     }
