@@ -20,7 +20,16 @@ namespace MathemediaConsole
 
     public struct Token
     {
+        public readonly string Text;
+        public readonly int Position;
+        public readonly object Value;
 
+        public Token(string text, int pos, object val)
+        {
+            Text = text;
+            Position = pos;
+            Value = val;
+        }
     }
 
     public class Tokenizer
