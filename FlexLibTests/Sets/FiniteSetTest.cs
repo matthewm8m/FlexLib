@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using FlexLib.Sets;
 
-namespace FlexLibTests
+namespace FlexLibTests.Sets
 {
     [TestClass]
     public class FiniteSetTest
