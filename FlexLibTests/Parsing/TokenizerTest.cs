@@ -67,21 +67,35 @@ namespace FlexLibTests.Parsing
         public void TestTokenizer()
         {
             List<Token> tokensA = new List<Token>(Tokenizer.Tokenize("1 + 2 - 3"));
-            List<Token> tokensB = new List<Token>(Tokenizer.Tokenize("1 plus 2 minus 3"));
+            List<Token> tokensB = new List<Token>(Tokenizer.Tokenize("1 plus 2 minus 3 plus 4"));
 
             Assert.AreEqual(5, tokensA.Count);
             Assert.AreEqual("integer", tokensA[0].Type);
+            Assert.AreEqual("1", tokensA[0].ToString());
             Assert.AreEqual("plus", tokensA[1].Type);
+            Assert.AreEqual("+", tokensA[1].ToString());
             Assert.AreEqual("integer", tokensA[2].Type);
+            Assert.AreEqual("2", tokensA[2].ToString());
             Assert.AreEqual("minus", tokensA[3].Type);
+            Assert.AreEqual("-", tokensA[3].ToString());
             Assert.AreEqual("integer", tokensA[4].Type);
+            Assert.AreEqual("3", tokensA[4].ToString());
 
-            Assert.AreEqual(5, tokensB.Count);
+            Assert.AreEqual(7, tokensB.Count);
             Assert.AreEqual("integer", tokensB[0].Type);
+            Assert.AreEqual("1", tokensB[0].ToString());
             Assert.AreEqual("plus", tokensB[1].Type);
+            Assert.AreEqual("+", tokensB[1].ToString());
             Assert.AreEqual("integer", tokensB[2].Type);
+            Assert.AreEqual("2", tokensB[2].ToString());
             Assert.AreEqual("minus", tokensB[3].Type);
+            Assert.AreEqual("-", tokensB[3].ToString());
             Assert.AreEqual("integer", tokensB[4].Type);
+            Assert.AreEqual("3", tokensB[4].ToString());
+            Assert.AreEqual("plus", tokensB[5].Type);
+            Assert.AreEqual("+", tokensB[5].ToString());
+            Assert.AreEqual("integer", tokensB[6].Type);
+            Assert.AreEqual("4", tokensB[6].ToString());
         }
     }
 }
