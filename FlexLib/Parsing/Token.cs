@@ -17,5 +17,17 @@
             Input = input;
             Index = index;
         }
+
+        public override string ToString()
+        {
+            if (Ligature == null)
+            {
+                return Type;
+            }
+            else
+            {
+                return Ligature;
+            }
+        }
     }
 }
