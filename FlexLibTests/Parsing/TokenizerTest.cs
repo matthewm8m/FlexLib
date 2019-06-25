@@ -28,17 +28,19 @@ namespace FlexLibTests.Parsing
                         <pattern>plus</pattern>
                         <pattern>\+</pattern>
                     </patterns>
+                    <ligature>+</ligature>
                 </token>
                 <token name=""minus"">
                     <patterns>
                         <pattern>minus</pattern>
                         <pattern>\-</pattern>
                     </patterns>
+                    <ligature>-</ligature>
                 </token>
             </tokens>
             ";
 
-            TokenizerContext = TokenizerContext.FromXml(XDocument.Parse(TokenizerContextString));
+            TokenizerContext = TokenizerContext.FromXml(XElement.Parse(TokenizerContextString));
 
             Tokenizer = new Tokenizer(TokenizerContext);
         }

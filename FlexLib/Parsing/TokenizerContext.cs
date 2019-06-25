@@ -11,17 +11,10 @@ namespace FlexLib.Parsing
         public TokenizerContext(IEnumerable<TokenResource> tokenResources)
             : base(tokenResources) { }
         
-        public static TokenizerContext FromXml(XDocument xml)
+        public static TokenizerContext FromXml(XElement xml)
         {
-            return new TokenizerContext(xml.Element("tokens").Elements("token")
-                .Select(tokenElement =>
-                    new TokenResource(
-                        tokenElement.Attribute("name").Value,
-                        tokenElement.Element("patterns").Elements("pattern")
-                            .Select(patternElement => patternElement.Value)
-                    )
-                )
-            );
+            return new TokenizerContext(xml.Elements("token")
+                .Select(tokenElement => TokenResource.FromXml(tokenElement)));
         }
     }
 }
