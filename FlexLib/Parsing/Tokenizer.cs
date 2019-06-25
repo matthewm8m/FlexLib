@@ -35,7 +35,7 @@ namespace FlexLib.Parsing
                 {
                     if (!string.IsNullOrEmpty(match.Groups[i + 1].Value))
                     {
-                        yield return new Token(Context[i].Name, input, match.Index);
+                        yield return new Token(Context[i].Name, Context[i].Ligature, input, match.Index);
                         tokenized = true;
                         break;
                     }
