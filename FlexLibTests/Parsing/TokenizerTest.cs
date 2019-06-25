@@ -28,17 +28,19 @@ namespace FlexLibTests.Parsing
                         <pattern>plus</pattern>
                         <pattern>\+</pattern>
                     </patterns>
+                    <ligature>+</ligature>
                 </token>
                 <token name=""minus"">
                     <patterns>
                         <pattern>minus</pattern>
                         <pattern>\-</pattern>
                     </patterns>
+                    <ligature>-</ligature>
                 </token>
             </tokens>
             ";
 
-            TokenizerContext = TokenizerContext.FromXml(XDocument.Parse(TokenizerContextString));
+            TokenizerContext = TokenizerContext.FromXml(XElement.Parse(TokenizerContextString));
 
             Tokenizer = new Tokenizer(TokenizerContext);
         }
@@ -67,21 +69,28 @@ namespace FlexLibTests.Parsing
         public void TestTokenizer()
         {
             List<Token> tokensA = new List<Token>(Tokenizer.Tokenize("1 + 2 - 3"));
-            List<Token> tokensB = new List<Token>(Tokenizer.Tokenize("1 plus 2 minus 3"));
+            List<Token> tokensB = new List<Token>(Tokenizer.Tokenize("1 plus 2 minus 3 plus 4"));
 
             Assert.AreEqual(5, tokensA.Count);
             Assert.AreEqual("integer", tokensA[0].Type);
             Assert.AreEqual("plus", tokensA[1].Type);
+            Assert.AreEqual("+", tokensA[1].ToString());
             Assert.AreEqual("integer", tokensA[2].Type);
             Assert.AreEqual("minus", tokensA[3].Type);
+            Assert.AreEqual("-", tokensA[3].ToString());
             Assert.AreEqual("integer", tokensA[4].Type);
 
-            Assert.AreEqual(5, tokensB.Count);
+            Assert.AreEqual(7, tokensB.Count);
             Assert.AreEqual("integer", tokensB[0].Type);
             Assert.AreEqual("plus", tokensB[1].Type);
+            Assert.AreEqual("+", tokensB[1].ToString());
             Assert.AreEqual("integer", tokensB[2].Type);
             Assert.AreEqual("minus", tokensB[3].Type);
+            Assert.AreEqual("-", tokensB[3].ToString());
             Assert.AreEqual("integer", tokensB[4].Type);
+            Assert.AreEqual("plus", tokensB[5].Type);
+            Assert.AreEqual("+", tokensB[5].ToString());
+            Assert.AreEqual("integer", tokensB[6].Type);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace FlexLib.Parsing
 {
@@ -14,7 +16,22 @@ namespace FlexLib.Parsing
         {
             Name = name;
             Ligature = ligature;
-            RegexPatterns = new List<string>(patterns);
+            if (patterns == null)
+            {
+                RegexPatterns = new List<string>();
+            } else
+            {
+                RegexPatterns = new List<string>(patterns);
+            }
+        }
+
+        public static TokenResource FromXml(XElement xml)
+        {
+            return new TokenResource(
+                        xml.Attribute("name")?.Value,
+                        xml.Element("ligature")?.Value,
+                        xml.Element("patterns")?.Elements("pattern")
+                            ?.Select(patternElement => patternElement.Value));
         }
     }
 }
