@@ -54,6 +54,7 @@
     <Compile Include="PolynomialTermTest.cs" />
     <Compile Include="PolynomialExpressionTest.cs" />
     <Compile Include="PercolationGridTest.cs" />
+    <Compile Include="Sets\FiniteSequenceTest.cs" />
     <Compile Include="SineTermTest.cs" />
     <Compile Include="Sets\FiniteSetTest.cs" />
   </ItemGroup>

@@ -52,6 +52,7 @@
     <Compile Include="PolynomialExpression.cs" />
     <Compile Include="PolynomialTerm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sets\FiniteSequence.cs" />
     <Compile Include="Sets\FiniteSet.cs" />
     <Compile Include="SineTerm.cs" />
   </ItemGroup>
