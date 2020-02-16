@@ -1,0 +1,857 @@
+SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/FlexObject.cs
+FN:10,System.Boolean FlexLib.FlexObject::CallEquals(FlexLib.FlexObject,System.Object[])
+FNDA:0,System.Boolean FlexLib.FlexObject::CallEquals(FlexLib.FlexObject,System.Object[])
+DA:11,0
+DA:12,0
+DA:13,0
+FN:15,System.String FlexLib.FlexObject::CallToString(FlexLib.FlexObject,System.Object[])
+FNDA:0,System.String FlexLib.FlexObject::CallToString(FlexLib.FlexObject,System.Object[])
+DA:16,0
+DA:17,0
+DA:18,0
+FN:28,System.Object FlexLib.FlexObject::Call(System.String,System.Object[])
+FNDA:0,System.Object FlexLib.FlexObject::Call(System.String,System.Object[])
+DA:29,0
+DA:31,0
+DA:35,0
+DA:36,0
+DA:38,0
+DA:39,0
+DA:40,0
+DA:41,0
+DA:45,0
+DA:49,0
+DA:51,0
+BRDA:31,6,0,0
+BRDA:31,19,0,0
+BRDA:31,19,1,0
+BRDA:35,43,0,0
+BRDA:35,43,1,0
+BRDA:38,108,1,0
+BRDA:39,82,0,0
+BRDA:39,82,1,0
+BRDA:38,108,0,0
+BRDA:31,32,1,0
+BRDA:31,6,1,0
+BRDA:31,32,0,0
+LF:17
+LH:0
+BRF:12
+BRH:0
+FNF:3
+FNH:0
+end_of_record
+SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/Sets/FiniteSequence.cs
+FN:14,System.Int32 FlexLib.Sets.FiniteSequence`1::get_Count()
+FNDA:0,System.Int32 FlexLib.Sets.FiniteSequence`1::get_Count()
+DA:15,0
+FN:30,System.Boolean FlexLib.Sets.FiniteSequence`1::Contains(T)
+FNDA:0,System.Boolean FlexLib.Sets.FiniteSequence`1::Contains(T)
+DA:31,0
+DA:32,0
+DA:33,0
+FN:35,System.Boolean FlexLib.Sets.FiniteSequence`1::SequenceEquals(FlexLib.Sets.FiniteSequence`1<T>)
+FNDA:0,System.Boolean FlexLib.Sets.FiniteSequence`1::SequenceEquals(FlexLib.Sets.FiniteSequence`1<T>)
+DA:36,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:45,0
+DA:47,0
+DA:48,0
+DA:49,0
+BRDA:37,20,0,0
+BRDA:37,20,1,0
+BRDA:41,106,1,0
+BRDA:43,81,0,0
+BRDA:43,81,1,0
+BRDA:41,106,0,0
+FN:51,System.Collections.Generic.IEnumerator`1<T> FlexLib.Sets.FiniteSequence`1::GetEnumerator()
+FNDA:0,System.Collections.Generic.IEnumerator`1<T> FlexLib.Sets.FiniteSequence`1::GetEnumerator()
+DA:52,0
+DA:53,0
+DA:54,0
+FN:56,System.Collections.IEnumerator FlexLib.Sets.FiniteSequence`1::System.Collections.IEnumerable.GetEnumerator()
+FNDA:0,System.Collections.IEnumerator FlexLib.Sets.FiniteSequence`1::System.Collections.IEnumerable.GetEnumerator()
+DA:57,0
+DA:58,0
+DA:59,0
+FN:16,System.Void FlexLib.Sets.FiniteSequence`1::.ctor()
+FNDA:0,System.Void FlexLib.Sets.FiniteSequence`1::.ctor()
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+FN:20,System.Void FlexLib.Sets.FiniteSequence`1::.ctor(T[])
+FNDA:0,System.Void FlexLib.Sets.FiniteSequence`1::.ctor(T[])
+DA:21,0
+DA:22,0
+DA:23,0
+DA:24,0
+FN:24,System.Void FlexLib.Sets.FiniteSequence`1::.ctor(System.Collections.Generic.IEnumerable`1<T>)
+FNDA:0,System.Void FlexLib.Sets.FiniteSequence`1::.ctor(System.Collections.Generic.IEnumerable`1<T>)
+DA:25,0
+DA:26,0
+DA:27,0
+DA:28,0
+LF:34
+LH:0
+BRF:6
+BRH:0
+FNF:8
+FNH:0
+end_of_record
+SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/Sets/FiniteSet.cs
+FN:9,System.Int32 FlexLib.Sets.FiniteSet`1::get_Count()
+FNDA:0,System.Int32 FlexLib.Sets.FiniteSet`1::get_Count()
+DA:10,0
+FN:25,System.Boolean FlexLib.Sets.FiniteSet`1::Contains(T)
+FNDA:0,System.Boolean FlexLib.Sets.FiniteSet`1::Contains(T)
+DA:26,0
+DA:27,0
+DA:28,0
+FN:30,System.Boolean FlexLib.Sets.FiniteSet`1::SetEquals(FlexLib.Sets.FiniteSet`1<T>)
+FNDA:0,System.Boolean FlexLib.Sets.FiniteSet`1::SetEquals(FlexLib.Sets.FiniteSet`1<T>)
+DA:31,0
+DA:32,0
+DA:33,0
+FN:11,System.Void FlexLib.Sets.FiniteSet`1::.ctor()
+FNDA:0,System.Void FlexLib.Sets.FiniteSet`1::.ctor()
+DA:12,0
+DA:13,0
+DA:14,0
+DA:15,0
+FN:15,System.Void FlexLib.Sets.FiniteSet`1::.ctor(T[])
+FNDA:0,System.Void FlexLib.Sets.FiniteSet`1::.ctor(T[])
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+FN:19,System.Void FlexLib.Sets.FiniteSet`1::.ctor(System.Collections.Generic.IEnumerable`1<T>)
+FNDA:0,System.Void FlexLib.Sets.FiniteSet`1::.ctor(System.Collections.Generic.IEnumerable`1<T>)
+DA:20,0
+DA:21,0
+DA:22,0
+DA:23,0
+LF:19
+LH:0
+BRF:0
+BRH:0
+FNF:6
+FNH:0
+end_of_record
+SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/Parsing/Token.cs
+FN:21,System.String FlexLib.Parsing.Token::ToString()
+FNDA:0,System.String FlexLib.Parsing.Token::ToString()
+DA:22,0
+DA:23,0
+DA:24,0
+DA:25,0
+DA:28,0
+DA:29,0
+DA:31,0
+BRDA:23,12,0,0
+BRDA:23,12,1,0
+FN:10,System.Void FlexLib.Parsing.Token::.ctor(System.String,System.String,System.Int32)
+FNDA:0,System.Void FlexLib.Parsing.Token::.ctor(System.String,System.String,System.Int32)
+DA:11,0
+FN:12,System.Void FlexLib.Parsing.Token::.ctor(System.String,System.String,System.String,System.Int32)
+FNDA:0,System.Void FlexLib.Parsing.Token::.ctor(System.String,System.String,System.String,System.Int32)
+DA:13,0
+DA:14,0
+DA:15,0
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+LF:15
+LH:0
+BRF:2
+BRH:0
+FNF:3
+FNH:0
+end_of_record
+SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/Parsing/Tokenizer.cs
+FN:13,System.Void FlexLib.Parsing.Tokenizer::.ctor(FlexLib.Parsing.TokenizerContext)
+FNDA:0,System.Void FlexLib.Parsing.Tokenizer::.ctor(FlexLib.Parsing.TokenizerContext)
+DA:14,0
+FN:14,System.Void FlexLib.Parsing.Tokenizer::.ctor(FlexLib.Parsing.TokenizerContext,System.Boolean)
+FNDA:0,System.Void FlexLib.Parsing.Tokenizer::.ctor(FlexLib.Parsing.TokenizerContext,System.Boolean)
+DA:15,0
+DA:16,0
+DA:17,0
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+DA:23,0
+DA:24,0
+DA:25,0
+BRDA:17,9,0,0
+BRDA:17,9,1,0
+BRDA:20,69,0,0
+BRDA:20,69,1,0
+BRDA:21,22,0,0
+BRDA:21,22,1,0
+FN:27,System.Boolean FlexLib.Parsing.Tokenizer/<Tokenize>d__4::MoveNext()
+FNDA:0,System.Boolean FlexLib.Parsing.Tokenizer/<Tokenize>d__4::MoveNext()
+DA:28,0
+DA:29,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:35,0
+DA:36,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:40,0
+DA:42,0
+DA:44,0
+DA:45,0
+DA:46,0
+DA:47,0
+BRDA:28,14,0,0
+BRDA:31,413,1,0
+BRDA:34,342,1,0
+BRDA:36,181,0,0
+BRDA:28,14,1,0
+BRDA:36,181,1,0
+BRDA:34,342,0,0
+BRDA:44,360,0,0
+BRDA:44,360,1,0
+BRDA:31,413,0,0
+LF:28
+LH:0
+BRF:16
+BRH:0
+FNF:3
+FNH:0
+end_of_record
+SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/Parsing/TokenizerContext.cs
+FN:14,FlexLib.Parsing.TokenizerContext FlexLib.Parsing.TokenizerContext::FromXml(System.Xml.Linq.XElement)
+FNDA:0,FlexLib.Parsing.TokenizerContext FlexLib.Parsing.TokenizerContext::FromXml(System.Xml.Linq.XElement)
+DA:15,0
+DA:16,0
+DA:17,0
+DA:18,0
+BRDA:16,23,0,0
+BRDA:16,23,1,0
+FN:9,System.Void FlexLib.Parsing.TokenizerContext::.ctor()
+FNDA:0,System.Void FlexLib.Parsing.TokenizerContext::.ctor()
+DA:10,0
+FN:11,System.Void FlexLib.Parsing.TokenizerContext::.ctor(System.Collections.Generic.IEnumerable`1<FlexLib.Parsing.TokenResource>)
+FNDA:0,System.Void FlexLib.Parsing.TokenizerContext::.ctor(System.Collections.Generic.IEnumerable`1<FlexLib.Parsing.TokenResource>)
+DA:12,0
+LF:6
+LH:0
+BRF:2
+BRH:0
+FNF:3
+FNH:0
+end_of_record
+SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/Parsing/TokenResource.cs
+FN:28,FlexLib.Parsing.TokenResource FlexLib.Parsing.TokenResource::FromXml(System.Xml.Linq.XElement)
+FNDA:0,FlexLib.Parsing.TokenResource FlexLib.Parsing.TokenResource::FromXml(System.Xml.Linq.XElement)
+DA:29,0
+DA:30,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:35,0
+BRDA:30,18,0,0
+BRDA:30,18,1,0
+BRDA:30,46,0,0
+BRDA:30,46,1,0
+BRDA:30,74,0,0
+BRDA:30,74,1,0
+BRDA:30,96,0,0
+BRDA:30,96,1,0
+BRDA:30,108,0,0
+BRDA:30,108,1,0
+FN:13,System.Void FlexLib.Parsing.TokenResource::.ctor(System.String,System.Collections.Generic.IEnumerable`1<System.String>)
+FNDA:0,System.Void FlexLib.Parsing.TokenResource::.ctor(System.String,System.Collections.Generic.IEnumerable`1<System.String>)
+DA:14,0
+FN:14,System.Void FlexLib.Parsing.TokenResource::.ctor(System.String,System.String,System.Collections.Generic.IEnumerable`1<System.String>)
+FNDA:0,System.Void FlexLib.Parsing.TokenResource::.ctor(System.String,System.String,System.Collections.Generic.IEnumerable`1<System.String>)
+DA:15,0
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+DA:23,0
+DA:24,0
+DA:25,0
+DA:26,0
+BRDA:19,28,0,0
+BRDA:19,28,1,0
+LF:20
+LH:0
+BRF:12
+BRH:0
+FNF:3
+FNH:0
+end_of_record
+SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/Linear/Multiarray.cs
+FN:40,System.Int32 FlexLib.Linear.Multiarray`1::get_Size()
+FNDA:12334,System.Int32 FlexLib.Linear.Multiarray`1::get_Size()
+DA:41,12334
+FN:48,System.Collections.Generic.IList`1<System.Int32> FlexLib.Linear.Multiarray`1::get_Order()
+FNDA:17351,System.Collections.Generic.IList`1<System.Int32> FlexLib.Linear.Multiarray`1::get_Order()
+DA:49,17351
+FN:56,System.Int32 FlexLib.Linear.Multiarray`1::get_Degree()
+FNDA:18464,System.Int32 FlexLib.Linear.Multiarray`1::get_Degree()
+DA:57,18464
+FN:62,T FlexLib.Linear.Multiarray`1::get_Item(System.Int32)
+FNDA:36,T FlexLib.Linear.Multiarray`1::get_Item(System.Int32)
+DA:63,36
+DA:64,36
+DA:65,4
+DA:67,32
+DA:68,32
+BRDA:64,3,0,34
+BRDA:64,3,1,2
+BRDA:64,22,0,4
+BRDA:64,22,1,32
+FN:69,System.Void FlexLib.Linear.Multiarray`1::set_Item(System.Int32,T)
+FNDA:12,System.Void FlexLib.Linear.Multiarray`1::set_Item(System.Int32,T)
+DA:70,12
+DA:71,12
+DA:72,4
+DA:74,8
+DA:75,8
+BRDA:71,3,0,10
+BRDA:71,3,1,2
+BRDA:71,22,0,4
+BRDA:71,22,1,8
+FN:79,T FlexLib.Linear.Multiarray`1::get_Item(System.Int32[])
+FNDA:76,T FlexLib.Linear.Multiarray`1::get_Item(System.Int32[])
+DA:80,76
+DA:81,76
+DA:82,4
+DA:84,438
+DA:85,151
+DA:86,151
+DA:87,4
+DA:88,147
+DA:90,68
+DA:91,68
+BRDA:81,17,0,4
+BRDA:81,17,1,72
+BRDA:84,90,1,151
+BRDA:86,39,0,149
+BRDA:86,39,1,2
+BRDA:86,66,0,4
+BRDA:86,66,1,147
+BRDA:84,90,0,68
+FN:92,System.Void FlexLib.Linear.Multiarray`1::set_Item(System.Int32[],T)
+FNDA:24,System.Void FlexLib.Linear.Multiarray`1::set_Item(System.Int32[],T)
+DA:93,24
+DA:94,24
+DA:95,4
+DA:97,114
+DA:98,41
+DA:99,41
+DA:100,4
+DA:101,37
+DA:103,16
+DA:104,16
+BRDA:94,17,0,4
+BRDA:94,17,1,20
+BRDA:97,90,1,41
+BRDA:99,39,0,39
+BRDA:99,39,1,2
+BRDA:99,66,0,4
+BRDA:99,66,1,37
+BRDA:97,90,0,16
+FN:107,System.Int32 FlexLib.Linear.Multiarray`1::AbsoluteIndex(System.Int32)
+FNDA:70,System.Int32 FlexLib.Linear.Multiarray`1::AbsoluteIndex(System.Int32)
+DA:108,70
+DA:110,70
+DA:111,38
+DA:114,32
+DA:115,32
+DA:119,186
+DA:120,61
+DA:123,61
+DA:126,61
+DA:127,8
+DA:129,53
+DA:132,61
+DA:133,61
+DA:135,32
+DA:136,70
+BRDA:110,15,0,38
+BRDA:110,15,1,32
+BRDA:119,148,1,61
+BRDA:126,80,0,8
+BRDA:126,80,1,53
+BRDA:119,148,0,32
+FN:137,System.Int32 FlexLib.Linear.Multiarray`1::AbsoluteIndex(System.Int32[])
+FNDA:84,System.Int32 FlexLib.Linear.Multiarray`1::AbsoluteIndex(System.Int32[])
+DA:138,84
+DA:140,84
+DA:141,65
+DA:144,19
+DA:145,19
+DA:149,96
+DA:150,29
+DA:151,29
+DA:152,0
+DA:154,29
+DA:157,29
+DA:158,29
+DA:160,19
+DA:161,84
+BRDA:140,15,0,65
+BRDA:140,15,1,19
+BRDA:149,132,1,29
+BRDA:151,60,0,0
+BRDA:151,60,1,29
+BRDA:149,132,0,19
+FN:241,System.Collections.IEnumerator FlexLib.Linear.Multiarray`1::System.Collections.IEnumerable.GetEnumerator()
+FNDA:5,System.Collections.IEnumerator FlexLib.Linear.Multiarray`1::System.Collections.IEnumerable.GetEnumerator()
+DA:242,5
+DA:243,5
+DA:244,5
+FN:246,System.Int32 FlexLib.Linear.Multiarray`1::RavelIndex(System.Int32[])
+FNDA:82,System.Int32 FlexLib.Linear.Multiarray`1::RavelIndex(System.Int32[])
+DA:247,82
+DA:249,82
+DA:250,4
+DA:253,78
+DA:254,78
+DA:258,494
+DA:259,173
+DA:260,173
+DA:261,4
+DA:264,169
+DA:265,169
+DA:266,169
+DA:268,74
+DA:269,74
+BRDA:249,17,0,4
+BRDA:249,17,1,78
+BRDA:258,126,1,173
+BRDA:260,50,0,171
+BRDA:260,50,1,2
+BRDA:260,79,0,4
+BRDA:260,79,1,169
+BRDA:258,126,0,74
+FN:270,System.Int32[] FlexLib.Linear.Multiarray`1::UnravelIndex(System.Int32)
+FNDA:13,System.Int32[] FlexLib.Linear.Multiarray`1::UnravelIndex(System.Int32)
+DA:271,13
+DA:273,13
+DA:274,4
+DA:277,9
+DA:278,66
+DA:279,24
+DA:281,9
+DA:282,9
+BRDA:273,3,0,11
+BRDA:273,3,1,2
+BRDA:273,22,0,4
+BRDA:273,22,1,9
+BRDA:278,93,1,24
+BRDA:278,93,0,9
+FN:332,FlexLib.Linear.Multiarray`1<T> FlexLib.Linear.Multiarray`1::Subarray(System.Int32,System.Int32[])
+FNDA:380,FlexLib.Linear.Multiarray`1<T> FlexLib.Linear.Multiarray`1::Subarray(System.Int32,System.Int32[])
+DA:333,380
+DA:335,380
+DA:336,0
+DA:339,380
+DA:340,2090
+DA:341,665
+DA:342,665
+DA:343,380
+DA:345,285
+DA:346,665
+DA:349,380
+DA:350,380
+BRDA:335,3,0,380
+BRDA:335,3,1,0
+BRDA:335,22,0,0
+BRDA:335,22,1,380
+BRDA:340,83,1,665
+BRDA:342,53,0,380
+BRDA:342,53,1,285
+BRDA:340,83,0,380
+FN:351,FlexLib.Linear.Multiarray`1<T> FlexLib.Linear.Multiarray`1::Subarray(System.Int32[][])
+FNDA:475,FlexLib.Linear.Multiarray`1<T> FlexLib.Linear.Multiarray`1::Subarray(System.Int32[][])
+DA:352,475
+DA:354,475
+DA:355,0
+DA:359,475
+DA:360,2850
+DA:361,950
+DA:363,950
+DA:364,570
+DA:365,3610
+DA:366,1235
+DA:367,1235
+DA:368,0
+DA:369,1235
+DA:371,570
+DA:372,475
+DA:374,95
+DA:377,95
+DA:378,760
+DA:379,285
+DA:380,285
+DA:381,285
+DA:382,95
+DA:383,570
+DA:385,380
+DA:386,380
+DA:387,190
+DA:389,190
+DA:390,380
+DA:391,950
+DA:394,475
+DA:395,285
+DA:397,190
+DA:398,475
+BRDA:354,17,0,0
+BRDA:354,17,1,475
+BRDA:360,320,1,950
+BRDA:363,58,0,570
+BRDA:365,137,1,1235
+BRDA:367,77,0,1235
+BRDA:367,77,1,0
+BRDA:367,109,0,0
+BRDA:367,109,1,1235
+BRDA:365,137,0,570
+BRDA:371,151,0,190
+BRDA:371,151,1,380
+BRDA:371,171,0,475
+BRDA:372,179,0,0
+BRDA:372,179,1,475
+BRDA:371,171,1,95
+BRDA:378,259,1,285
+BRDA:378,259,0,95
+BRDA:363,58,1,380
+BRDA:386,282,0,190
+BRDA:386,282,1,190
+BRDA:360,320,0,475
+BRDA:394,341,0,285
+BRDA:394,341,1,190
+FN:406,FlexLib.Linear.Multiarray`1<T> FlexLib.Linear.Multiarray`1::Reordered(System.Int32[])
+FNDA:3,FlexLib.Linear.Multiarray`1<T> FlexLib.Linear.Multiarray`1::Reordered(System.Int32[])
+DA:407,3
+DA:410,3
+DA:411,25
+DA:412,8
+DA:413,8
+DA:414,0
+DA:415,8
+DA:416,8
+DA:418,3
+DA:419,0
+DA:422,3
+DA:423,3
+DA:424,49
+DA:425,20
+DA:428,3
+DA:429,3
+BRDA:411,62,1,8
+BRDA:413,27,0,0
+BRDA:413,27,1,8
+BRDA:411,62,0,3
+BRDA:418,80,0,0
+BRDA:418,80,1,3
+BRDA:424,168,1,20
+BRDA:424,168,0,3
+FN:434,System.Boolean FlexLib.Linear.Multiarray`1::IsVector()
+FNDA:5,System.Boolean FlexLib.Linear.Multiarray`1::IsVector()
+DA:435,5
+FN:439,System.Boolean FlexLib.Linear.Multiarray`1::IsMatrix()
+FNDA:5,System.Boolean FlexLib.Linear.Multiarray`1::IsMatrix()
+DA:440,5
+FN:442,System.Boolean FlexLib.Linear.Multiarray`1::op_Equality(FlexLib.Linear.Multiarray`1<T>,FlexLib.Linear.Multiarray`1<T>)
+FNDA:1750,System.Boolean FlexLib.Linear.Multiarray`1::op_Equality(FlexLib.Linear.Multiarray`1<T>,FlexLib.Linear.Multiarray`1<T>)
+DA:443,1750
+DA:445,1750
+DA:446,1033
+DA:447,717
+DA:448,3
+DA:449,714
+DA:450,654
+DA:453,60
+DA:454,24
+DA:456,204
+DA:457,72
+DA:458,72
+DA:459,6
+DA:460,66
+DA:462,546
+DA:463,6
+DA:465,24
+DA:466,1750
+BRDA:445,7,0,1033
+BRDA:445,7,1,717
+BRDA:447,22,0,3
+BRDA:447,22,1,714
+BRDA:449,37,0,654
+BRDA:449,37,1,60
+BRDA:453,67,0,24
+BRDA:453,67,1,36
+BRDA:456,144,1,72
+BRDA:458,117,0,6
+BRDA:458,117,1,66
+BRDA:456,144,0,30
+BRDA:462,154,0,1
+BRDA:462,154,1,30
+BRDA:462,190,0,1
+BRDA:462,190,1,30
+BRDA:462,224,0,6
+BRDA:462,224,1,24
+FN:467,System.Boolean FlexLib.Linear.Multiarray`1::op_Inequality(FlexLib.Linear.Multiarray`1<T>,FlexLib.Linear.Multiarray`1<T>)
+FNDA:30,System.Boolean FlexLib.Linear.Multiarray`1::op_Inequality(FlexLib.Linear.Multiarray`1<T>,FlexLib.Linear.Multiarray`1<T>)
+DA:468,30
+DA:470,30
+DA:471,4
+DA:472,26
+DA:473,3
+DA:474,23
+DA:475,3
+DA:478,20
+DA:479,8
+DA:481,68
+DA:482,24
+DA:483,24
+DA:484,2
+DA:485,22
+DA:487,182
+DA:488,2
+DA:490,8
+DA:491,30
+BRDA:470,7,0,4
+BRDA:470,7,1,26
+BRDA:472,22,0,3
+BRDA:472,22,1,23
+BRDA:474,37,0,3
+BRDA:474,37,1,20
+BRDA:478,67,0,8
+BRDA:478,67,1,12
+BRDA:481,144,1,24
+BRDA:483,117,0,2
+BRDA:483,117,1,22
+BRDA:481,144,0,10
+BRDA:487,154,0,1
+BRDA:487,154,1,10
+BRDA:487,190,0,1
+BRDA:487,190,1,10
+BRDA:487,224,0,2
+BRDA:487,224,1,8
+FN:499,System.Boolean FlexLib.Linear.Multiarray`1::Equals(System.Object)
+FNDA:48,System.Boolean FlexLib.Linear.Multiarray`1::Equals(System.Object)
+DA:500,48
+DA:502,48
+DA:503,0
+DA:506,48
+DA:507,48
+BRDA:502,17,0,0
+BRDA:502,17,1,48
+FN:508,System.Int32 FlexLib.Linear.Multiarray`1::GetHashCode()
+FNDA:0,System.Int32 FlexLib.Linear.Multiarray`1::GetHashCode()
+DA:509,0
+DA:511,0
+DA:512,0
+FN:520,FlexLib.Linear.Multiarray`1<T> FlexLib.Linear.Multiarray`1::FromArray(System.Array)
+FNDA:763,FlexLib.Linear.Multiarray`1<T> FlexLib.Linear.Multiarray`1::FromArray(System.Array)
+DA:521,763
+DA:523,763
+DA:524,4762
+DA:525,1618
+DA:526,1618
+DA:527,1618
+DA:530,763
+DA:534,763
+DA:535,23387
+DA:536,10550
+DA:537,10550
+DA:538,10548
+DA:540,2
+DA:541,10548
+DA:544,761
+DA:545,761
+BRDA:524,43,1,1618
+BRDA:524,43,0,763
+BRDA:535,152,1,10550
+BRDA:537,97,0,10548
+BRDA:537,97,1,2
+BRDA:537,116,0,10548
+BRDA:537,116,1,2
+BRDA:535,152,0,761
+FN:554,FlexLib.Linear.Multiarray`1<T> FlexLib.Linear.Multiarray`1::Filled(System.Int32[],T)
+FNDA:4,FlexLib.Linear.Multiarray`1<T> FlexLib.Linear.Multiarray`1::Filled(System.Int32[],T)
+DA:555,4
+DA:557,4
+DA:560,300
+DA:561,146
+DA:564,4
+DA:565,4
+BRDA:560,40,1,146
+BRDA:560,40,0,4
+FN:283,System.Void FlexLib.Linear.Multiarray`1::.ctor(System.Int32[])
+FNDA:1061,System.Void FlexLib.Linear.Multiarray`1::.ctor(System.Int32[])
+DA:284,1061
+DA:285,1061
+DA:288,1061
+DA:289,7629
+DA:290,2223
+DA:291,2223
+DA:292,0
+DA:293,2223
+DA:294,2223
+DA:297,1061
+DA:298,1061
+DA:299,1061
+DA:300,1061
+BRDA:289,61,1,2223
+BRDA:291,30,0,0
+BRDA:291,30,1,2223
+BRDA:289,61,0,1061
+FN:301,System.Void FlexLib.Linear.Multiarray`1::.ctor(T[],System.Int32[])
+FNDA:285,System.Void FlexLib.Linear.Multiarray`1::.ctor(T[],System.Int32[])
+DA:302,285
+DA:303,285
+DA:305,285
+DA:306,0
+DA:309,3420
+DA:310,1425
+DA:311,285
+BRDA:305,25,0,0
+BRDA:305,25,1,285
+BRDA:309,78,1,1425
+BRDA:309,78,0,285
+FN:311,System.Void FlexLib.Linear.Multiarray`1::.ctor(FlexLib.Linear.Multiarray`1<T>,System.Int32[][])
+FNDA:475,System.Void FlexLib.Linear.Multiarray`1::.ctor(FlexLib.Linear.Multiarray`1<T>,System.Int32[][])
+DA:312,475
+DA:313,475
+DA:315,475
+DA:316,475
+DA:317,475
+DA:320,475
+DA:321,475
+DA:322,2850
+DA:323,950
+DA:324,950
+DA:325,190
+DA:327,760
+DA:328,950
+DA:329,950
+DA:330,475
+BRDA:322,145,1,950
+BRDA:324,71,0,190
+BRDA:324,71,1,760
+BRDA:322,145,0,475
+FN:163,System.Boolean FlexLib.Linear.Multiarray`1/<EnumerateAbsoluteIndex>d__19::MoveNext()
+FNDA:93,System.Boolean FlexLib.Linear.Multiarray`1/<EnumerateAbsoluteIndex>d__19::MoveNext()
+DA:164,93
+DA:166,93
+DA:167,63
+DA:168,1387
+DA:169,614
+DA:170,33
+DA:173,30
+DA:175,30
+DA:177,30
+DA:178,316
+DA:179,146
+DA:180,146
+DA:183,128
+DA:184,376
+DA:185,176
+DA:186,176
+DA:187,176
+DA:188,60
+DA:189,60
+DA:190,2
+DA:192,58
+DA:193,60
+DA:194,60
+DA:196,116
+DA:197,116
+DA:198,24
+DA:200,92
+DA:201,116
+DA:203,60
+DA:204,60
+DA:205,128
+DA:206,12
+DA:207,45
+BRDA:166,70,0,63
+BRDA:168,168,1,614
+BRDA:168,168,0,33
+BRDA:166,70,1,30
+BRDA:178,811,1,146
+BRDA:184,764,1,176
+BRDA:187,370,0,60
+BRDA:189,401,0,2
+BRDA:189,401,1,58
+BRDA:187,370,1,116
+BRDA:197,577,0,24
+BRDA:197,577,1,92
+BRDA:184,764,0,128
+BRDA:178,811,0,12
+FN:209,System.Boolean FlexLib.Linear.Multiarray`1/<EnumerateIndex>d__20::MoveNext()
+FNDA:63,System.Boolean FlexLib.Linear.Multiarray`1/<EnumerateIndex>d__20::MoveNext()
+DA:210,63
+DA:212,1294
+DA:213,614
+DA:214,33
+BRDA:210,14,0,0
+BRDA:212,106,1,614
+BRDA:210,14,1,584
+BRDA:212,106,0,33
+FN:215,System.Boolean FlexLib.Linear.Multiarray`1/<EnumerateIndices>d__21::MoveNext()
+FNDA:763,System.Boolean FlexLib.Linear.Multiarray`1/<EnumerateIndices>d__21::MoveNext()
+DA:216,763
+DA:218,763
+DA:219,22622
+DA:220,10550
+DA:221,10550
+DA:224,30788
+DA:225,14728
+DA:226,14728
+DA:227,14728
+DA:228,4846
+DA:230,9882
+DA:231,4846
+DA:232,10548
+DA:233,761
+BRDA:216,14,0,0
+BRDA:219,271,1,10550
+BRDA:216,14,1,10548
+BRDA:224,229,1,14728
+BRDA:227,178,0,4846
+BRDA:227,178,1,10548
+BRDA:224,229,0,10548
+BRDA:219,271,0,761
+FN:235,System.Boolean FlexLib.Linear.Multiarray`1/<GetEnumerator>d__22::MoveNext()
+FNDA:90,System.Boolean FlexLib.Linear.Multiarray`1/<GetEnumerator>d__22::MoveNext()
+DA:236,90
+DA:238,1702
+DA:239,740
+DA:240,42
+BRDA:236,14,0,0
+BRDA:238,145,1,740
+BRDA:236,14,1,692
+BRDA:238,145,0,42
+LF:306
+LH:294
+BRF:180
+BRH:165
+FNF:30
+FNH:29
+end_of_record
