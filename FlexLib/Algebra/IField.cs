@@ -7,12 +7,12 @@ namespace FlexLib.Algebra
     public interface IField<T> where T : BaseFieldElement<T>
     {
         /// <summary>
-        /// Creates an instance of the additive identity <see cref="BaseFieldElement{T}"/> object of the <see cref="IField{T}"/> object.
+        /// Creates an instance of the additive identity <see cref="BaseFieldElement{T}"/> object of the current <see cref="IField{T}"/> object.
         /// </summary>
         /// <returns>The additive identity.</returns>
         T Zero();
         /// <summary>
-        /// Creates an instance of the multiplicative identity <see cref="BaseFieldElement{T}"/> object of the <see cref="IField{T}"/> object.
+        /// Creates an instance of the multiplicative identity <see cref="BaseFieldElement{T}"/> object of the current <see cref="IField{T}"/> object.
         /// </summary>
         /// <returns>The multiplicative identity.</returns>
         T One();
