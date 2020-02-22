@@ -617,9 +617,9 @@ namespace FlexLib.Linear
             // Iterate through the elements of the original data
             // and assign to the new array checking if types match.
             int k = 0;
-            foreach (int[] indices in array.EnumerateIndices())
+            foreach (IList<int> indices in array.EnumerateIndices())
             {
-                if (data.GetValue(indices) is T entry)
+                if (data.GetValue(indices.ToArray()) is T entry)
                     array._Data[k++] = entry;
                 else
                     throw new ArrayTypeMismatchException();
