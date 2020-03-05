@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 using FlexLib.Linear;
 
-namespace Tests.Linear
+namespace FlexLibTests.Linear
 {
     [TestFixture]
     public class MultiarrayTests
