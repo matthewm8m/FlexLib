@@ -11,6 +11,15 @@ namespace FlexLibTests.Algebra
     [TestFixture]
     public class RealFieldTests
     {
+        private RealField Field;
+
+        [SetUp]
+        protected void SetUp()
+        {
+            // The tolerance is 2.0^-8
+            Field = new RealField(0.00390625);
+        }
+
         [TestCase(0.0, 0.0, 0.0)]
         [TestCase(1.0, 0.0, 1.0)]
         [TestCase(-1.0, 2.0, 1.0)]
@@ -18,9 +27,10 @@ namespace FlexLibTests.Algebra
         [TestCase(-57.34, 23.11, -34.23)]
         public void TestAddition(double a, double b, double c)
         {
-            RealFieldElement elementA = new RealFieldElement(a);
-            RealFieldElement elementB = new RealFieldElement(b);
-            Assert.AreEqual(c, (elementA + elementB).Value, 0.005);
+            RealFieldElement elementA = a;
+            RealFieldElement elementB = b;
+            RealFieldElement elementC = c;
+            Assert.IsTrue(Field.ElementsEqual(elementA + elementB, elementC));
         }
 
         [TestCase(0.0, 0.0, 0.0)]
@@ -30,9 +40,10 @@ namespace FlexLibTests.Algebra
         [TestCase(-57.34, 23.11, -80.45)]
         public void TestSubtraction(double a, double b, double c)
         {
-            RealFieldElement elementA = new RealFieldElement(a);
-            RealFieldElement elementB = new RealFieldElement(b);
-            Assert.AreEqual(c, (elementA - elementB).Value, 0.005);
+            RealFieldElement elementA = a;
+            RealFieldElement elementB = b;
+            RealFieldElement elementC = c;
+            Assert.IsTrue(Field.ElementsEqual(elementA - elementB, elementC));
         }
 
         [TestCase(0.0, 0.0, 0.0)]
@@ -42,9 +53,10 @@ namespace FlexLibTests.Algebra
         [TestCase(-57.34, 23.11, -1325.1274)]
         public void TestMultiplication(double a, double b, double c)
         {
-            RealFieldElement elementA = new RealFieldElement(a);
-            RealFieldElement elementB = new RealFieldElement(b);
-            Assert.AreEqual(c, (elementA * elementB).Value, 0.005);
+            RealFieldElement elementA = a;
+            RealFieldElement elementB = b;
+            RealFieldElement elementC = c;
+            Assert.IsTrue(Field.ElementsEqual(elementA * elementB, elementC));
         }
 
         [TestCase(0.0, 1.0, 0.0)]
@@ -53,9 +65,10 @@ namespace FlexLibTests.Algebra
         [TestCase(-57.34, 23.11, -2.481177)]
         public void TestDivision(double a, double b, double c)
         {
-            RealFieldElement elementA = new RealFieldElement(a);
-            RealFieldElement elementB = new RealFieldElement(b);
-            Assert.AreEqual(c, (elementA / elementB).Value, 0.005);
+            RealFieldElement elementA = a;
+            RealFieldElement elementB = b;
+            RealFieldElement elementC = c;
+            Assert.IsTrue(Field.ElementsEqual(elementA / elementB, elementC));
         }
 
         [TestCase(0.0, 1.0, false)]
@@ -65,8 +78,8 @@ namespace FlexLibTests.Algebra
         [TestCase(-1.0, -0.000005, false)]
         public void TestDivideByZero(double a, double b, bool throws)
         {
-            RealFieldElement elementA = new RealFieldElement(a);
-            RealFieldElement elementB = new RealFieldElement(b);
+            RealFieldElement elementA = a;
+            RealFieldElement elementB = b;
             RealFieldElement elementC;
             if (throws)
             {
@@ -89,9 +102,11 @@ namespace FlexLibTests.Algebra
         [TestCase(-3.76, -3.76, 3.76)]
         public void TestPositiveNegative(double x, double positiveX, double negativeX)
         {
-            RealFieldElement element = new RealFieldElement(x);
-            Assert.AreEqual(positiveX, (+element).Value, 0.005);
-            Assert.AreEqual(negativeX, (-element).Value, 0.005);
+            RealFieldElement element = x;
+            RealFieldElement positive = positiveX;
+            RealFieldElement negative = negativeX;
+            Assert.IsTrue(Field.ElementsEqual(+element, positive));
+            Assert.IsTrue(Field.ElementsEqual(-element, negative));
         }
 
         [TestCase(0, 0, 0.0)]
@@ -100,22 +115,20 @@ namespace FlexLibTests.Algebra
         [TestCase(1, 1, 2.0)]
         public void TestAddIdentities(int a, int b, double c)
         {
-            RealField reals = new RealField();
-            RealFieldElement elementA = a == 0 ? reals.Zero() : reals.One();
-            RealFieldElement elementB = b == 0 ? reals.Zero() : reals.One();
-            Assert.AreEqual(c, (elementA + elementB).Value);
+            RealFieldElement elementA = a == 0 ? Field.Zero() : Field.One();
+            RealFieldElement elementB = b == 0 ? Field.Zero() : Field.One();
+            Assert.IsTrue(Field.ElementsEqual(elementA + elementB, (RealFieldElement)c));
         }
 
         [TestCase(0, 0, 0.0)]
         [TestCase(1, 0, 0.0)]
         [TestCase(0, 1, 0.0)]
         [TestCase(1, 1, 1.0)]
-        public void TestMultipleIdentities(int a, int b, double c)
+        public void TestMultiplyIdentities(int a, int b, double c)
         {
-            RealField reals = new RealField();
-            RealFieldElement elementA = a == 0 ? reals.Zero() : reals.One();
-            RealFieldElement elementB = b == 0 ? reals.Zero() : reals.One();
-            Assert.AreEqual(c, (elementA * elementB).Value);
+            RealFieldElement elementA = a == 0 ? Field.Zero() : Field.One();
+            RealFieldElement elementB = b == 0 ? Field.Zero() : Field.One();
+            Assert.IsTrue(Field.ElementsEqual(elementA * elementB, (RealFieldElement)c));
         }
     }
 }
