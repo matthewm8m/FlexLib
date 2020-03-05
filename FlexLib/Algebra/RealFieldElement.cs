@@ -59,5 +59,14 @@ namespace FlexLib.Algebra
                 throw new DivideByZeroException();
             return new RealFieldElement(1.0 / Value);
         }
+
+        /// <summary>
+        /// Implicitly converts a <see cref="double"/> object to a <see cref="RealFieldElement"/> object.
+        /// </summary>
+        /// <param name="value">The value of the real element.</param>
+        public static implicit operator RealFieldElement(double value)
+        {
+            return new RealFieldElement(value);
+        }
     }
 }
