@@ -366,6 +366,18 @@ namespace FlexLib.Linear
                 _Data[k] = data[k];
         }
         /// <summary>
+        /// Creates a new <see cref="Multiarray{T}"/> object that copies all properties from another <see cref="Multiarray{T}"/> object. The new object can be treated exactly the same as the copied object.
+        /// </summary>
+        /// <param name="copy"></param>
+        public Multiarray(Multiarray<T> copy)
+        {
+            _Data = copy._Data;
+            _Parent = copy._Parent;
+            _Mask = copy._Mask;
+            _Order = copy._Order;
+            _Size = copy._Size;
+        }
+        /// <summary>
         /// Creates a new <see cref="Multiarray{T}"/> object from a parent <see cref="Multiarray{T}"/> object with a specified mask. The mask specifies what entries of the parent object will be considered by the new object.
         /// </summary>
         /// <param name="parent">The parent object.</param>
@@ -546,7 +558,7 @@ namespace FlexLib.Linear
         /// </summary>
         /// <param name="arrayA">The first <see cref="Multiarray{T}"/> object.</param>
         /// <param name="arrayB">The second <see cref="Multiarray{T}"/> object.</param>
-        /// <returns><c>true</c> if order and elements do not match; otherwise, <c>false</c>.</returns>
+        /// <returns><c>true</c> if order or elements do not match; otherwise, <c>false</c>.</returns>
         public static bool operator !=(Multiarray<T> arrayA, Multiarray<T> arrayB)
         {
             // Check if arrays are same reference or if either are null.
