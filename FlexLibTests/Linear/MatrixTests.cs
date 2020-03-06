@@ -280,7 +280,7 @@ namespace FlexLibTests.Linear
                 {  6.25, -2.50,  8.75 }
             }));
             TestRealMatrices.Add("I", Matrix<RealFieldElement>.Identity(TestRealField, 4));
-            TestRealMatrices.Add("0", Matrix<RealFieldElement>.Zeroes(TestRealField, 3, 4));
+            TestRealMatrices.Add("0", Matrix<RealFieldElement>.Zeros(TestRealField, 3, 4));
             TestRealMatrices.Add("1", Matrix<RealFieldElement>.Ones(TestRealField, 2, 7));
         }
 

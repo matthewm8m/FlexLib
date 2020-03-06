@@ -302,342 +302,336 @@ FNF:3
 FNH:0
 end_of_record
 SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/Linear/Matrix.cs
-FN:40,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Submatrix(System.Int32,System.Int32[])
+FN:76,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Submatrix(System.Int32,System.Int32[])
 FNDA:16,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Submatrix(System.Int32,System.Int32[])
-DA:41,16
-DA:42,16
-DA:43,16
-FN:44,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Submatrix(System.Int32[][])
+DA:77,16
+DA:78,16
+DA:79,16
+FN:85,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Submatrix(System.Int32[][])
 FNDA:0,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Submatrix(System.Int32[][])
-DA:45,0
-DA:46,0
-DA:47,0
-FN:49,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Row(System.Int32)
+DA:86,0
+DA:87,0
+DA:88,0
+FN:95,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Row(System.Int32)
 FNDA:8,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Row(System.Int32)
-DA:50,8
-DA:51,8
-DA:52,8
-FN:53,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Column(System.Int32)
+DA:96,8
+DA:97,8
+DA:98,8
+FN:104,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Column(System.Int32)
 FNDA:8,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Column(System.Int32)
-DA:54,8
-DA:55,8
-DA:56,8
-FN:58,System.Boolean FlexLib.Linear.Matrix`1::IsSquare()
+DA:105,8
+DA:106,8
+DA:107,8
+FN:113,System.Boolean FlexLib.Linear.Matrix`1::IsSquare()
 FNDA:12,System.Boolean FlexLib.Linear.Matrix`1::IsSquare()
-DA:59,12
-DA:60,12
-DA:61,12
-FN:63,T FlexLib.Linear.Matrix`1::Trace()
+DA:114,12
+DA:115,12
+DA:116,12
+FN:121,T FlexLib.Linear.Matrix`1::Trace()
 FNDA:4,T FlexLib.Linear.Matrix`1::Trace()
-DA:64,4
-DA:65,4
-DA:66,0
-DA:68,4
-DA:70,34
-DA:71,13
-DA:73,4
-DA:74,4
-BRDA:65,12,0,0
-BRDA:65,12,1,4
-BRDA:70,83,1,13
-BRDA:70,83,0,4
-FN:76,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Add(FlexLib.Linear.Matrix`1<T>)
-FNDA:10,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Add(FlexLib.Linear.Matrix`1<T>)
-DA:77,10
-DA:78,10
-DA:79,0
-DA:81,10
-DA:82,0
-DA:84,10
-DA:85,224
-DA:86,102
-DA:87,102
-DA:88,102
-DA:89,10
-DA:90,10
-BRDA:78,13,0,10
-BRDA:78,13,1,0
-BRDA:78,37,0,0
-BRDA:78,37,1,10
-BRDA:81,64,0,0
-BRDA:81,64,1,10
-BRDA:85,151,1,102
-BRDA:85,151,0,10
-FN:91,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Subtract(FlexLib.Linear.Matrix`1<T>)
-FNDA:10,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Subtract(FlexLib.Linear.Matrix`1<T>)
-DA:92,10
-DA:93,10
-DA:94,0
-DA:96,10
-DA:97,0
-DA:99,10
-DA:100,224
-DA:101,102
-DA:102,102
-DA:103,102
-DA:104,10
-DA:105,10
-BRDA:93,13,0,10
-BRDA:93,13,1,0
-BRDA:93,37,0,0
-BRDA:93,37,1,10
-BRDA:96,64,0,0
-BRDA:96,64,1,10
-BRDA:100,151,1,102
-BRDA:100,151,0,10
-FN:106,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Scale(T)
-FNDA:24,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Scale(T)
-DA:107,24
-DA:108,24
-DA:109,608
-DA:110,280
-DA:111,280
-DA:112,280
-DA:113,24
-DA:114,24
-BRDA:109,72,1,280
-BRDA:109,72,0,24
-FN:116,System.Boolean FlexLib.Linear.Matrix`1::Equals(System.Object)
-FNDA:0,System.Boolean FlexLib.Linear.Matrix`1::Equals(System.Object)
-DA:117,0
-DA:118,0
-DA:119,0
-DA:120,0
-DA:121,0
-BRDA:118,14,0,0
-BRDA:118,14,1,0
-FN:122,System.Int32 FlexLib.Linear.Matrix`1::GetHashCode()
-FNDA:0,System.Int32 FlexLib.Linear.Matrix`1::GetHashCode()
-DA:123,0
-DA:124,0
+DA:122,4
+DA:124,4
 DA:125,0
-DA:126,0
-FN:128,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::FromArray(FlexLib.Algebra.BaseField`1<T>,System.Array)
-FNDA:2352,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::FromArray(FlexLib.Algebra.BaseField`1<T>,System.Array)
-DA:129,2352
-DA:130,2352
-DA:131,0
-DA:133,2352
-DA:134,0
-DA:136,2352
-DA:137,2352
-DA:139,2352
-DA:140,2352
-DA:141,19376
-DA:142,7336
-DA:143,59920
-DA:144,22624
-DA:145,22624
-DA:146,22624
+DA:128,4
+DA:131,34
+DA:132,13
+DA:134,4
+DA:135,4
+BRDA:124,12,0,0
+BRDA:124,12,1,4
+BRDA:131,83,1,13
+BRDA:131,83,0,4
+FN:142,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Add(FlexLib.Linear.Matrix`1<T>)
+FNDA:10,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Add(FlexLib.Linear.Matrix`1<T>)
+DA:143,10
+DA:145,10
+DA:146,0
+DA:147,10
 DA:148,0
-DA:149,22624
-DA:150,7336
-DA:151,2352
-DA:152,2352
-BRDA:130,12,0,0
-BRDA:130,12,1,2352
-BRDA:133,36,0,0
-BRDA:133,36,1,2352
-BRDA:141,177,1,7336
-BRDA:143,159,1,22624
-BRDA:145,119,0,22624
-BRDA:145,119,1,0
-BRDA:143,159,0,7336
-BRDA:141,177,0,2352
-FN:153,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::FromMultiarray(FlexLib.Algebra.BaseField`1<T>,FlexLib.Linear.Multiarray`1<T>)
-FNDA:16,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::FromMultiarray(FlexLib.Algebra.BaseField`1<T>,FlexLib.Linear.Multiarray`1<T>)
-DA:154,16
-DA:155,16
-DA:156,0
-DA:158,16
-DA:159,0
-DA:161,16
-DA:162,16
-BRDA:155,10,0,0
-BRDA:155,10,1,16
-BRDA:158,29,0,0
-BRDA:158,29,1,16
-FN:164,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Filled(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32,T)
-FNDA:112,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Filled(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32,T)
-DA:165,112
-DA:166,112
+DA:151,10
+DA:152,224
+DA:153,102
+DA:154,10
+DA:155,10
+BRDA:145,13,0,10
+BRDA:145,13,1,0
+BRDA:145,37,0,0
+BRDA:145,37,1,10
+BRDA:147,64,0,0
+BRDA:147,64,1,10
+BRDA:152,149,1,102
+BRDA:152,149,0,10
+FN:161,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Subtract(FlexLib.Linear.Matrix`1<T>)
+FNDA:10,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Subtract(FlexLib.Linear.Matrix`1<T>)
+DA:162,10
+DA:164,10
+DA:165,0
+DA:166,10
 DA:167,0
-DA:169,112
-DA:170,3136
-DA:171,1456
-DA:172,112
-DA:173,112
-BRDA:166,10,0,0
-BRDA:166,10,1,112
-BRDA:170,55,1,1456
-BRDA:170,55,0,112
-FN:174,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Zeroes(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32)
-FNDA:56,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Zeroes(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32)
-DA:175,56
-DA:176,56
-DA:177,0
-DA:179,56
-DA:180,56
-BRDA:176,10,0,0
-BRDA:176,10,1,56
-FN:181,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Ones(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32)
+DA:170,10
+DA:171,224
+DA:172,102
+DA:173,10
+DA:174,10
+BRDA:164,13,0,10
+BRDA:164,13,1,0
+BRDA:164,37,0,0
+BRDA:164,37,1,10
+BRDA:166,64,0,0
+BRDA:166,64,1,10
+BRDA:171,149,1,102
+BRDA:171,149,0,10
+FN:180,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Scale(T)
+FNDA:24,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Scale(T)
+DA:181,24
+DA:183,24
+DA:184,608
+DA:185,280
+DA:186,24
+DA:187,24
+BRDA:184,70,1,280
+BRDA:184,70,0,24
+FN:194,System.Boolean FlexLib.Linear.Matrix`1::Equals(System.Object)
+FNDA:0,System.Boolean FlexLib.Linear.Matrix`1::Equals(System.Object)
+DA:195,0
+DA:196,0
+DA:197,0
+DA:198,0
+DA:199,0
+BRDA:196,14,0,0
+BRDA:196,14,1,0
+FN:204,System.Int32 FlexLib.Linear.Matrix`1::GetHashCode()
+FNDA:0,System.Int32 FlexLib.Linear.Matrix`1::GetHashCode()
+DA:205,0
+DA:206,0
+DA:207,0
+DA:208,0
+FN:216,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::FromArray(FlexLib.Algebra.BaseField`1<T>,System.Array)
+FNDA:2352,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::FromArray(FlexLib.Algebra.BaseField`1<T>,System.Array)
+DA:217,2352
+DA:219,2352
+DA:220,0
+DA:221,2352
+DA:222,0
+DA:225,2352
+DA:226,2352
+DA:229,2352
+DA:230,2352
+DA:231,19376
+DA:232,7336
+DA:233,59920
+DA:234,22624
+DA:235,22624
+DA:236,22624
+DA:238,0
+DA:239,22624
+DA:240,7336
+DA:241,2352
+DA:242,2352
+BRDA:219,12,0,0
+BRDA:219,12,1,2352
+BRDA:221,36,0,0
+BRDA:221,36,1,2352
+BRDA:231,177,1,7336
+BRDA:233,159,1,22624
+BRDA:235,119,0,22624
+BRDA:235,119,1,0
+BRDA:233,159,0,7336
+BRDA:231,177,0,2352
+FN:249,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::FromMultiarray(FlexLib.Algebra.BaseField`1<T>,FlexLib.Linear.Multiarray`1<T>)
+FNDA:16,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::FromMultiarray(FlexLib.Algebra.BaseField`1<T>,FlexLib.Linear.Multiarray`1<T>)
+DA:250,16
+DA:252,16
+DA:253,0
+DA:254,16
+DA:255,0
+DA:257,16
+DA:258,16
+BRDA:252,10,0,0
+BRDA:252,10,1,16
+BRDA:254,29,0,0
+BRDA:254,29,1,16
+FN:268,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Filled(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32,T)
+FNDA:112,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Filled(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32,T)
+DA:269,112
+DA:271,112
+DA:272,0
+DA:275,112
+DA:276,3136
+DA:277,1456
+DA:278,112
+DA:279,112
+BRDA:271,10,0,0
+BRDA:271,10,1,112
+BRDA:276,55,1,1456
+BRDA:276,55,0,112
+FN:287,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Zeros(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32)
+FNDA:56,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Zeros(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32)
+DA:288,56
+DA:290,56
+DA:291,0
+DA:293,56
+DA:294,56
+BRDA:290,10,0,0
+BRDA:290,10,1,56
+FN:302,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Ones(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32)
 FNDA:56,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Ones(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32)
-DA:182,56
-DA:183,56
-DA:184,0
-DA:186,56
-DA:187,56
-BRDA:183,10,0,0
-BRDA:183,10,1,56
-FN:188,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Identity(FlexLib.Algebra.BaseField`1<T>,System.Int32)
+DA:303,56
+DA:305,56
+DA:306,0
+DA:308,56
+DA:309,56
+BRDA:305,10,0,0
+BRDA:305,10,1,56
+FN:316,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Identity(FlexLib.Algebra.BaseField`1<T>,System.Int32)
 FNDA:56,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Identity(FlexLib.Algebra.BaseField`1<T>,System.Int32)
-DA:189,56
-DA:190,56
-DA:191,0
-DA:193,56
-DA:194,560
-DA:195,224
-DA:196,2240
-DA:197,896
-DA:198,896
-DA:199,896
-DA:200,224
-DA:202,672
-DA:203,896
-DA:204,224
-DA:205,56
-DA:206,56
-BRDA:190,10,0,0
-BRDA:190,10,1,56
-BRDA:194,114,1,224
-BRDA:196,99,1,896
-BRDA:199,52,0,224
-BRDA:199,52,1,672
-BRDA:196,99,0,224
-BRDA:194,114,0,56
-FN:208,System.Boolean FlexLib.Linear.Matrix`1::op_Equality(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
+DA:317,56
+DA:319,56
+DA:320,0
+DA:325,56
+DA:326,560
+DA:327,224
+DA:328,2240
+DA:329,896
+DA:330,896
+DA:331,896
+DA:332,224
+DA:334,672
+DA:335,896
+DA:336,224
+DA:337,56
+DA:338,56
+BRDA:319,10,0,0
+BRDA:319,10,1,56
+BRDA:326,114,1,224
+BRDA:328,99,1,896
+BRDA:331,52,0,224
+BRDA:331,52,1,672
+BRDA:328,99,0,224
+BRDA:326,114,0,56
+FN:346,System.Boolean FlexLib.Linear.Matrix`1::op_Equality(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
 FNDA:38,System.Boolean FlexLib.Linear.Matrix`1::op_Equality(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
-DA:209,38
-DA:210,38
-DA:211,0
-DA:213,38
-DA:214,0
-DA:216,800
-DA:217,362
-DA:218,362
-DA:219,0
-DA:220,362
-DA:221,38
-DA:222,38
-BRDA:210,13,0,38
-BRDA:210,13,1,0
-BRDA:210,37,0,0
-BRDA:210,37,1,38
-BRDA:213,62,0,0
-BRDA:213,62,1,38
-BRDA:216,129,1,362
-BRDA:218,105,0,0
-BRDA:218,105,1,362
-BRDA:216,129,0,38
-FN:223,System.Boolean FlexLib.Linear.Matrix`1::op_Inequality(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
+DA:347,38
+DA:349,38
+DA:350,0
+DA:351,38
+DA:352,0
+DA:355,800
+DA:356,362
+DA:357,362
+DA:358,0
+DA:359,362
+DA:360,38
+DA:361,38
+BRDA:349,13,0,38
+BRDA:349,13,1,0
+BRDA:349,37,0,0
+BRDA:349,37,1,38
+BRDA:351,62,0,0
+BRDA:351,62,1,38
+BRDA:355,129,1,362
+BRDA:357,105,0,0
+BRDA:357,105,1,362
+BRDA:355,129,0,38
+FN:368,System.Boolean FlexLib.Linear.Matrix`1::op_Inequality(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
 FNDA:38,System.Boolean FlexLib.Linear.Matrix`1::op_Inequality(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
-DA:224,38
-DA:225,38
-DA:226,0
-DA:228,38
-DA:229,0
-DA:231,800
-DA:232,362
-DA:233,362
-DA:234,0
-DA:235,362
-DA:236,38
-DA:237,38
-BRDA:225,13,0,38
-BRDA:225,13,1,0
-BRDA:225,37,0,0
-BRDA:225,37,1,38
-BRDA:228,62,0,0
-BRDA:228,62,1,38
-BRDA:231,129,1,362
-BRDA:233,105,0,0
-BRDA:233,105,1,362
-BRDA:231,129,0,38
-FN:239,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Addition(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
+DA:369,38
+DA:371,38
+DA:372,0
+DA:373,38
+DA:374,0
+DA:377,800
+DA:378,362
+DA:379,362
+DA:380,0
+DA:381,362
+DA:382,38
+DA:383,38
+BRDA:371,13,0,38
+BRDA:371,13,1,0
+BRDA:371,37,0,0
+BRDA:371,37,1,38
+BRDA:373,62,0,0
+BRDA:373,62,1,38
+BRDA:377,129,1,362
+BRDA:379,105,0,0
+BRDA:379,105,1,362
+BRDA:377,129,0,38
+FN:391,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Addition(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
 FNDA:10,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Addition(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
-DA:240,10
-DA:241,10
-DA:242,10
-FN:243,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_UnaryPlus(FlexLib.Linear.Matrix`1<T>)
+DA:392,10
+DA:393,10
+DA:394,10
+FN:400,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_UnaryPlus(FlexLib.Linear.Matrix`1<T>)
 FNDA:8,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_UnaryPlus(FlexLib.Linear.Matrix`1<T>)
-DA:244,8
-DA:245,8
-DA:246,212
-DA:247,98
-DA:248,8
-DA:249,8
-BRDA:246,69,1,98
-BRDA:246,69,0,8
-FN:250,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Subtraction(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
+DA:401,8
+DA:403,8
+DA:404,212
+DA:405,98
+DA:406,8
+DA:407,8
+BRDA:404,69,1,98
+BRDA:404,69,0,8
+FN:414,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Subtraction(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
 FNDA:10,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Subtraction(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
-DA:251,10
-DA:252,10
-DA:253,10
-FN:254,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_UnaryNegation(FlexLib.Linear.Matrix`1<T>)
+DA:415,10
+DA:416,10
+DA:417,10
+FN:423,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_UnaryNegation(FlexLib.Linear.Matrix`1<T>)
 FNDA:8,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_UnaryNegation(FlexLib.Linear.Matrix`1<T>)
-DA:255,8
-DA:256,8
-DA:257,184
-DA:258,84
-DA:259,8
-DA:260,8
-BRDA:257,69,1,84
-BRDA:257,69,0,8
-FN:261,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Multiply(FlexLib.Linear.Matrix`1<T>,T)
+DA:424,8
+DA:426,8
+DA:427,184
+DA:428,84
+DA:429,8
+DA:430,8
+BRDA:427,69,1,84
+BRDA:427,69,0,8
+FN:438,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Multiply(FlexLib.Linear.Matrix`1<T>,T)
 FNDA:8,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Multiply(FlexLib.Linear.Matrix`1<T>,T)
-DA:262,8
-DA:263,8
-DA:264,8
-FN:265,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Multiply(T,FlexLib.Linear.Matrix`1<T>)
+DA:439,8
+DA:440,8
+DA:441,8
+FN:448,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Multiply(T,FlexLib.Linear.Matrix`1<T>)
 FNDA:8,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Multiply(T,FlexLib.Linear.Matrix`1<T>)
-DA:266,8
-DA:267,8
-DA:268,8
-FN:269,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Division(FlexLib.Linear.Matrix`1<T>,T)
+DA:449,8
+DA:450,8
+DA:451,8
+FN:458,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Division(FlexLib.Linear.Matrix`1<T>,T)
 FNDA:8,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Division(FlexLib.Linear.Matrix`1<T>,T)
-DA:270,8
-DA:271,8
-DA:272,8
-FN:14,System.Void FlexLib.Linear.Matrix`1::.ctor(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32)
+DA:459,8
+DA:460,8
+DA:461,8
+FN:34,System.Void FlexLib.Linear.Matrix`1::.ctor(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32)
 FNDA:2580,System.Void FlexLib.Linear.Matrix`1::.ctor(FlexLib.Algebra.BaseField`1<T>,System.Int32,System.Int32)
-DA:15,2580
-DA:16,2580
-DA:17,2580
-DA:18,2580
-DA:20,2580
-DA:21,0
-DA:22,2580
-DA:23,2580
-BRDA:20,45,0,0
-BRDA:20,45,1,2580
-FN:24,System.Void FlexLib.Linear.Matrix`1::.ctor(FlexLib.Linear.Matrix`1<T>)
+DA:35,2580
+DA:36,2580
+DA:37,2580
+DA:38,2580
+DA:41,2580
+DA:42,0
+DA:43,2580
+DA:44,2580
+BRDA:41,45,0,0
+BRDA:41,45,1,2580
+FN:49,System.Void FlexLib.Linear.Matrix`1::.ctor(FlexLib.Linear.Matrix`1<T>)
 FNDA:0,System.Void FlexLib.Linear.Matrix`1::.ctor(FlexLib.Linear.Matrix`1<T>)
-DA:25,0
-DA:26,0
-DA:27,0
-DA:28,0
-DA:29,0
-DA:30,0
-FN:31,System.Void FlexLib.Linear.Matrix`1::.ctor(FlexLib.Algebra.BaseField`1<T>,FlexLib.Linear.Multiarray`1<T>)
+DA:50,0
+DA:51,0
+DA:52,0
+DA:53,0
+DA:54,0
+DA:55,0
+FN:61,System.Void FlexLib.Linear.Matrix`1::.ctor(FlexLib.Algebra.BaseField`1<T>,FlexLib.Linear.Multiarray`1<T>)
 FNDA:16,System.Void FlexLib.Linear.Matrix`1::.ctor(FlexLib.Algebra.BaseField`1<T>,FlexLib.Linear.Multiarray`1<T>)
-DA:32,16
-DA:33,16
-DA:34,16
-DA:36,16
-DA:37,16
-DA:38,16
-LF:196
-LH:157
+DA:62,16
+DA:63,16
+DA:64,16
+DA:66,16
+DA:67,16
+DA:68,16
+LF:190
+LH:151
 BRF:80
 BRH:53
 FNF:29

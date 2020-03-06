@@ -368,7 +368,7 @@ namespace FlexLib.Linear
         /// <summary>
         /// Creates a new <see cref="Multiarray{T}"/> object that copies all properties from another <see cref="Multiarray{T}"/> object. The new object can be treated exactly the same as the copied object.
         /// </summary>
-        /// <param name="copy"></param>
+        /// <param name="copy">The object to copy from.</param>
         public Multiarray(Multiarray<T> copy)
         {
             _Data = copy._Data;
@@ -430,7 +430,7 @@ namespace FlexLib.Linear
         /// <summary>
         /// Creates a subarray of the current <see cref="Multiarray{T}"/> object with a specified mask. The mask specifies which indices along each axis should be kept in the subarray. The mask should be the same length as the <see cref="Degree"/> of the current object. An entry of the mask can be set to <c>null</c> to keep every index along the corresponding axis. 
         /// </summary>
-        /// <param name="mask"></param>
+        /// <param name="mask">The mask to apply.</param>
         /// <returns>The newly created <see cref="Multiarray{T}"/> object.</returns>
         public Multiarray<T> Subarray(params int[][] mask)
         {
