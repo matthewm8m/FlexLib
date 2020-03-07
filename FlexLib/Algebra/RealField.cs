@@ -42,6 +42,60 @@ namespace FlexLib.Algebra
         {
             return new RealFieldElement(1.0);
         }
+
+        /// <summary>
+        /// Computes the sum of two <see cref="RealFieldElement"/> objects.
+        /// </summary>
+        /// <param name="elementA">The first real element of the sum.</param>
+        /// <param name="elementB">The second real element of the sum.</param>
+        /// <returns>The sum of the real elements.</returns>
+        public override RealFieldElement Add(RealFieldElement elementA, RealFieldElement elementB)
+        {
+            return new RealFieldElement(elementA.Value + elementB.Value);
+        }
+        /// <summary>
+        /// Computes the product of two <see cref="RealFieldElement"/> objects.
+        /// </summary>
+        /// <param name="elementA">The first real element of the product.</param>
+        /// <param name="elementB">The second real element of the product.</param>
+        /// <returns>The product of the real elements.</returns>
+        public override RealFieldElement Multiply(RealFieldElement elementA, RealFieldElement elementB)
+        {
+            return new RealFieldElement(elementA.Value * elementB.Value);
+        }
+
+        /// <summary>
+        /// Computes the additive inverse of a <see cref="RealFieldElement"/> object.
+        /// </summary>
+        /// <param name="element">The element to find the multiplicative inverse of.</param>
+        /// <returns>The additive inverse of the element.</returns>
+        public override RealFieldElement Negative(RealFieldElement element)
+        {
+            return new RealFieldElement(-element.Value);
+        }
+        /// <summary>
+        /// Computes the multiplicative inverse of a <see cref="RealFieldElement"/> object.
+        /// </summary>
+        /// <param name="element">The object to find the additive inverse of.</param>
+        /// <returns>The additive inverse of the element.</returns>
+        public override RealFieldElement Inverse(RealFieldElement element)
+        {
+            // Do not allow division by zero.
+            if (element.Value == 0.0)
+                throw new DivideByZeroException();
+            return new RealFieldElement(1.0 / element.Value);
+        }
+
+        /// <summary>
+        /// Creates a clone of a <see cref="RealFieldElement"/> object.
+        /// </summary>
+        /// <param name="element">The object to clone.</param>
+        /// <returns>The clone of the element</returns>
+        public override RealFieldElement Clone(RealFieldElement element)
+        {
+            return new RealFieldElement(element.Value);
+        }
+
         /// <summary>
         /// Determines whether two instances of <see cref="RealFieldElement"/> are equal to each other.
         /// </summary>

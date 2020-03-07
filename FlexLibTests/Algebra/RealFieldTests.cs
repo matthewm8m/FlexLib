@@ -30,7 +30,7 @@ namespace FlexLibTests.Algebra
             RealFieldElement elementA = a;
             RealFieldElement elementB = b;
             RealFieldElement elementC = c;
-            Assert.IsTrue(Field.ElementsEqual(elementA + elementB, elementC));
+            Assert.IsTrue(Field.ElementsEqual(Field.Add(elementA, elementB), elementC));
         }
 
         [TestCase(0.0, 0.0, 0.0)]
@@ -43,7 +43,7 @@ namespace FlexLibTests.Algebra
             RealFieldElement elementA = a;
             RealFieldElement elementB = b;
             RealFieldElement elementC = c;
-            Assert.IsTrue(Field.ElementsEqual(elementA - elementB, elementC));
+            Assert.IsTrue(Field.ElementsEqual(Field.Add(elementA, Field.Negative(elementB)), elementC));
         }
 
         [TestCase(0.0, 0.0, 0.0)]
@@ -56,7 +56,7 @@ namespace FlexLibTests.Algebra
             RealFieldElement elementA = a;
             RealFieldElement elementB = b;
             RealFieldElement elementC = c;
-            Assert.IsTrue(Field.ElementsEqual(elementA * elementB, elementC));
+            Assert.IsTrue(Field.ElementsEqual(Field.Multiply(elementA, elementB), elementC));
         }
 
         [TestCase(0.0, 1.0, 0.0)]
@@ -68,45 +68,32 @@ namespace FlexLibTests.Algebra
             RealFieldElement elementA = a;
             RealFieldElement elementB = b;
             RealFieldElement elementC = c;
-            Assert.IsTrue(Field.ElementsEqual(elementA / elementB, elementC));
+            Assert.IsTrue(Field.ElementsEqual(Field.Multiply(elementA, Field.Inverse(elementB)), elementC));
         }
 
-        [TestCase(0.0, 1.0, false)]
-        [TestCase(1.0, 0.0, true)]
-        [TestCase(0.0, 0.0, true)]
-        [TestCase(1.0, 0.000005, false)]
-        [TestCase(-1.0, -0.000005, false)]
-        public void TestDivideByZero(double a, double b, bool throws)
+        [TestCase(1.0, false)]
+        [TestCase(0.0, true)]
+        [TestCase(0.000005, false)]
+        [TestCase(-0.000005, false)]
+        public void TestDivideByZero(double x, bool throws)
         {
-            RealFieldElement elementA = a;
-            RealFieldElement elementB = b;
-            RealFieldElement elementC;
+            RealFieldElement element = x;
+            RealFieldElement inverse;
+
             if (throws)
             {
                 Assert.Throws<DivideByZeroException>(delegate
                 {
-                    elementC = elementA / elementB;
+                    inverse = Field.Inverse(element);
                 });
             }
             else
             {
                 Assert.DoesNotThrow(delegate
                 {
-                    elementC = elementA / elementB;
+                    inverse = Field.Inverse(element);
                 });
             }
-        }
-
-        [TestCase(0.0, 0.0, 0.0)]
-        [TestCase(1.55, 1.55, -1.55)]
-        [TestCase(-3.76, -3.76, 3.76)]
-        public void TestPositiveNegative(double x, double positiveX, double negativeX)
-        {
-            RealFieldElement element = x;
-            RealFieldElement positive = positiveX;
-            RealFieldElement negative = negativeX;
-            Assert.IsTrue(Field.ElementsEqual(+element, positive));
-            Assert.IsTrue(Field.ElementsEqual(-element, negative));
         }
 
         [TestCase(0, 0, 0.0)]
@@ -117,7 +104,7 @@ namespace FlexLibTests.Algebra
         {
             RealFieldElement elementA = a == 0 ? Field.Zero() : Field.One();
             RealFieldElement elementB = b == 0 ? Field.Zero() : Field.One();
-            Assert.IsTrue(Field.ElementsEqual(elementA + elementB, (RealFieldElement)c));
+            Assert.IsTrue(Field.ElementsEqual(Field.Add(elementA, elementB), c));
         }
 
         [TestCase(0, 0, 0.0)]
@@ -128,7 +115,7 @@ namespace FlexLibTests.Algebra
         {
             RealFieldElement elementA = a == 0 ? Field.Zero() : Field.One();
             RealFieldElement elementB = b == 0 ? Field.Zero() : Field.One();
-            Assert.IsTrue(Field.ElementsEqual(elementA * elementB, (RealFieldElement)c));
+            Assert.IsTrue(Field.ElementsEqual(Field.Multiply(elementA, elementB), c));
         }
     }
 }

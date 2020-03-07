@@ -9,7 +9,7 @@ namespace FlexLib.Linear
     /// Supports all of the operations of a <see cref="Multiarray{T}"/>.
     /// </summary>
     /// <typeparam name="T">The type of field elements to store.</typeparam>
-    public class Matrix<T> : Multiarray<T> where T : BaseFieldElement<T>
+    public class Matrix<T> : Multiarray<T>
     {
         /// <summary>
         /// The number of rows of the current <see cref="Matrix{T}"/> object.
@@ -129,7 +129,7 @@ namespace FlexLib.Linear
 
             // Add elements along diagonal to trace.
             for (int k = 0; k < Rows; k++)
-                trace = trace + this[k, k];
+                trace = Field.Add(trace, this[k, k]);
 
             return trace;
         }
@@ -150,7 +150,7 @@ namespace FlexLib.Linear
             // Calculate sum element-wise.
             Matrix<T> sum = new Matrix<T>(Field, Rows, Columns);
             for (int n = 0; n < sum.Size; n++)
-                sum[n] = this[n] + matrix[n];
+                sum[n] = Field.Add(this[n], matrix[n]);
             return sum;
         }
         /// <summary>
@@ -169,7 +169,7 @@ namespace FlexLib.Linear
             // Calculate difference element-wise.
             Matrix<T> difference = new Matrix<T>(Field, Rows, Columns);
             for (int n = 0; n < difference.Size; n++)
-                difference[n] = this[n] - matrix[n];
+                difference[n] = Field.Add(this[n], Field.Negative(matrix[n]));
             return difference;
         }
         /// <summary>
@@ -182,7 +182,7 @@ namespace FlexLib.Linear
             // Calculate scaling element-wise.
             Matrix<T> matrix = new Matrix<T>(Field, Rows, Columns);
             for (int n = 0; n < matrix.Size; n++)
-                matrix[n] = this[n] * scalar;
+                matrix[n] = Field.Multiply(this[n], scalar);
             return matrix;
         }
 
@@ -402,7 +402,7 @@ namespace FlexLib.Linear
             // Return a copy of the matrix with the same signs.
             Matrix<T> positive = new Matrix<T>(matrix.Field, matrix.Rows, matrix.Columns);
             for (int n = 0; n < matrix.Size; n++)
-                positive[n] = +matrix[n];
+                positive[n] = matrix.Field.Clone(matrix[n]);
             return positive;
         }
         /// <summary>
@@ -425,7 +425,7 @@ namespace FlexLib.Linear
             // Return a copy of the matrix with the opposite signs.
             Matrix<T> negative = new Matrix<T>(matrix.Field, matrix.Rows, matrix.Columns);
             for (int n = 0; n < matrix.Size; n++)
-                negative[n] = -matrix[n];
+                negative[n] = matrix.Field.Negative(matrix[n]);
             return negative;
         }
 
@@ -457,7 +457,7 @@ namespace FlexLib.Linear
         /// <returns>The element-wise scaled matrix.</returns>
         public static Matrix<T> operator /(Matrix<T> matrix, T scalar)
         {
-            return matrix.Scale(scalar.Inverse());
+            return matrix.Scale(matrix.Field.Inverse(scalar));
         }
     }
 }
