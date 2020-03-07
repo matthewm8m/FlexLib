@@ -3,9 +3,9 @@ using System;
 namespace FlexLib.Algebra
 {
     /// <summary>
-    /// Represents a real number in a mathematical field with the standard definitions of addition and mulitiplication. Any <see cref="RealFieldElement"/> has all the properties of a <see cref="BaseFieldElement{T}"/> object.
+    /// Represents a real number in a mathematical field with the standard definitions of addition and mulitiplication.
     /// </summary>
-    public class RealFieldElement : BaseFieldElement<RealFieldElement>
+    public struct RealFieldElement
     {
         /// <summary>
         /// The value of the real element as a floating point number representation.
