@@ -4,7 +4,7 @@ namespace FlexLib.Algebra
     /// Represents a mathematical field object. This field contains an additive and multiplicative identity called zero and one respectively that can be constructed at any time.
     /// </summary>
     /// <typeparam name="T">The type of field element under consideration.</typeparam>
-    public abstract class BaseField<T> where T : BaseFieldElement<T>
+    public abstract class BaseField<T>
     {
         /// <summary>
         /// Creates an instance of the additive identity <see cref="BaseFieldElement{T}"/> object of the current <see cref="BaseField{T}"/> object.
@@ -16,6 +16,35 @@ namespace FlexLib.Algebra
         /// </summary>
         /// <returns>The multiplicative identity.</returns>
         public abstract T One();
+
+        /// <summary>
+        /// Computes the sum of two elements of type <c>T</c>.
+        /// </summary>
+        /// <param name="elementA">The first element of the sum.</param>
+        /// <param name="elementB">The second element of the sum.</param>
+        /// <returns>The sum of the elements.</returns>
+        public abstract T Add(T elementA, T elementB);
+        /// <summary>
+        /// Computes the product of two elements of type <c>T</c>.
+        /// </summary>
+        /// <param name="elementA">The first element of the product.</param>
+        /// <param name="elementB">The second element of the product.</param>
+        /// <returns>The product of the elements.</returns>
+        public abstract T Multiply(T elementA, T elementB);
+
+        /// <summary>
+        /// Computes the additive inverse of an element of type <c>T</c>.
+        /// </summary>
+        /// <param name="element">The object to find the multiplicative inverse of.</param>
+        /// <returns>The additive inverse of the element.</returns>
+        public abstract T Negative(T element);
+        /// <summary>
+        /// Computes the multiplicative inverse of an element of type <c>T</c>.
+        /// </summary>
+        /// <param name="element">The object to find the multiplicative inverse of.</param>
+        /// <returns>The multiplicative inverse of the element.</returns>
+        public abstract T Inverse(T element);
+
         /// <summary>
         /// Determines whether two instances of <see cref="BaseFieldElement{T}"/> are equal to each other.
         /// </summary>
