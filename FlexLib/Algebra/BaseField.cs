@@ -46,6 +46,13 @@ namespace FlexLib.Algebra
         public abstract T Inverse(T element);
 
         /// <summary>
+        /// Creates a clone of an element of type <c>T</c>.
+        /// </summary>
+        /// <param name="element">The object to clone.</param>
+        /// <returns>The clone of the element</returns>
+        public abstract T Clone(T element);
+
+        /// <summary>
         /// Determines whether two instances of type <c>T</c> are equal to each other.
         /// </summary>
         /// <param name="elementA">The first element.</param>

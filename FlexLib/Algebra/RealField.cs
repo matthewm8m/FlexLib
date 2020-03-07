@@ -87,6 +87,16 @@ namespace FlexLib.Algebra
         }
 
         /// <summary>
+        /// Creates a clone of a <see cref="RealFieldElement"/> object.
+        /// </summary>
+        /// <param name="element">The object to clone.</param>
+        /// <returns>The clone of the element</returns>
+        public override RealFieldElement Clone(RealFieldElement element)
+        {
+            return new RealFieldElement(element.Value);
+        }
+
+        /// <summary>
         /// Determines whether two instances of <see cref="RealFieldElement"/> are equal to each other.
         /// </summary>
         /// <param name="elementA">The first element.</param>
