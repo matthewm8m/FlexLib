@@ -7,12 +7,12 @@ namespace FlexLib.Algebra
     public abstract class BaseField<T>
     {
         /// <summary>
-        /// Creates an instance of the additive identity <see cref="BaseFieldElement{T}"/> object of the current <see cref="BaseField{T}"/> object.
+        /// Creates an instance of the additive identity object of type <c>T</c> of the current <see cref="BaseField{T}"/> object.
         /// </summary>
         /// <returns>The additive identity.</returns>
         public abstract T Zero();
         /// <summary>
-        /// Creates an instance of the multiplicative identity <see cref="BaseFieldElement{T}"/> object of the current <see cref="BaseField{T}"/> object.
+        /// Creates an instance of the multiplicative identity object of type <c>T</c> of the current <see cref="BaseField{T}"/> object.
         /// </summary>
         /// <returns>The multiplicative identity.</returns>
         public abstract T One();
@@ -46,7 +46,7 @@ namespace FlexLib.Algebra
         public abstract T Inverse(T element);
 
         /// <summary>
-        /// Determines whether two instances of <see cref="BaseFieldElement{T}"/> are equal to each other.
+        /// Determines whether two instances of type <c>T</c> are equal to each other.
         /// </summary>
         /// <param name="elementA">The first element.</param>
         /// <param name="elementB">The second element.</param>
