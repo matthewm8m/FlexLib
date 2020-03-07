@@ -339,8 +339,8 @@ DA:134,4
 DA:135,4
 BRDA:124,12,0,0
 BRDA:124,12,1,4
-BRDA:131,83,1,13
-BRDA:131,83,0,4
+BRDA:131,84,1,13
+BRDA:131,84,0,4
 FN:142,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Add(FlexLib.Linear.Matrix`1<T>)
 FNDA:10,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Add(FlexLib.Linear.Matrix`1<T>)
 DA:143,10
@@ -359,8 +359,8 @@ BRDA:145,37,0,0
 BRDA:145,37,1,10
 BRDA:147,64,0,0
 BRDA:147,64,1,10
-BRDA:152,149,1,102
-BRDA:152,149,0,10
+BRDA:152,150,1,102
+BRDA:152,150,0,10
 FN:161,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Subtract(FlexLib.Linear.Matrix`1<T>)
 FNDA:10,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Subtract(FlexLib.Linear.Matrix`1<T>)
 DA:162,10
@@ -379,8 +379,8 @@ BRDA:164,37,0,0
 BRDA:164,37,1,10
 BRDA:166,64,0,0
 BRDA:166,64,1,10
-BRDA:171,149,1,102
-BRDA:171,149,0,10
+BRDA:171,161,1,102
+BRDA:171,161,0,10
 FN:180,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Scale(T)
 FNDA:24,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::Scale(T)
 DA:181,24
@@ -389,8 +389,8 @@ DA:184,608
 DA:185,280
 DA:186,24
 DA:187,24
-BRDA:184,70,1,280
-BRDA:184,70,0,24
+BRDA:184,71,1,280
+BRDA:184,71,0,24
 FN:194,System.Boolean FlexLib.Linear.Matrix`1::Equals(System.Object)
 FNDA:0,System.Boolean FlexLib.Linear.Matrix`1::Equals(System.Object)
 DA:195,0
@@ -432,12 +432,14 @@ BRDA:219,12,0,0
 BRDA:219,12,1,2352
 BRDA:221,36,0,0
 BRDA:221,36,1,2352
-BRDA:231,177,1,7336
-BRDA:233,159,1,22624
-BRDA:235,119,0,22624
-BRDA:235,119,1,0
-BRDA:233,159,0,7336
-BRDA:231,177,0,2352
+BRDA:231,179,1,7336
+BRDA:233,161,1,22624
+BRDA:235,102,0,22624
+BRDA:235,102,1,0
+BRDA:235,121,0,22624
+BRDA:235,121,1,0
+BRDA:233,161,0,7336
+BRDA:231,179,0,2352
 FN:249,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::FromMultiarray(FlexLib.Algebra.BaseField`1<T>,FlexLib.Linear.Multiarray`1<T>)
 FNDA:16,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::FromMultiarray(FlexLib.Algebra.BaseField`1<T>,FlexLib.Linear.Multiarray`1<T>)
 DA:250,16
@@ -570,8 +572,8 @@ DA:404,212
 DA:405,98
 DA:406,8
 DA:407,8
-BRDA:404,69,1,98
-BRDA:404,69,0,8
+BRDA:404,70,1,98
+BRDA:404,70,0,8
 FN:414,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Subtraction(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
 FNDA:10,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Subtraction(FlexLib.Linear.Matrix`1<T>,FlexLib.Linear.Matrix`1<T>)
 DA:415,10
@@ -585,8 +587,8 @@ DA:427,184
 DA:428,84
 DA:429,8
 DA:430,8
-BRDA:427,69,1,84
-BRDA:427,69,0,8
+BRDA:427,70,1,84
+BRDA:427,70,0,8
 FN:438,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Multiply(FlexLib.Linear.Matrix`1<T>,T)
 FNDA:8,FlexLib.Linear.Matrix`1<T> FlexLib.Linear.Matrix`1::op_Multiply(FlexLib.Linear.Matrix`1<T>,T)
 DA:439,8
@@ -632,8 +634,8 @@ DA:67,16
 DA:68,16
 LF:190
 LH:151
-BRF:80
-BRH:53
+BRF:82
+BRH:54
 FNF:29
 FNH:25
 end_of_record
@@ -1203,74 +1205,36 @@ FNF:31
 FNH:30
 end_of_record
 SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/Algebra/BaseField.cs
-FN:32,System.Boolean FlexLib.Algebra.BaseField`1::Equals(System.Object)
+FN:68,System.Boolean FlexLib.Algebra.BaseField`1::Equals(System.Object)
 FNDA:0,System.Boolean FlexLib.Algebra.BaseField`1::Equals(System.Object)
-DA:33,0
-DA:34,0
-DA:35,0
-DA:36,0
-DA:37,0
-BRDA:34,12,0,0
-BRDA:34,12,1,0
-FN:42,System.Int32 FlexLib.Algebra.BaseField`1::GetHashCode()
+DA:69,0
+DA:70,0
+DA:71,0
+DA:72,0
+DA:73,0
+BRDA:70,12,0,0
+BRDA:70,12,1,0
+FN:78,System.Int32 FlexLib.Algebra.BaseField`1::GetHashCode()
 FNDA:0,System.Int32 FlexLib.Algebra.BaseField`1::GetHashCode()
-DA:43,0
-DA:44,0
-DA:45,0
-FN:53,System.Boolean FlexLib.Algebra.BaseField`1::op_Equality(FlexLib.Algebra.BaseField`1<T>,FlexLib.Algebra.BaseField`1<T>)
+DA:79,0
+DA:80,0
+DA:81,0
+FN:89,System.Boolean FlexLib.Algebra.BaseField`1::op_Equality(FlexLib.Algebra.BaseField`1<T>,FlexLib.Algebra.BaseField`1<T>)
 FNDA:5228,System.Boolean FlexLib.Algebra.BaseField`1::op_Equality(FlexLib.Algebra.BaseField`1<T>,FlexLib.Algebra.BaseField`1<T>)
-DA:54,5228
-DA:55,5228
-DA:56,5228
-FN:63,System.Boolean FlexLib.Algebra.BaseField`1::op_Inequality(FlexLib.Algebra.BaseField`1<T>,FlexLib.Algebra.BaseField`1<T>)
+DA:90,5228
+DA:91,5228
+DA:92,5228
+FN:99,System.Boolean FlexLib.Algebra.BaseField`1::op_Inequality(FlexLib.Algebra.BaseField`1<T>,FlexLib.Algebra.BaseField`1<T>)
 FNDA:96,System.Boolean FlexLib.Algebra.BaseField`1::op_Inequality(FlexLib.Algebra.BaseField`1<T>,FlexLib.Algebra.BaseField`1<T>)
-DA:64,96
-DA:65,96
-DA:66,96
+DA:100,96
+DA:101,96
+DA:102,96
 LF:14
 LH:6
 BRF:2
 BRH:0
 FNF:4
 FNH:2
-end_of_record
-SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/Algebra/BaseFieldElement.cs
-FN:39,T FlexLib.Algebra.BaseFieldElement`1::op_Addition(FlexLib.Algebra.BaseFieldElement`1<T>,T)
-FNDA:124,T FlexLib.Algebra.BaseFieldElement`1::op_Addition(FlexLib.Algebra.BaseFieldElement`1<T>,T)
-DA:40,124
-DA:41,124
-DA:42,124
-FN:48,T FlexLib.Algebra.BaseFieldElement`1::op_UnaryPlus(FlexLib.Algebra.BaseFieldElement`1<T>)
-FNDA:101,T FlexLib.Algebra.BaseFieldElement`1::op_UnaryPlus(FlexLib.Algebra.BaseFieldElement`1<T>)
-DA:49,101
-DA:50,101
-DA:51,101
-FN:58,T FlexLib.Algebra.BaseFieldElement`1::op_Subtraction(FlexLib.Algebra.BaseFieldElement`1<T>,T)
-FNDA:107,T FlexLib.Algebra.BaseFieldElement`1::op_Subtraction(FlexLib.Algebra.BaseFieldElement`1<T>,T)
-DA:59,107
-DA:60,107
-DA:61,107
-FN:67,T FlexLib.Algebra.BaseFieldElement`1::op_UnaryNegation(FlexLib.Algebra.BaseFieldElement`1<T>)
-FNDA:87,T FlexLib.Algebra.BaseFieldElement`1::op_UnaryNegation(FlexLib.Algebra.BaseFieldElement`1<T>)
-DA:68,87
-DA:69,87
-DA:70,87
-FN:77,T FlexLib.Algebra.BaseFieldElement`1::op_Multiply(FlexLib.Algebra.BaseFieldElement`1<T>,T)
-FNDA:289,T FlexLib.Algebra.BaseFieldElement`1::op_Multiply(FlexLib.Algebra.BaseFieldElement`1<T>,T)
-DA:78,289
-DA:79,289
-DA:80,289
-FN:87,T FlexLib.Algebra.BaseFieldElement`1::op_Division(FlexLib.Algebra.BaseFieldElement`1<T>,T)
-FNDA:9,T FlexLib.Algebra.BaseFieldElement`1::op_Division(FlexLib.Algebra.BaseFieldElement`1<T>,T)
-DA:88,9
-DA:89,9
-DA:90,7
-LF:18
-LH:18
-BRF:0
-BRH:0
-FNF:6
-FNH:6
 end_of_record
 SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/Algebra/RealField.cs
 FN:33,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealField::Zero()
@@ -1283,85 +1247,89 @@ FNDA:288,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealField::One()
 DA:42,288
 DA:43,288
 DA:44,288
-FN:51,System.Boolean FlexLib.Algebra.RealField::ElementsEqual(FlexLib.Algebra.RealFieldElement,FlexLib.Algebra.RealFieldElement)
-FNDA:771,System.Boolean FlexLib.Algebra.RealField::ElementsEqual(FlexLib.Algebra.RealFieldElement,FlexLib.Algebra.RealFieldElement)
-DA:52,771
-DA:53,771
-DA:54,771
-DA:55,0
-DA:56,771
-BRDA:53,32,0,771
-BRDA:53,32,1,0
-FN:63,System.Boolean FlexLib.Algebra.RealField::Equals(System.Object)
+FN:52,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealField::Add(FlexLib.Algebra.RealFieldElement,FlexLib.Algebra.RealFieldElement)
+FNDA:231,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealField::Add(FlexLib.Algebra.RealFieldElement,FlexLib.Algebra.RealFieldElement)
+DA:53,231
+DA:54,231
+DA:55,231
+FN:62,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealField::Multiply(FlexLib.Algebra.RealFieldElement,FlexLib.Algebra.RealFieldElement)
+FNDA:293,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealField::Multiply(FlexLib.Algebra.RealFieldElement,FlexLib.Algebra.RealFieldElement)
+DA:63,293
+DA:64,293
+DA:65,293
+FN:72,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealField::Negative(FlexLib.Algebra.RealFieldElement)
+FNDA:191,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealField::Negative(FlexLib.Algebra.RealFieldElement)
+DA:73,191
+DA:74,191
+DA:75,191
+FN:81,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealField::Inverse(FlexLib.Algebra.RealFieldElement)
+FNDA:16,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealField::Inverse(FlexLib.Algebra.RealFieldElement)
+DA:82,16
+DA:84,16
+DA:85,1
+DA:86,15
+DA:87,15
+BRDA:84,20,0,1
+BRDA:84,20,1,15
+FN:94,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealField::Clone(FlexLib.Algebra.RealFieldElement)
+FNDA:98,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealField::Clone(FlexLib.Algebra.RealFieldElement)
+DA:95,98
+DA:96,98
+DA:97,98
+FN:105,System.Boolean FlexLib.Algebra.RealField::ElementsEqual(FlexLib.Algebra.RealFieldElement,FlexLib.Algebra.RealFieldElement)
+FNDA:765,System.Boolean FlexLib.Algebra.RealField::ElementsEqual(FlexLib.Algebra.RealFieldElement,FlexLib.Algebra.RealFieldElement)
+DA:106,765
+DA:107,765
+DA:108,765
+DA:109,0
+DA:110,765
+BRDA:107,32,0,765
+BRDA:107,32,1,0
+FN:117,System.Boolean FlexLib.Algebra.RealField::Equals(System.Object)
 FNDA:5324,System.Boolean FlexLib.Algebra.RealField::Equals(System.Object)
-DA:64,5324
-DA:65,5324
-DA:66,96
-DA:67,5228
-DA:68,5324
-BRDA:65,14,0,96
-BRDA:65,14,1,5228
-FN:73,System.Int32 FlexLib.Algebra.RealField::GetHashCode()
+DA:118,5324
+DA:119,5324
+DA:120,96
+DA:121,5228
+DA:122,5324
+BRDA:119,14,0,96
+BRDA:119,14,1,5228
+FN:127,System.Int32 FlexLib.Algebra.RealField::GetHashCode()
 FNDA:0,System.Int32 FlexLib.Algebra.RealField::GetHashCode()
-DA:74,0
-DA:75,0
-DA:76,0
+DA:128,0
+DA:129,0
+DA:130,0
 FN:18,System.Void FlexLib.Algebra.RealField::.ctor()
 FNDA:0,System.Void FlexLib.Algebra.RealField::.ctor()
 DA:19,0
 FN:23,System.Void FlexLib.Algebra.RealField::.ctor(System.Double)
-FNDA:91,System.Void FlexLib.Algebra.RealField::.ctor(System.Double)
-DA:24,91
-DA:25,91
-DA:26,91
-DA:27,91
-LF:24
-LH:19
-BRF:4
-BRH:3
-FNF:7
-FNH:5
+FNDA:87,System.Void FlexLib.Algebra.RealField::.ctor(System.Double)
+DA:24,87
+DA:25,87
+DA:26,87
+DA:27,87
+LF:41
+LH:36
+BRF:6
+BRH:5
+FNF:12
+FNH:10
 end_of_record
 SF:/home/matt/Dropbox/Projects/FlexLib/FlexLib/Algebra/RealFieldElement.cs
-FN:29,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealFieldElement::Add(FlexLib.Algebra.RealFieldElement)
-FNDA:231,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealFieldElement::Add(FlexLib.Algebra.RealFieldElement)
-DA:30,231
-DA:31,231
-DA:32,231
-FN:38,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealFieldElement::Multiply(FlexLib.Algebra.RealFieldElement)
-FNDA:296,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealFieldElement::Multiply(FlexLib.Algebra.RealFieldElement)
-DA:39,296
-DA:40,296
-DA:41,296
-FN:47,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealFieldElement::Negative()
-FNDA:396,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealFieldElement::Negative()
-DA:48,396
-DA:49,396
-DA:50,396
-FN:55,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealFieldElement::Inverse()
-FNDA:17,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealFieldElement::Inverse()
-DA:56,17
-DA:58,17
-DA:59,2
-DA:60,15
-DA:61,15
-BRDA:58,20,0,2
-BRDA:58,20,1,15
-FN:67,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealFieldElement::op_Implicit(System.Double)
-FNDA:22746,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealFieldElement::op_Implicit(System.Double)
-DA:68,22746
-DA:69,22746
-DA:70,22746
-FN:18,System.Void FlexLib.Algebra.RealFieldElement::.ctor(System.Double)
-FNDA:24712,System.Void FlexLib.Algebra.RealFieldElement::.ctor(System.Double)
-DA:19,24712
-DA:20,24712
-DA:21,24712
-DA:22,24712
-LF:21
-LH:21
-BRF:2
-BRH:2
-FNF:6
-FNH:6
+FN:28,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealFieldElement::op_Implicit(System.Double)
+FNDA:22731,FlexLib.Algebra.RealFieldElement FlexLib.Algebra.RealFieldElement::op_Implicit(System.Double)
+DA:29,22731
+DA:30,22731
+DA:31,22731
+FN:19,System.Void FlexLib.Algebra.RealFieldElement::.ctor(System.Double)
+FNDA:24587,System.Void FlexLib.Algebra.RealFieldElement::.ctor(System.Double)
+DA:20,24587
+DA:21,24587
+DA:22,24587
+LF:6
+LH:6
+BRF:0
+BRH:0
+FNF:2
+FNH:2
 end_of_record
