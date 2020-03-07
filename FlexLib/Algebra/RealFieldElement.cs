@@ -22,45 +22,6 @@ namespace FlexLib.Algebra
         }
 
         /// <summary>
-        /// Computes the sum of the current and another <see cref="RealFieldElement"/> object.
-        /// </summary>
-        /// <param name="element">The other object.</param>
-        /// <returns>The sum.</returns>
-        public override RealFieldElement Add(RealFieldElement element)
-        {
-            return new RealFieldElement(Value + element.Value);
-        }
-        /// <summary>
-        /// Computes the product of the current and another <see cref="RealFieldElement"/> object.
-        /// </summary>
-        /// <param name="element">The other object.</param>
-        /// <returns>The product.</returns>
-        public override RealFieldElement Multiply(RealFieldElement element)
-        {
-            return new RealFieldElement(Value * element.Value);
-        }
-
-        /// <summary>
-        /// Computes the additive inverse of the current <see cref="RealFieldElement"/> object.
-        /// </summary>
-        /// <returns>The additive inverse.</returns>
-        public override RealFieldElement Negative()
-        {
-            return new RealFieldElement(-Value);
-        }
-        /// <summary>
-        /// Computes the multiplicative inverse of the current <see cref="RealFieldElement"/> object.
-        /// </summary>
-        /// <returns>The multiplicative inverse.</returns>
-        public override RealFieldElement Inverse()
-        {
-            // Do not allow division by zero.
-            if (Value == 0.0)
-                throw new DivideByZeroException();
-            return new RealFieldElement(1.0 / Value);
-        }
-
-        /// <summary>
         /// Implicitly converts a <see cref="double"/> object to a <see cref="RealFieldElement"/> object.
         /// </summary>
         /// <param name="value">The value of the real element.</param>
