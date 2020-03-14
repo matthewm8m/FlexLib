@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Build with dotnet
-      run: dotnet build FlexLib --configuration Release
-           dotnet build FlexLibTests --configuration Release
+      run: dotnet build --configuration Release FlexLib/FlexLib.csproj /property:GenerateFullPaths=true
+           dotnet build --configuration Release FlexLibTests/FlexLibTests.csproj /property:GenerateFullPaths=true
     - name: Test with dotnet
-      run: dotnet test FlexLibTests /property:CollectCoverage=true /property:CoverletOutputFormat="lcov"
+      run: dotnet test FlexLibTests /property:GenerateFullPaths=true /property:CollectCoverage=true /property:CoverletOutputFormat="lcov"
