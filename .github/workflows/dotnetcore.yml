@@ -7,34 +7,28 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.101
-    - name: Build with dotnet
-      run: |
-        dotnet build --configuration Release FlexLib/FlexLib.csproj /property:GenerateFullPaths=true
-        dotnet build --configuration Release FlexLibTests/FlexLibTests.csproj /property:GenerateFullPaths=true
-
   test:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
+      
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
+
     - name: Build with dotnet
       run: |
         dotnet build --configuration Release FlexLib/FlexLib.csproj /property:GenerateFullPaths=true
         dotnet build --configuration Release FlexLibTests/FlexLibTests.csproj /property:GenerateFullPaths=true
+    
     - name: Test with dotnet
-      run: dotnet test FlexLibTests /property:GenerateFullPaths=true /property:CollectCoverage=true /property:CoverletOutputFormat="lcov"
+      run: dotnet test FlexLibTests /p:GenerateFullPaths=true /p:CollectCoverage=true /py:CoverletOutputFormat=/lcov /p:CoverletOutputFormat=lcov
+    
+    - name: Publish coverage report with coverage
+      uses: coverallsapp/github-action@v1.0.1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: FlexLibTests/lcov/coverage.info
