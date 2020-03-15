@@ -21,7 +21,7 @@ jobs:
         dotnet build --configuration Release ./FlexLibTests/FlexLibTests.csproj /p:GenerateFullPaths=true
     
     - name: Test with dotnet
-      run: dotnet test --no-build FlexLibTests /p:GenerateFullPaths=true /p:CollectCoverage=true /p:CoverletOutput=lcov /p:CoverletOutputFormat=lcov
+      run: dotnet test FlexLibTests /p:GenerateFullPaths=true /p:CollectCoverage=true /p:CoverletOutput=lcov /p:CoverletOutputFormat=lcov
     
     - name: Publish coverage report with coveralls.io
       uses: coverallsapp/github-action@v1.0.1
