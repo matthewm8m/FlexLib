@@ -1,10 +1,6 @@
 name: .NET Core
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push]
 
 jobs:
   test:
@@ -25,10 +21,10 @@ jobs:
         dotnet build --configuration Release ./FlexLibTests/FlexLibTests.csproj /p:GenerateFullPaths=true
     
     - name: Test with dotnet
-      run: dotnet test --no-build FlexLibTests /p:GenerateFullPaths=true /p:CollectCoverage=true /p:CoverletOutput=./lcov /p:CoverletOutputFormat=lcov
+      run: dotnet test --no-build FlexLibTests /p:GenerateFullPaths=true /p:CollectCoverage=true /p:CoverletOutput=lcov /p:CoverletOutputFormat=lcov
     
     - name: Publish coverage report with coveralls.io
       uses: coverallsapp/github-action@v1.0.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ./FlexLibTests/lcov.info
+        path-to-lcov: FlexLibTests/lcov.info
