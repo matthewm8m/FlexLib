@@ -18,7 +18,7 @@ namespace FlexLib.Parsing
 
             Context = context;
             Rule = new Regex($@"{whitespaceDelimiter}(?:{
-                    string.Join(@"|", Context.Select(tokenResource => $@"({
+                    string.Join(@"|", Context.TokenResources.Select(tokenResource => $@"({
                         string.Join(@"|", tokenResource.RegexPatterns.Select(tokenPattern => $@"(?:{tokenPattern})"))
                         })"))
                     }|(.)){whitespaceDelimiter}", RegexOptions.Compiled);
@@ -31,11 +31,11 @@ namespace FlexLib.Parsing
             foreach (Match match in matches)
             {
                 bool tokenized = false;
-                for (int i = 0; i < Context.Count; i++)
+                for (int i = 0; i < Context.TokenResources.Count; i++)
                 {
                     if (!string.IsNullOrEmpty(match.Groups[i + 1].Value))
                     {
-                        yield return new Token(Context[i].Name, Context[i].Ligature, input, match.Index);
+                        yield return new Token(Context.TokenResources[i].Name, Context.TokenResources[i].Ligature, input, match.Index);
                         tokenized = true;
                         break;
                     }

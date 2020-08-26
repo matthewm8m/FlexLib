@@ -4,13 +4,17 @@ using System.Xml.Linq;
 
 namespace FlexLib.Parsing
 {
-    public class TokenizerContext : List<TokenResource>
+    public class TokenizerContext
     {
+        public readonly List<TokenResource> TokenResources;
+
         public TokenizerContext()
-            : base() { }
+            : this(Enumerable.Empty<TokenResource>()) { }
         public TokenizerContext(IEnumerable<TokenResource> tokenResources)
-            : base(tokenResources) { }
-        
+        {
+            TokenResources = new List<TokenResource>(tokenResources);
+        }
+
         public static TokenizerContext FromXml(XElement xml)
         {
             return new TokenizerContext(xml.Elements("token")
