@@ -1,10 +1,13 @@
 using System;
 
+using FlexLib.Reflection;
+
 namespace FlexLib.Algebra
 {
     /// <summary>
     /// Represents a real number in a mathematical field with the standard definitions of addition and mulitiplication.
     /// </summary>
+    [Type("Real Number")]
     public struct RealFieldElement
     {
         /// <summary>
@@ -28,6 +31,16 @@ namespace FlexLib.Algebra
         public static implicit operator RealFieldElement(double value)
         {
             return new RealFieldElement(value);
+        }
+
+        [Parser]
+        public static RealFieldElement ParseRealFieldElement(string text)
+        {
+            bool parseSuccess = double.TryParse(text, out double value);
+            if (parseSuccess)
+                return new RealFieldElement(value);
+            else
+                throw new ArgumentException($"'{text}' is invalid numeric string");
         }
     }
 }
