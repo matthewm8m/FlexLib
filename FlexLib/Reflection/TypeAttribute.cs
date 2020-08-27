@@ -2,7 +2,7 @@ using System;
 
 namespace FlexLib.Reflection
 {
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct, AllowMultiple = true)]
     public class TypeAttribute : Attribute
     {
         public readonly string Name;

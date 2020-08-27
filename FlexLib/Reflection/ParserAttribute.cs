@@ -2,7 +2,7 @@ using System;
 
 namespace FlexLib.Reflection
 {
-    [AttributeUsage(AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class ParserAttribute : Attribute
     {
         public readonly string Name;
