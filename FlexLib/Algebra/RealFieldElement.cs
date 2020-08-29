@@ -33,6 +33,11 @@ namespace FlexLib.Algebra
             return new RealFieldElement(value);
         }
 
+        /// <summary>
+        /// Parses a plain text number into a real element.
+        /// </summary>
+        /// <param name="text">The plain text number.</param>
+        /// <returns>The parsed real element.</returns>
         [Parser]
         public static RealFieldElement ParseRealFieldElement(string text)
         {
