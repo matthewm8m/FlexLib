@@ -4,14 +4,18 @@
     <name>Whitespace</name>
     <ignore>True</ignore>
     <patterns>
-      <pattern>\s+</pattern>
+      <pattern>
+        <regex>\s+</regex>
+      </pattern>
     </patterns>
   </token>
 
   <token>
     <name>In Operator</name>
     <patterns>
-      <pattern>in</pattern>
+      <pattern>
+        <regex>in</regex>
+      </pattern>
     </patterns>
     <ligature>∈</ligature>
   </token>
