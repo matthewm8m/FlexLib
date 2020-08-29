@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <tokens>
-  <token name="IN">
+  <token>
+    <name>Whitespace</name>
+    <ignore>true</ignore>
+    <patterns>
+      <pattern>\s+</pattern>
+    </patterns>
+  </token>
+
+  <token>
+    <name>In Operator</name>
     <patterns>
       <pattern>in</pattern>
     </patterns>
