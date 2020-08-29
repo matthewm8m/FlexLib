@@ -2,13 +2,28 @@
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+
+using FlexLib.Reflection;
 
 namespace FlexLib.Parsing
 {
+    /// <summary>
+    /// Uses a specified tokenizer context to provide the rules for taking plain text and converting to tokens.
+    /// </summary>
     public class Tokenizer
     {
+        /// <summary>
+        /// Specifies tokenizer rules and settings.
+        /// </summary>
         private readonly TokenizerContext Context;
+        /// <summary>
+        /// The compiled regular expressions rule constructed from the context.
+        /// </summary>
         private readonly Regex Rule;
+
+        private readonly Dictionary<string, Type> TypeMap;
+        private readonly Dictionary<Tuple<Type, string>, Parser> ParserMap;
 
         public Tokenizer(TokenizerContext context)
             : this(context, true) { }
@@ -22,6 +37,45 @@ namespace FlexLib.Parsing
                         string.Join(@"|", tokenResource.RegexPatterns.Select(tokenPattern => $@"(?:{tokenPattern})"))
                         })"))
                     }|(.)){whitespaceDelimiter}", RegexOptions.Compiled);
+
+            InitializeAttributeMaps();
+        }
+
+        /// <summary>
+        /// Initializes mappings between naming attributes and properties.
+        /// </summary>
+        private void InitializeAttributeMaps()
+        {
+            // Search through all types in the current assemblies and compile a list of types and type parsers.
+            foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                foreach (Type type in assembly.GetTypes())
+                {
+                    // Add type mappings.
+                    IEnumerable<TypeAttribute> typeAttrs = type.GetCustomAttributes<TypeAttribute>(false);
+                    foreach (TypeAttribute typeAttr in typeAttrs)
+                        TypeMap.Add(typeAttr.Name, type);
+
+                    // Add parser mappings.
+                    foreach (MethodInfo method in type.GetMethods())
+                    {
+                        // Try to convert method to correct signature.
+                        // If a failure occurs, notify the user that parser is incorrect.
+                        IEnumerable<ParserAttribute> parserAttrs = method.GetCustomAttributes<ParserAttribute>(false);
+                        foreach (ParserAttribute parserAttr in parserAttrs)
+                        {
+                            try
+                            {
+                                ParserMap.Add(new Tuple<Type, string>(type, parserAttr.Name), (Parser)Delegate.CreateDelegate(typeof(Parser), method));
+                            }
+                            catch (Exception)
+                            {
+                                throw new NotSupportedException($"Parser named '{parserAttr.Name}' is not implemented correctly.");
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         public IEnumerable<Token> Tokenize(string input)
