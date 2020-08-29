@@ -60,7 +60,8 @@ namespace FlexLib.Parsing
                 xml.Element("name")?.Value,                             // Name of token type
                 xml.Element("patterns")?                                // Regular expression patterns
                    .Elements("pattern")?
-                   .Select(patternElement => patternElement.Value),
+                   .Select(patternElement =>
+                        patternElement.Element("regex")?.Value),
                 Convert.ToBoolean(xml.Element("ignore")?.Value),        // Ignore or emit
                 xml.Element("ligature")?.Value                          // Ligature of token type
             );
