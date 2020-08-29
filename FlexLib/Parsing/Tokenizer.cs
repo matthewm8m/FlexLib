@@ -8,6 +8,8 @@ using FlexLib.Reflection;
 
 namespace FlexLib.Parsing
 {
+    public delegate object Parser(string text);
+
     /// <summary>
     /// Uses a specified tokenizer context to provide the rules for taking plain text and converting to tokens.
     /// </summary>
