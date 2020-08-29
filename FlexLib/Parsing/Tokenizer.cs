@@ -28,17 +28,13 @@ namespace FlexLib.Parsing
         private readonly Dictionary<Tuple<Type, string>, Parser> ParserMap;
 
         public Tokenizer(TokenizerContext context)
-            : this(context, true) { }
-        public Tokenizer(TokenizerContext context, bool ignoreWhitespace)
         {
-            string whitespaceDelimiter = ignoreWhitespace ? @"\s*" : @"";
-
             Context = context;
-            Rule = new Regex($@"{whitespaceDelimiter}(?:{
+            Rule = new Regex($@"(?:{
                     string.Join(@"|", Context.TokenResources.Select(tokenResource => $@"({
                         string.Join(@"|", tokenResource.RegexPatterns.Select(tokenPattern => $@"(?:{tokenPattern})"))
                         })"))
-                    }|(.)){whitespaceDelimiter}", RegexOptions.Compiled);
+                    }|(.))", RegexOptions.Compiled);
 
             InitializeAttributeMaps();
         }
@@ -91,7 +87,9 @@ namespace FlexLib.Parsing
                 {
                     if (!string.IsNullOrEmpty(match.Groups[i + 1].Value))
                     {
-                        yield return new Token(Context.TokenResources[i].Name, Context.TokenResources[i].Ligature, input, match.Index);
+                        if (!Context.TokenResources[i].Ignore)
+                            yield return new Token(Context.TokenResources[i].Name, Context.TokenResources[i].Ligature, input, match.Index);
+                            
                         tokenized = true;
                         break;
                     }
