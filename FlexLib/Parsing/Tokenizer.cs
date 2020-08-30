@@ -88,8 +88,8 @@ namespace FlexLib.Parsing
                     if (!string.IsNullOrEmpty(match.Groups[i + 1].Value))
                     {
                         if (!Context.TokenResources[i].Ignore)
-                            yield return new Token(Context.TokenResources[i].Name, Context.TokenResources[i].Ligature, input, match.Index);
-                            
+                            yield return new Token(Context.TokenResources[i].Name, match.Groups[i + 1].Value, Context.TokenResources[i].Ligature);
+
                         tokenized = true;
                         break;
                     }
