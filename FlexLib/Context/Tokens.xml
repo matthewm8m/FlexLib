@@ -11,6 +11,16 @@
   </token>
 
   <token>
+    <name>Real Number</name>
+    <data>Real Number</name>
+    <patterns>
+      <pattern>
+        <regex>\d*\.?\d+</regex>
+      </pattern>
+    </patterns>
+  </token>
+
+  <token>
     <name>In Operator</name>
     <patterns>
       <pattern>
