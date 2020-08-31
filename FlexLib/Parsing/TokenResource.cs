@@ -6,6 +6,32 @@ using System.Xml.Linq;
 namespace FlexLib.Parsing
 {
     /// <summary>
+    /// Represents a regular expression and its corresponding parser.
+    /// </summary>
+    public struct TokenPattern
+    {
+        /// <summary>
+        /// The regular expression to match text to tokens.
+        /// </summary>
+        public readonly string Pattern;
+        /// <summary>
+        /// The name of the parser to use to interpret data.
+        /// </summary>
+        public readonly string Parser;
+
+        /// <summary>
+        /// Construct a token patter with a pattern and a parser.
+        /// </summary>
+        /// <param name="pattern"></param>
+        /// <param name="parser"></param>
+        public TokenPattern(string pattern, string parser)
+        {
+            Pattern = pattern;
+            Parser = parser;
+        }
+    }
+
+    /// <summary>
     /// Represents a set of patterns and properties defining a token.
     /// </summary>
     public class TokenResource
@@ -23,9 +49,13 @@ namespace FlexLib.Parsing
         /// </summary>
         public readonly string Ligature;
         /// <summary>
+        /// The type of data that the token will represent.
+        /// </summary>
+        public readonly string Type;
+        /// <summary>
         /// The list of regular expression patterns that are used to match this type of token.
         /// </summary>
-        public readonly List<string> RegexPatterns;
+        public readonly List<TokenPattern> TokenPatterns;
 
         /// <summary>
         /// Constructs a new token resource with specified names, patterns, and properties.
@@ -34,18 +64,20 @@ namespace FlexLib.Parsing
         /// <param name="patterns">A collection of the regular expression patterns to match.</param>
         /// <param name="ignore">Whether to ignore rather than emit a token from the tokenizer.</param>
         /// <param name="ligature">The symbol to represent the type of token.</param>
-        public TokenResource(string name, IEnumerable<string> patterns, bool ignore = false, string ligature = null)
+        /// <param name="type">The name of the type for the token data.</param>
+        public TokenResource(string name, IEnumerable<TokenPattern> patterns, bool ignore = false, string ligature = null, string type = null)
         {
             // Set properties of the resource.
             Name = name;
             Ignore = ignore;
             Ligature = ligature;
+            Type = type;
 
             // Check if patterns have been specified or use a default value.
             if (patterns == null)
-                RegexPatterns = new List<string>();
+                TokenPatterns = new List<TokenPattern>();
             else
-                RegexPatterns = new List<string>(patterns);
+                TokenPatterns = new List<TokenPattern>(patterns);
         }
 
         /// <summary>
@@ -55,15 +87,36 @@ namespace FlexLib.Parsing
         /// <returns>The newly constructed token resource.</returns>
         public static TokenResource FromXml(XElement xml)
         {
-            // Load the XML based on specific format.
-            return new TokenResource(
-                xml.Element("name")?.Value,                             // Name of token type
-                xml.Element("patterns")?                                // Regular expression patterns
-                   .Elements("pattern")?
+            // Get all of the information from the formatted XML element.
+            string name =
+                xml.Element("name")?.Value;
+            string ligature =
+                xml.Element("ligature")?.Value;
+            string type =
+                xml.Element("type")?.Value;
+            IEnumerable<TokenPattern> patterns =
+                xml.Element("patterns")
+                   .Elements("pattern")
                    .Select(patternElement =>
-                        patternElement.Element("regex")?.Value),
-                Convert.ToBoolean(xml.Element("ignore")?.Value),        // Ignore or emit
-                xml.Element("ligature")?.Value                          // Ligature of token type
+                        new TokenPattern(
+                            patternElement.Element("regex")?.Value,
+                            patternElement.Element("parser")?.Value
+                        ));
+            bool ignoreParseSuccess = bool.TryParse(
+                xml.Element("ignore")?.Value, out bool ignore
+            );
+
+            // Raise an exception if any parsing was unsuccessful.
+            if (!ignoreParseSuccess)
+                throw new FormatException($"Token '{name}' has malformatted 'ignore' tag.");
+
+            // Construct and return the token resource.
+            return new TokenResource(
+                name,
+                patterns,
+                ignore,
+                ligature,
+                type
             );
         }
     }

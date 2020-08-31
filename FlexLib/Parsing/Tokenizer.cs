@@ -24,18 +24,30 @@ namespace FlexLib.Parsing
         /// </summary>
         private readonly Regex Rule;
 
+        /// <summary>
+        /// A mapping between textual names and types.
+        /// </summary>
         private readonly Dictionary<string, Type> TypeMap;
+        /// <summary>
+        /// A mapping between textual names and types and parsers.
+        /// </summary>
         private readonly Dictionary<Tuple<Type, string>, Parser> ParserMap;
 
+        /// <summary>
+        /// Constructs a tokenizer using a specific tokenizer context.
+        /// </summary>
+        /// <param name="context">The tokenizer context specifying rules and patterns.</param>
         public Tokenizer(TokenizerContext context)
         {
+            // Set context and compile regular expression rule.
             Context = context;
             Rule = new Regex($@"(?:{
                     string.Join(@"|", Context.TokenResources.Select(tokenResource => $@"({
-                        string.Join(@"|", tokenResource.RegexPatterns.Select(tokenPattern => $@"(?:{tokenPattern})"))
+                        string.Join(@"|", tokenResource.TokenPatterns.Select(tokenPattern => $@"(?:{tokenPattern.Pattern})"))
                         })"))
                     }|(.))", RegexOptions.Compiled);
 
+            // Initialize the type and parser mappings.
             InitializeAttributeMaps();
         }
 
@@ -78,25 +90,44 @@ namespace FlexLib.Parsing
 
         public IEnumerable<Token> Tokenize(string input)
         {
+            // Find matches to the regular expression rule.
             MatchCollection matches = Rule.Matches(input);
-
             foreach (Match match in matches)
             {
+                // For each match, find its corresponding token and emit it.
                 bool tokenized = false;
                 for (int i = 0; i < Context.TokenResources.Count; i++)
                 {
                     if (!string.IsNullOrEmpty(match.Groups[i + 1].Value))
                     {
-                        if (!Context.TokenResources[i].Ignore)
-                            yield return new Token(Context.TokenResources[i].Name, match.Groups[i + 1].Value, Context.TokenResources[i].Ligature);
+                        // Get the input value and the token resource.
+                        string value = match.Groups[i + 1].Value;
+                        TokenResource resource = Context.TokenResources[i];
 
+                        // Only emit the token if the ignore flag is not set.
+                        if (!resource.Ignore)
+                        {
+                            // Get the data type and parsed data if possible.
+                            Type dataType = null;
+                            object dataValue = null;
+                            if (resource.Type != null)
+                            {
+                                if (!TypeMap.TryGetValue(resource.Type, out dataType))
+                                    throw new KeyNotFoundException($"Name error: Could not find type with name '{resource.Type}'.");
+                            }
+
+                            yield return new Token(resource.Name, value, resource.Ligature);
+                        }
+
+                        // A successful token has been matched; no need to raise an error.
                         tokenized = true;
                         break;
                     }
                 }
 
+                // Invalid syntax results in a syntax error.
                 if (!tokenized)
-                    throw new Exception($"Syntax error: Unexpected symbol '{match.Value}'");
+                    throw new Exception($"Syntax error: Unexpected symbol '{match.Value}'.");
             }
         }
     }
