@@ -16,7 +16,7 @@ namespace FlexLib.Algebra
         public readonly double Value;
 
         /// <summary>
-        /// Constructs a new real element based on a floating point number.
+        /// Initializes a new real element based on a floating point number.
         /// </summary>
         /// <param name="value">The floating point number.</param>
         public RealFieldElement(double value)
