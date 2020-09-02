@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <tokens>
   <token>
-    <name>Whitespace</name>
+    <type>Whitespace</type>
     <ignore/>
     <patterns>
       <pattern>
@@ -11,7 +11,7 @@
   </token>
 
   <token>
-    <name>Real Number</name>
+    <type>Real Number</type>
     <patterns>
       <pattern>
         <regex>\d*\.?\d+</regex>
@@ -20,7 +20,7 @@
   </token>
 
   <token>
-    <name>In Operator</name>
+    <type>In Operator</type>
     <patterns>
       <pattern>
         <regex>in</regex>
