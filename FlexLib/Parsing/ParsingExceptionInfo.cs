@@ -1,3 +1,7 @@
+using System;
+using System.Xml;
+using System.Xml.Linq;
+
 namespace FlexLib.Parsing
 {
     /// <summary>
@@ -44,6 +48,32 @@ namespace FlexLib.Parsing
             File = file;
             Line = line;
             Position = position;
+        }
+
+        /// <summary>
+        /// Attaches an instance of <see cref="ParsingExceptionInfo"/> to an existing exception originating in the linking stage.
+        /// The instance is stored in <see cref="Exception.Data"/> with the key <see cref="ParsingExceptionInfo.NAME"/>.
+        /// </summary>
+        /// <param name="ex">The preexisting exception.</param>
+        /// <param name="xml">The XML element that caused a linking exception.</param>
+        /// <returns></returns>
+        public static Exception AttachLinkExceptionInfo(Exception ex, XElement xml)
+        {
+            // Check the see if the XML element has line information.
+            IXmlLineInfo xmlLineInfo = (IXmlLineInfo)xml;
+            bool hasLineInfo = xmlLineInfo.HasLineInfo();
+
+            // Construct the new exception information.
+            ParsingExceptionInfo exInfo = new ParsingExceptionInfo(
+                ParsingStage.LINK,
+                xml.BaseUri,
+                hasLineInfo ? (int?)xmlLineInfo.LineNumber : null,
+                hasLineInfo ? (int?)xmlLineInfo.LinePosition : null
+            );
+
+            // Attach the exception information to the exception and return.
+            ex.Data.Add(ParsingExceptionInfo.NAME, exInfo);
+            return ex;
         }
     }
 }
