@@ -38,7 +38,7 @@ namespace FlexLib.Parsing
         public readonly IList<TokenPatternResource> Patterns;
 
         /// <summary>
-        /// Constructs a new token resource with specified names, patterns, and properties.
+        /// Initializes a new instance of the <see cref="TokenResource"/> class with specified names, patterns, and properties.
         /// </summary>
         /// <param name="name">The common name of the type of token.</param>
         /// <param name="patterns">A collection of the regular expression patterns to match.</param>
