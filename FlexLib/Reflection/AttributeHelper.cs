@@ -44,13 +44,14 @@ namespace FlexLib.Reflection
         /// <summary>
         /// Finds a parser for a type specified by a common name.
         /// </summary>
+        /// <param name="type">The type that the parser is for.</param>
         /// <param name="name">The common name of the parser.</param>
-        /// <typeparam name="T">The type that the parser is for.</typeparam>
         /// <returns>The parser if it can be found; otherwise, <c>null</c>.</returns>
-        public static Func<string, object> FindParser<T>(string name)
+        public static Func<string, object> FindParser(Type type, string name)
         {
-            // Get the type called using this function.
-            Type type = typeof(T);
+            // Return null immediately if the type is null.
+            if (type == null)
+                return null;
 
             // Check if the parsers mapping for the associated name and type has been initialized.
             // If not, attempt to initialize it.
@@ -67,26 +68,34 @@ namespace FlexLib.Reflection
                 {
                     // Try to convert method to correct signature.
                     // If a failure occurs, notify the user that parser is incorrect.
-                    Func<string, T> parser = null;
+                    Func<string, object> parser = null;
                     IEnumerable<ParserAttribute> parserAttrs = method.GetCustomAttributes<ParserAttribute>(false);
                     if (parserAttrs.Any())
                     {
+                        // Check that the parser is a static method.
+                        // If not, throw an exception.
                         if (!method.IsStatic)
                             throw new MethodAccessException($"Parser named '{method.Name}' for type '{type}' is not static.");
 
+                        // Check that the right type is actually being returned.
+                        // If not, throw an exception.
+                        if (method.ReturnType != type)
+                            throw new InvalidCastException($"Parser named '{method.Name}' for type '{type}' does not return same type.");
+
+                        // Try to convert the parser function throwing an appropriate exception if it fails.
                         try
                         {
-                            parser = (Func<string, T>)Delegate.CreateDelegate(typeof(Func<string, T>), method);
+                            parser = (Func<string, object>)Delegate.CreateDelegate(typeof(Func<string, object>), method);
                         }
                         catch (Exception)
                         {
-                            throw new InvalidCastException($"Parser named '{method.Name}' for type '{type}' is not convertable to a '{typeof(Func<string, T>)}'.");
+                            throw new InvalidCastException($"Parser named '{method.Name}' for type '{type}' is not convertable to a '{typeof(Func<string, object>)}'.");
                         }
                     }
 
                     // Attach the parser to the parser names in the mapping.
                     foreach (ParserAttribute parserAttr in parserAttrs)
-                        typeParsers.Add(parserAttr.Name, (text) => parser(text));
+                        typeParsers.Add(parserAttr.Name, parser);
                 }
             }
 
