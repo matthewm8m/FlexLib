@@ -21,7 +21,7 @@ namespace FlexLib.Reflection
         /// <summary>
         /// Initializes a new instance of the <see cref="ParserAttribute"/> class with a specified name.
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">The common name.</param>
         public ParserAttribute(string name)
         {
             Name = name;
