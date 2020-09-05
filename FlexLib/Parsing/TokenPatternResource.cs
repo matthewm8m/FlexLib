@@ -1,6 +1,5 @@
 using System;
-using System.Xml;
-using System.Xml.Linq;
+using System.Text.RegularExpressions;
 
 namespace FlexLib.Parsing
 {
@@ -28,6 +27,15 @@ namespace FlexLib.Parsing
             // Set properties of the token pattern.
             RegexPattern = regexPattern;
             Parser = parser;
+
+            // Check if the regular expression pattern contains groups.
+            // If so, throw an exception because this will screw with the tokenizer.
+            Regex regex = new Regex(
+                RegexPattern,
+                RegexOptions.Compiled | RegexOptions.ExplicitCapture
+            );
+            if (regex.GetGroupNumbers().Length > 1)
+                throw new FormatException($"Regular expressions used for token patterns must not contain groups. Violating pattern was '{RegexPattern}'.");
         }
     }
 }

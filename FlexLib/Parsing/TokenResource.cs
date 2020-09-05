@@ -118,8 +118,19 @@ namespace FlexLib.Parsing
                     string regex = xml.Element("regex")?.Value;
 
                     // Create a new pattern resource and add it to a list of patterns for our token.
-                    TokenPatternResource patternResource = new TokenPatternResource(regex, parser);
-                    patternResources.Add(patternResource);
+                    // If there is an exception when creating the pattern, attach relevant data and raise it.
+                    try
+                    {
+                        TokenPatternResource patternResource = new TokenPatternResource(regex, parser);
+                        patternResources.Add(patternResource);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ParsingExceptionInfo.AttachLinkExceptionInfo(
+                            ex,
+                            xmlPattern
+                        );
+                    }
                 }
             }
 
