@@ -38,5 +38,16 @@ namespace FlexLib.ExpressionDom.Expressions
             // Simply return the assigned constant value.
             return Value;
         }
+
+        /// <summary>
+        /// Converts a value of generic type to its corresponding <see cref="ConstantExpression{T}"/> instance.
+        /// </summary>
+        /// <param name="value">The constant value.</param>
+        public static implicit operator ConstantExpression<T>(T value) => new ConstantExpression<T>(value);
+        /// <summary>
+        /// Converts a constant expression to its corresponding unboxed value.
+        /// </summary>
+        /// <param name="expr">The constant expression.</param>
+        public static explicit operator T(ConstantExpression<T> expr) => expr.Value;
     }
 }

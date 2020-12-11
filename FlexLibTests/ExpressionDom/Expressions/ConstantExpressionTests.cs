@@ -17,12 +17,12 @@ namespace FlexLibTests.ExpressionDom.Expressions
         {
             TestExpressions = new List<Tuple<ConstantExpression<int>, int>>();
 
-            TestExpressions.Add(new Tuple<ConstantExpression<int>, int>(new ConstantExpression<int>(1), 1));
-            TestExpressions.Add(new Tuple<ConstantExpression<int>, int>(new ConstantExpression<int>(-2), -2));
-            TestExpressions.Add(new Tuple<ConstantExpression<int>, int>(new ConstantExpression<int>(0), 0));
-            TestExpressions.Add(new Tuple<ConstantExpression<int>, int>(new ConstantExpression<int>(-1548934581), -1548934581));
-            TestExpressions.Add(new Tuple<ConstantExpression<int>, int>(new ConstantExpression<int>(int.MaxValue), int.MaxValue));
-            TestExpressions.Add(new Tuple<ConstantExpression<int>, int>(new ConstantExpression<int>(int.MinValue), int.MinValue));
+            TestExpressions.Add(new Tuple<ConstantExpression<int>, int>(1, 1));
+            TestExpressions.Add(new Tuple<ConstantExpression<int>, int>(-2, -2));
+            TestExpressions.Add(new Tuple<ConstantExpression<int>, int>(0, 0));
+            TestExpressions.Add(new Tuple<ConstantExpression<int>, int>(-1548934581, -1548934581));
+            TestExpressions.Add(new Tuple<ConstantExpression<int>, int>(int.MinValue, int.MinValue));
+            TestExpressions.Add(new Tuple<ConstantExpression<int>, int>(int.MaxValue, int.MaxValue));
         }
 
         [Test]
