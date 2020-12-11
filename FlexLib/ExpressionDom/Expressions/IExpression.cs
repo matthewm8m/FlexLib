@@ -1,8 +1,7 @@
 namespace FlexLib.ExpressionDom.Expressions
 {
     /// <summary>
-    /// Represents a expression node in an abstract syntax true that is evaluable to a specific type if certain
-    /// conditions are met.
+    /// Represents a expression node in an abstract syntax true that is evaluable to a specific type if certain conditions are met.
     /// </summary>
     /// <typeparam name="T">The type of the value returned when the expression is evaluated.</typeparam>
     public interface IExpression<T>
