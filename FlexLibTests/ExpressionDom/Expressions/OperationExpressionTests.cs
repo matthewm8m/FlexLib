@@ -138,7 +138,7 @@ namespace FlexLibTests.ExpressionDom.Expressions
                 IExpression<int> expression = exprExpect.Expression;
                 int expected = exprExpect.ExpectedValue;
 
-                Assert.AreEqual(expression.Evaluate(), expected);
+                Assert.AreEqual(expected, expression.Evaluate());
             }
         }
         [Test]
@@ -149,7 +149,7 @@ namespace FlexLibTests.ExpressionDom.Expressions
                 IExpression<RealFieldElement> expression = exprExpect.Expression;
                 RealFieldElement expected = exprExpect.ExpectedValue;
 
-                Assert.IsTrue(RealField.ElementsEqual(expression.Evaluate(), expected));
+                Assert.IsTrue(RealField.ElementsEqual(expected, expression.Evaluate()));
             }
         }
     }
