@@ -117,5 +117,18 @@ namespace FlexLibTests.Algebra
             RealFieldElement elementB = b == 0 ? Field.Zero() : Field.One();
             Assert.IsTrue(Field.ElementsEqual(Field.Multiply(elementA, elementB), c));
         }
+
+        [TestCase(double.NaN, double.NaN, false)]
+        [TestCase(double.PositiveInfinity, double.PositiveInfinity, true)]
+        [TestCase(double.NegativeInfinity, double.NegativeInfinity, true)]
+        [TestCase(double.PositiveInfinity, double.NegativeInfinity, false)]
+        [TestCase(double.NaN, double.PositiveInfinity, false)]
+        [TestCase(double.NaN, double.NegativeInfinity, false)]
+        public void TestExtremeEquality(double x, double y, bool equal)
+        {
+            RealFieldElement elementX = x;
+            RealFieldElement elementY = y;
+            Assert.AreEqual(equal, Field.ElementsEqual(elementX, elementY));
+        }
     }
 }
