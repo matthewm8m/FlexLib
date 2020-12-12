@@ -104,6 +104,8 @@ namespace FlexLib.Algebra
         /// <returns></returns>
         public override bool ElementsEqual(RealFieldElement elementA, RealFieldElement elementB)
         {
+            if (elementA.Value == elementB.Value)
+                return true;
             if (Math.Abs(elementA.Value - elementB.Value) <= Tolerance)
                 return true;
             return false;
