@@ -30,7 +30,7 @@ namespace FlexLibTests.ExpressionDom.Expressions
         {
             foreach (Tuple<ConstantExpression<int>, int> pair in TestExpressions)
             {
-                ConstantExpression<int> expr = pair.Item1;
+                IExpression<int> expr = pair.Item1;
                 int value = pair.Item2;
 
                 Assert.IsTrue(expr.IsEvaluable());
@@ -41,7 +41,7 @@ namespace FlexLibTests.ExpressionDom.Expressions
         {
             foreach (Tuple<ConstantExpression<int>, int> pair in TestExpressions)
             {
-                ConstantExpression<int> expr = pair.Item1;
+                IExpression<int> expr = pair.Item1;
                 int value = pair.Item2;
 
                 Assert.AreEqual(expr.Evaluate(), value);
