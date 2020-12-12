@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using NUnit.Framework;
 
+using FlexLib.Algebra;
 using FlexLib.ExpressionDom.Expressions;
 
 namespace FlexLibTests.ExpressionDom.Expressions
@@ -10,37 +11,64 @@ namespace FlexLibTests.ExpressionDom.Expressions
     [TestFixture]
     public class ConstantExpressionTests
     {
-        private IList<ExpressionWithExpectation<int>> TestExpressions;
+        protected RealField RealField;
+
+        protected IList<ExpressionWithExpectation<int>> TestIntExpressions;
+        protected IList<ExpressionWithExpectation<RealFieldElement>> TestRealExpressions;
 
         [SetUp]
         protected void SetUp()
         {
-            TestExpressions = new List<ExpressionWithExpectation<int>>();
+            // Setup the integer test expressions.
+            TestIntExpressions = new List<ExpressionWithExpectation<int>>();
 
-            TestExpressions.Add(new ExpressionWithExpectation<int>(
+            TestIntExpressions.Add(new ExpressionWithExpectation<int>(
                 new ConstantExpression<int>(1), 1
             ));
-            TestExpressions.Add(new ExpressionWithExpectation<int>(
+            TestIntExpressions.Add(new ExpressionWithExpectation<int>(
                 new ConstantExpression<int>(-2), -2
             ));
-            TestExpressions.Add(new ExpressionWithExpectation<int>(
+            TestIntExpressions.Add(new ExpressionWithExpectation<int>(
                 new ConstantExpression<int>(0), 0
             ));
-            TestExpressions.Add(new ExpressionWithExpectation<int>(
+            TestIntExpressions.Add(new ExpressionWithExpectation<int>(
                 new ConstantExpression<int>(-1548934581), -1548934581
             ));
-            TestExpressions.Add(new ExpressionWithExpectation<int>(
+            TestIntExpressions.Add(new ExpressionWithExpectation<int>(
                 new ConstantExpression<int>(int.MinValue), int.MinValue
             ));
-            TestExpressions.Add(new ExpressionWithExpectation<int>(
+            TestIntExpressions.Add(new ExpressionWithExpectation<int>(
                 new ConstantExpression<int>(int.MaxValue), int.MaxValue
+            ));
+
+            // Setup the real test expressions.
+            RealField = new RealField(0.0001);
+            TestRealExpressions = new List<ExpressionWithExpectation<RealFieldElement>>();
+
+            TestRealExpressions.Add(new ExpressionWithExpectation<RealFieldElement>(
+                new ConstantExpression<RealFieldElement>(1), 1
+            ));
+            TestRealExpressions.Add(new ExpressionWithExpectation<RealFieldElement>(
+                new ConstantExpression<RealFieldElement>(-1), -1
+            ));
+            TestRealExpressions.Add(new ExpressionWithExpectation<RealFieldElement>(
+                new ConstantExpression<RealFieldElement>(-0.21), -0.21
+            ));
+            TestRealExpressions.Add(new ExpressionWithExpectation<RealFieldElement>(
+                new ConstantExpression<RealFieldElement>(double.MaxValue), double.MaxValue
+            ));
+            TestRealExpressions.Add(new ExpressionWithExpectation<RealFieldElement>(
+                new ConstantExpression<RealFieldElement>(double.Epsilon), double.Epsilon
+            ));
+            TestRealExpressions.Add(new ExpressionWithExpectation<RealFieldElement>(
+                new ConstantExpression<RealFieldElement>(double.NegativeInfinity), double.NegativeInfinity
             ));
         }
 
         [Test]
-        public void TestIsEvaluable()
+        public void TestIntIsEvaluable()
         {
-            foreach (ExpressionWithExpectation<int> exprExpect in TestExpressions)
+            foreach (ExpressionWithExpectation<int> exprExpect in TestIntExpressions)
             {
                 IExpression<int> expression = exprExpect.Expression;
                 int expected = exprExpect.ExpectedValue;
@@ -49,9 +77,21 @@ namespace FlexLibTests.ExpressionDom.Expressions
             }
         }
         [Test]
-        public void TestEvaluate()
+        public void TestRealIsEvaluable()
         {
-            foreach (ExpressionWithExpectation<int> exprExpect in TestExpressions)
+            foreach (ExpressionWithExpectation<RealFieldElement> exprExpect in TestRealExpressions)
+            {
+                IExpression<RealFieldElement> expression = exprExpect.Expression;
+                RealFieldElement expected = exprExpect.ExpectedValue;
+
+                Assert.IsTrue(expression.IsEvaluable());
+            }
+        }
+
+        [Test]
+        public void TestIntEvaluate()
+        {
+            foreach (ExpressionWithExpectation<int> exprExpect in TestIntExpressions)
             {
                 IExpression<int> expression = exprExpect.Expression;
                 int expected = exprExpect.ExpectedValue;
@@ -60,14 +100,37 @@ namespace FlexLibTests.ExpressionDom.Expressions
             }
         }
         [Test]
-        public void TestValue()
+        public void TestRealEvaluate()
         {
-            foreach (ExpressionWithExpectation<int> exprExpect in TestExpressions)
+            foreach (ExpressionWithExpectation<RealFieldElement> exprExpect in TestRealExpressions)
+            {
+                IExpression<RealFieldElement> expression = exprExpect.Expression;
+                RealFieldElement expected = exprExpect.ExpectedValue;
+
+                Assert.IsTrue(RealField.ElementsEqual(expected, expression.Evaluate()));
+            }
+        }
+
+        [Test]
+        public void TestIntValue()
+        {
+            foreach (ExpressionWithExpectation<int> exprExpect in TestIntExpressions)
             {
                 ConstantExpression<int> expression = exprExpect.Expression as ConstantExpression<int>;
                 int expected = exprExpect.ExpectedValue;
 
                 Assert.AreEqual(expected, expression.Value);
+            }
+        }
+        [Test]
+        public void TestRealValue()
+        {
+            foreach (ExpressionWithExpectation<RealFieldElement> exprExpect in TestRealExpressions)
+            {
+                ConstantExpression<RealFieldElement> expression = exprExpect.Expression as ConstantExpression<RealFieldElement>;
+                RealFieldElement expected = exprExpect.ExpectedValue;
+
+                Assert.IsTrue(RealField.ElementsEqual(expected, expression.Value));
             }
         }
     }
