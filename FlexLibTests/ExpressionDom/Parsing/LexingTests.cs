@@ -11,10 +11,14 @@ namespace FlexLibTests.ExpressionDom.Parsing
     public class LexingTests
     {
         protected Lexer Lexer;
+        protected RealField Field;
 
         [SetUp]
         protected void SetUp()
         {
+            // Set up the real field.
+            Field = new RealField(0.0001);
+
             // Set up the token definitions.
             IList<TokenDefinition> tokenDefs = new List<TokenDefinition>();
             tokenDefs.Add(new TokenDefinition
@@ -58,7 +62,7 @@ namespace FlexLibTests.ExpressionDom.Parsing
             string source;
 
             // Expected tokens are: [Integer=2] [Integer=3]
-            source = @"2 3 \\ 2";
+            source = @"2 3 // 2";
             tokens = new List<Token>(Lexer.Lex(source));
             Assert.AreEqual(2, tokens.Count);
             Assert.IsInstanceOf(typeof(int), tokens[0].Value);
@@ -71,11 +75,11 @@ namespace FlexLibTests.ExpressionDom.Parsing
             Assert.AreEqual("3", tokens[1].Source.Snippet);
 
             // Expected tokens are: [Real=1.0] [Multiply:*]
-            source = @"1.0     *    \\ 4 4";
+            source = @"1.0     *    // 4 4";
             tokens = new List<Token>(Lexer.Lex(source));
             Assert.AreEqual(2, tokens.Count);
             Assert.IsInstanceOf(typeof(RealFieldElement), tokens[0].Value);
-            Assert.AreEqual(1.0, tokens[0].Value);
+            Assert.IsTrue(Field.ElementsEqual(1.0, (RealFieldElement)tokens[0].Value));
             Assert.IsNull(tokens[1].Value);
             Assert.AreEqual(source, tokens[0].Source.Source);
             Assert.AreEqual(source, tokens[1].Source.Source);
