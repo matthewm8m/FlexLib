@@ -77,9 +77,13 @@ namespace FlexLib.ExpressionDom.Parsing
                         TokenSource tokenSource = new TokenSource(source, matchGroup.Value, matchGroup.Index);
 
                         // If the group that matched was the last group (unknown token), we throw a syntax exception if
-                        // strict mode was specified.
-                        if (strict && id == TokenDefinitions.Count)
-                            throw new LexerSyntaxException(tokenSource, "Unknown syntax encountered.");
+                        // strict mode was specified. We continue lexing regardless.
+                        if (id == TokenDefinitions.Count)
+                        {
+                            if (strict)
+                                throw new LexerSyntaxException(tokenSource, "Unknown syntax encountered.");
+                            continue;
+                        }
 
                         // If we have a valid token definition, we yield the tokens that it decides to emit.
                         foreach (Token token in def.Tokenize(tokenSource))
