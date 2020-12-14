@@ -29,5 +29,19 @@ namespace FlexLib.Algebra
         {
             return new RealFieldElement(value);
         }
+
+        /// <summary>
+        /// Converts the string representation of a real number into its <see cref="RealFieldElement"/> equivalent. A return value indicates whether the operation succeeded.
+        /// </summary>
+        /// <param name="source">The string representation of a real number.</param>
+        /// <param name="result">The resulting value if the conversion succeeded or the default value otherwise.</param>
+        /// <returns></returns>
+        public static bool TryParse(string source, out RealFieldElement result)
+        {
+            // We parse a real field element exactly the same as we would a double.
+            bool success = double.TryParse(source, out double value);
+            result = success ? new RealFieldElement(value) : default(RealFieldElement);
+            return success;
+        }
     }
 }
