@@ -46,7 +46,7 @@ namespace FlexLib.ExpressionDom.Parsing
             // We use the multiline flag so the '^' and '$' patterns work more intuitively for code.
             // We must the explicit capture flag so that subgroups in the expression aren't captured.
             // We use the compiled flag so that lexing is as fast as possible.
-            string regexPattern = string.Join("|", TokenDefinitions.Select(def => $"(?<{++id}>({def.Pattern})"));
+            string regexPattern = string.Join("|", TokenDefinitions.Select(def => $"(?<{++id}>{def.Pattern})"));
             RegexOptions regexOptions = RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Compiled;
 
             return new Regex(regexPattern, regexOptions);
