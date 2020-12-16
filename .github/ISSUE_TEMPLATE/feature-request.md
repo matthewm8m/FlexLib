@@ -20,5 +20,11 @@ assignees: matthewm8m
 - [ ] Task B
 - [ ] Task C
 
+## Unit Tests
+(A set of unit tests either in story form or in the form of a code snippet with an expected result. These should cover all of the proposed added functionality.)
+
+- [ ] Test I (`1 + 2 -> 3`)
+- [ ] Test II (`2 - 1 -> 1`)
+
 ## References, Sources, and Context
 (References or sources to external content relevant to the issue go here along with possible screenshots or context.)
