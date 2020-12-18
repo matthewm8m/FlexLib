@@ -1,7 +1,7 @@
 namespace FlexLib.ExpressionDom.Parsing
 {
     /// <summary>
-    /// Represents a <see cref="Token"/> created from a source by a <see cref="TokenDefinition"/>.
+    /// Represents a <see cref="Token"/> created from a source by a <see cref="LexerRule"/>.
     /// </summary>
     public class Token
     {
@@ -12,7 +12,7 @@ namespace FlexLib.ExpressionDom.Parsing
         /// <summary>
         /// The token definition that was used to create the token.
         /// </summary>
-        public readonly TokenDefinition Definition;
+        public readonly LexerRule Definition;
         /// <summary>
         /// The intrinsic value stored in the token by a parser.
         /// </summary>
@@ -26,7 +26,7 @@ namespace FlexLib.ExpressionDom.Parsing
         /// <param name="value">The internal value of the token.</param>
         public Token(
             TokenSource source,
-            TokenDefinition definition,
+            LexerRule definition,
             object value = null
         )
         {

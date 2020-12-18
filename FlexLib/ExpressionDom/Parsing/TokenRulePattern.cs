@@ -8,7 +8,7 @@ namespace FlexLib.ExpressionDom.Parsing
         /// <summary>
         /// The rule that tokens must have in order to match this pattern.
         /// </summary>
-        public TokenDefinition Rule;
+        public LexerRule Rule;
 
         /// <summary>
         /// Determines whether the <see cref="TokenRulePattern"/> object matches a specified token.

@@ -20,14 +20,14 @@ namespace FlexLibTests.ExpressionDom.Parsing
             Field = new RealField(0.0001);
 
             // Set up the token definitions.
-            IList<TokenDefinition> tokenDefs = new List<TokenDefinition>();
-            tokenDefs.Add(new TokenDefinition
+            IList<LexerRule> tokenDefs = new List<LexerRule>();
+            tokenDefs.Add(new LexerRule
             {
                 Name = "Comment",
                 Pattern = @"\/{2}.*$",
                 Ignore = true
             });
-            tokenDefs.Add(new TokenDefinition
+            tokenDefs.Add(new LexerRule
             {
                 Name = "Space",
                 Pattern = @"\s+",
@@ -45,7 +45,7 @@ namespace FlexLibTests.ExpressionDom.Parsing
                 Pattern = @"\d+",
                 Parser = int.TryParse
             });
-            tokenDefs.Add(new TokenDefinition
+            tokenDefs.Add(new LexerRule
             {
                 Name = "Multiply",
                 Pattern = @"\*"

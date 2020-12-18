@@ -6,7 +6,7 @@ namespace FlexLib.ExpressionDom.Parsing
     /// <summary>
     /// Represents a definition to create tokens from source code based on a pattern, optional parser, and other parsing parameters.
     /// </summary>
-    public class TokenDefinition
+    public class LexerRule
     {
         /// <summary>
         /// The user-friendly name of the token definition. Does not need to be specified.
@@ -35,7 +35,7 @@ namespace FlexLib.ExpressionDom.Parsing
         }
 
         /// <summary>
-        /// Creates a string representation of the <see cref="TokenDefinition"/> object.
+        /// Creates a string representation of the <see cref="LexerRule"/> object.
         /// </summary>
         /// <returns>A string that represents the name, pattern, and emittance of the definition.</returns>
         public override string ToString()
@@ -51,7 +51,7 @@ namespace FlexLib.ExpressionDom.Parsing
     /// Represents a definition to create tokens of a particular type from source code based on a pattern, optional parser, and other parsing parameters.
     /// </summary>
     /// <typeparam name="T">The type of data to store in generated tokens.</typeparam>
-    public class TokenDefinition<T> : TokenDefinition
+    public class TokenDefinition<T> : LexerRule
     {
         /// <summary>
         /// The parsing function to turn the source string into another value and pass it to the created token.

@@ -9,19 +9,19 @@ namespace FlexLib.ExpressionDom.Parsing
     /// </summary>
     public class Lexer
     {
-        private readonly IList<TokenDefinition> TokenDefinitions;
+        private readonly IList<LexerRule> TokenDefinitions;
         private readonly Regex Regex;
 
         /// <summary>
         /// Creates a new <see cref="Lexer"/> object with the specified token definitions.
         /// </summary>
         /// <param name="definitions">A collection of token definitions to use.</param>
-        public Lexer(IEnumerable<TokenDefinition> definitions)
+        public Lexer(IEnumerable<LexerRule> definitions)
         {
             // We add an element to the token definitions that represents any non-matching character sequences.
             // We can use this later to detect syntax errors.
-            TokenDefinitions = new List<TokenDefinition>(definitions);
-            TokenDefinitions.Add(new TokenDefinition { Pattern = @"." });
+            TokenDefinitions = new List<LexerRule>(definitions);
+            TokenDefinitions.Add(new LexerRule { Pattern = @"." });
 
             // We need to compile the regular expressions before we can lex.
             Regex = CompileRegex();
@@ -67,7 +67,7 @@ namespace FlexLib.ExpressionDom.Parsing
                 // We make sure to keep track of the ID of the token definition because it allows us to obtain which
                 // regular expression group corresponds to the definition.
                 int id = 0;
-                foreach (TokenDefinition def in TokenDefinitions)
+                foreach (LexerRule def in TokenDefinitions)
                 {
                     // We check for success of each definition/group and take some action based on it.
                     Group matchGroup = match.Groups[++id];
