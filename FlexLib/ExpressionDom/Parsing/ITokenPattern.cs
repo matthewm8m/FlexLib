@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace FlexLib.ExpressionDom.Parsing
 {
     /// <summary>
@@ -6,10 +8,11 @@ namespace FlexLib.ExpressionDom.Parsing
     public interface ITokenPattern
     {
         /// <summary>
-        /// Determines whether the <see cref="ITokenPattern"/> object matches a specified token.
+        /// Determines whether the <see cref="ITokenPattern"/> object matches a specified collection of tokens.
         /// </summary>
-        /// <param name="token">The token to check for a match.</param>
-        /// <returns><c>true</c> if the pattern matches the token; otherwise, <c>false</c>.</returns>
-        bool IsMatch(Token token);
+        /// <param name="tokens">The collections of tokens to check for a match. Matches are checked strictly from the beginning of the collection.</param>
+        /// <param name="count">The number of tokens that match the pattern from the start of the enumerable.</param>
+        /// <returns><c>true</c> if the pattern matches the tokens; otherwise, <c>false</c>.</returns>
+        bool IsMatch(IEnumerable<Token> tokens, out int count);
     }
 }
