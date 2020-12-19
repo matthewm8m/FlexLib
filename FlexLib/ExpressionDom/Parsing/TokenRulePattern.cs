@@ -33,6 +33,19 @@ namespace FlexLib.ExpressionDom.Parsing
             // We eat no tokens if there is no match.
             return 0;
         }
+
+        /// <summary>
+        /// Collects the parameter values from a specified token stream.
+        /// </summary>
+        /// <param name="tokens">The token stream.</param>
+        /// <param name="parameters">The number of parameters to expect.</param>
+        /// <returns>A list of collected parameter values with length equal to <c>parameters</c>. If a parameter could not be found, it is assigned to <c>null</c>.</returns>
+        public virtual IList<object> FindParameters(IEnumerable<Token> tokens, int parameters)
+        {
+            // No parameter values in a default token rule pattern.
+            object[] parameterList = new object[parameters];
+            return parameterList;
+        }
     }
 
     /// <summary>
@@ -67,29 +80,23 @@ namespace FlexLib.ExpressionDom.Parsing
             // We eat no tokens if there is no match.
             return 0;
         }
-        /// <summary>
-        /// Determines whether the <see cref="TokenRulePattern{T}"/> object matches a specified collection of tokens.
-        /// </summary>
-        /// <param name="tokens">The collections of tokens to check for a match. Matches are checked strictly from the beginning of the collection.</param>
-        /// <param name="value">The value of the token if it matched.</param>
-        /// <returns>The number of tokens that match the pattern from the start of the enumerable. Set to <c>1</c> if a match was successful; otherwise, set to <c>0</c>.</returns>
-        public int FindMatch(IEnumerable<Token> tokens, out T value)
-        {
-            // We check if the base match conditions are satisfied first. If they are, we additionally require the token value type to match. 
-            bool match = base.FindMatch(tokens) > 0;
-            if (match)
-            {
-                if (tokens.First().Value is T tokenValue)
-                {
-                    // We eat the first token if it matches.
-                    value = tokenValue;
-                    return 1;
-                }
-            }
 
-            // We eat no tokens if there is no match.
-            value = default(T);
-            return 0;
+        /// <summary>
+        /// Collects the parameter values from a specified token stream.
+        /// </summary>
+        /// <param name="tokens">The token stream.</param>
+        /// <param name="parameters">The number of parameters to expect.</param>
+        /// <returns>A list of collected parameter values with length equal to <c>parameters</c>. If a parameter could not be found, it is assigned to <c>null</c>.</returns>
+        public override IList<object> FindParameters(IEnumerable<Token> tokens, int parameters)
+        {
+            // We may have a single parameter if the property is assigned a valid index.
+            object[] parameterList = new object[parameters];
+            if (Parameter.HasValue)
+            {
+                if (0 <= Parameter && Parameter < parameters)
+                    parameterList[Parameter.Value] = tokens.FirstOrDefault().Value;
+            }
+            return parameterList;
         }
     }
 }
