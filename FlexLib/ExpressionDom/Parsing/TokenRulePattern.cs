@@ -11,7 +11,7 @@ namespace FlexLib.ExpressionDom.Parsing
         /// <summary>
         /// The rule that tokens must have in order to match this pattern.
         /// </summary>
-        public LexerRule Rule;
+        public ITokenRule Rule;
 
         /// <summary>
         /// Determines whether the <see cref="TokenRulePattern"/> object matches a specified collection of tokens.
@@ -23,7 +23,7 @@ namespace FlexLib.ExpressionDom.Parsing
             // In order to match the given enumerable, there must be at least 1 token and it must match the specified rule.
             if (tokens != null && tokens.Any())
             {
-                if (Rule == null || Rule == tokens.First().Definition)
+                if (Rule == null || Rule == tokens.First().Rule)
                 {
                     // We eat the first token if it matches.
                     return 1;

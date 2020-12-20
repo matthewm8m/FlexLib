@@ -19,40 +19,40 @@ namespace FlexLibTests.ExpressionDom.Parsing
             // Set up the real field.
             Field = new RealField(0.0001);
 
-            // Set up the token definitions.
-            IList<LexerRule> tokenDefs = new List<LexerRule>();
-            tokenDefs.Add(new LexerRule
+            // Set up the lexer rules.
+            IList<LexerRule> lexerRules = new List<LexerRule>();
+            lexerRules.Add(new LexerRule
             {
                 Name = "Comment",
                 Pattern = @"\/{2}.*$",
                 Ignore = true
             });
-            tokenDefs.Add(new LexerRule
+            lexerRules.Add(new LexerRule
             {
                 Name = "Space",
                 Pattern = @"\s+",
                 Ignore = true
             });
-            tokenDefs.Add(new TokenDefinition<RealFieldElement>
+            lexerRules.Add(new LexerRule<RealFieldElement>
             {
                 Name = "Real",
                 Pattern = @"\d*\.\d+",
                 Parser = RealFieldElement.TryParse
             });
-            tokenDefs.Add(new TokenDefinition<int>
+            lexerRules.Add(new LexerRule<int>
             {
                 Name = "Integer",
                 Pattern = @"\d+",
                 Parser = int.TryParse
             });
-            tokenDefs.Add(new LexerRule
+            lexerRules.Add(new LexerRule
             {
                 Name = "Multiply",
                 Pattern = @"\*"
             });
 
             // Create lexer.
-            Lexer = new Lexer(tokenDefs);
+            Lexer = new Lexer(lexerRules);
         }
 
         [Test]
@@ -134,7 +134,7 @@ namespace FlexLibTests.ExpressionDom.Parsing
             Assert.AreEqual(10, tokens[4].Source.Location);
         }
         [Test]
-        public void TestNoDefinition()
+        public void TestNoRule()
         {
             // Expected lexer syntax exception.
             string source = @"a 1 b 2 c 3";
@@ -148,7 +148,7 @@ namespace FlexLibTests.ExpressionDom.Parsing
             Assert.AreEqual(0, ex.TokenSource.Location);
         }
         [Test]
-        public void TestCloseDefinition()
+        public void TestNearMatch()
         {
             // Expected lexer syntax exception.
             string source = @"1.0 1. .1";

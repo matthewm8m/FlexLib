@@ -9,19 +9,19 @@ namespace FlexLib.ExpressionDom.Parsing
     /// </summary>
     public class Lexer
     {
-        private readonly IList<LexerRule> TokenDefinitions;
+        private readonly IList<LexerRule> Rules;
         private readonly Regex Regex;
 
         /// <summary>
-        /// Creates a new <see cref="Lexer"/> object with the specified token definitions.
+        /// Creates a new <see cref="Lexer"/> object with the specified lexer rules.
         /// </summary>
-        /// <param name="definitions">A collection of token definitions to use.</param>
-        public Lexer(IEnumerable<LexerRule> definitions)
+        /// <param name="rules">A collection of lexer rules to use.</param>
+        public Lexer(IEnumerable<LexerRule> rules)
         {
-            // We add an element to the token definitions that represents any non-matching character sequences.
+            // We add an element to the lexer rules that represents any non-matching character sequences.
             // We can use this later to detect syntax errors.
-            TokenDefinitions = new List<LexerRule>(definitions);
-            TokenDefinitions.Add(new LexerRule { Pattern = @"." });
+            Rules = new List<LexerRule>(rules);
+            Rules.Add(new LexerRule { Pattern = @"." });
 
             // We need to compile the regular expressions before we can lex.
             Regex = CompileRegex();
@@ -34,19 +34,19 @@ namespace FlexLib.ExpressionDom.Parsing
         private Regex CompileRegex()
         {
             /*
-                We join together the patterns from each of the token definitions to form a pattern that matches all
-                definitions. We then separate them out using their IDs. Notice that if a token definition overlaps with
-                another, the one specified first will take precedence.
+                We join together the patterns from each of the lexer rules to form a pattern that matches all rules. We
+                then separate them out using their IDs. Notice that if a lexer rule overlaps with another, the one
+                specified first will take precedence.
             */
 
-            // Each token definition gets its own ID that can be referred back to in the lexing process.
-            // The definition with the last ID represents the syntax error token.
+            // Each lexer rule gets its own ID that can be referred back to in the lexing process.
+            // The rule with the last ID represents the syntax error token.
             int id = 0;
 
             // We use the multiline flag so the '^' and '$' patterns work more intuitively for code.
             // We must the explicit capture flag so that subgroups in the expression aren't captured.
             // We use the compiled flag so that lexing is as fast as possible.
-            string regexPattern = string.Join("|", TokenDefinitions.Select(def => $"(?<{++id}>{def.Pattern})"));
+            string regexPattern = string.Join("|", Rules.Select(rule => $"(?<{++id}>{rule.Pattern})"));
             RegexOptions regexOptions = RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Compiled;
 
             return new Regex(regexPattern, regexOptions);
@@ -64,12 +64,12 @@ namespace FlexLib.ExpressionDom.Parsing
             MatchCollection matches = Regex.Matches(source);
             foreach (Match match in matches)
             {
-                // We make sure to keep track of the ID of the token definition because it allows us to obtain which
-                // regular expression group corresponds to the definition.
+                // We make sure to keep track of the ID of the lexer rule because it allows us to obtain which
+                // regular expression group corresponds to the rule.
                 int id = 0;
-                foreach (LexerRule def in TokenDefinitions)
+                foreach (LexerRule rule in Rules)
                 {
-                    // We check for success of each definition/group and take some action based on it.
+                    // We check for success of each rule/group and take some action based on it.
                     Group matchGroup = match.Groups[++id];
                     if (matchGroup.Success)
                     {
@@ -78,15 +78,15 @@ namespace FlexLib.ExpressionDom.Parsing
 
                         // If the group that matched was the last group (unknown token), we throw a syntax exception if
                         // strict mode was specified. We continue lexing regardless.
-                        if (id == TokenDefinitions.Count)
+                        if (id == Rules.Count)
                         {
                             if (strict)
                                 throw new LexerSyntaxException(tokenSource, "Unknown syntax encountered.");
                             continue;
                         }
 
-                        // If we have a valid token definition, we yield the tokens that it decides to emit.
-                        foreach (Token token in def.Tokenize(tokenSource))
+                        // If we have a valid lexer rule, we yield the tokens that it decides to emit.
+                        foreach (Token token in rule.Tokenize(tokenSource))
                             yield return token;
 
                         // We break here because we don't allow for overlapping patterns and this improves performance.
