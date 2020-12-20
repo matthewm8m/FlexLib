@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace FlexLib.ExpressionDom.Parsing
 {
     /// <summary>
@@ -8,16 +11,40 @@ namespace FlexLib.ExpressionDom.Parsing
         /// <summary>
         /// The rule that tokens must have in order to match this pattern.
         /// </summary>
-        public TokenDefinition Rule;
+        public ITokenRule Rule;
 
         /// <summary>
-        /// Determines whether the <see cref="TokenRulePattern"/> object matches a specified token.
+        /// Determines whether the <see cref="TokenRulePattern"/> object matches a specified collection of tokens.
         /// </summary>
-        /// <param name="token">The token to check for a match.</param>
-        /// <returns><c>true</c> if the <see cref="Rule"/> matches the token's <see cref="Token.Definition"/>; otherwise, <c>false</c>.</returns>
-        public virtual bool IsMatch(Token token)
+        /// <param name="tokens">The collections of tokens to check for a match. Matches are checked strictly from the beginning of the collection.</param>
+        /// <returns>The number of tokens that match the pattern from the start of the enumerable. Set to <c>1</c> if a match was successful; otherwise, set to <c>0</c>.</returns>
+        public virtual int FindMatch(IEnumerable<Token> tokens)
         {
-            return Rule == token.Definition;
+            // In order to match the given enumerable, there must be at least 1 token and it must match the specified rule.
+            if (tokens != null && tokens.Any())
+            {
+                if (Rule == null || Rule == tokens.First().Rule)
+                {
+                    // We eat the first token if it matches.
+                    return 1;
+                }
+            }
+
+            // We eat no tokens if there is no match.
+            return 0;
+        }
+
+        /// <summary>
+        /// Collects the parameter values from a specified token stream.
+        /// </summary>
+        /// <param name="tokens">The token stream.</param>
+        /// <param name="parameters">The number of parameters to expect.</param>
+        /// <returns>A list of collected parameter values with length equal to <c>parameters</c>. If a parameter could not be found, it is assigned to <c>null</c>.</returns>
+        public virtual IList<object> FindParameters(IEnumerable<Token> tokens, int parameters)
+        {
+            // No parameter values in a default token rule pattern.
+            object[] parameterList = new object[parameters];
+            return parameterList;
         }
     }
 
@@ -33,32 +60,43 @@ namespace FlexLib.ExpressionDom.Parsing
         public int? Parameter;
 
         /// <summary>
-        /// Determines whether the <see cref="TokenRulePattern{T}"/> object matches a specified token.
+        /// Determines whether the <see cref="TokenRulePattern{T}"/> object matches a specified collection of tokens.
         /// </summary>
-        /// <param name="token">The token to check for a match.</param>
-        /// <returns><c>true</c> if the <see cref="TokenRulePattern.Rule"/> matches the token's <see cref="Token.Definition"/> and the token's <see cref="Token.Value"/> has type <c>T</c>; otherwise, <c>false</c>.</returns>
-        public override bool IsMatch(Token token)
+        /// <param name="tokens">The collections of tokens to check for a match. Matches are checked strictly from the beginning of the collection.</param>
+        /// <returns>The number of tokens that match the pattern from the start of the enumerable. Set to <c>1</c> if a match was successful; otherwise, set to <c>0</c>.</returns>
+        public override int FindMatch(IEnumerable<Token> tokens)
         {
-            return base.IsMatch(token) && token.Value is T;
+            // We check if the base match conditions are satisfied first. If they are, we additionally require the token value type to match. 
+            bool match = base.FindMatch(tokens) > 0;
+            if (match)
+            {
+                if (tokens.First().Value is T)
+                {
+                    // We eat the first token if it matches.
+                    return 1;
+                }
+            }
+
+            // We eat no tokens if there is no match.
+            return 0;
         }
+
         /// <summary>
-        /// Determines whether the <see cref="TokenRulePattern{T}"/> object matches a specified token.
+        /// Collects the parameter values from a specified token stream.
         /// </summary>
-        /// <param name="token">The token to check for a match.</param>
-        /// <param name="value">The value of the token if it matched.</param>
-        /// <returns><c>true</c> if the <see cref="TokenRulePattern.Rule"/> matches the token's <see cref="Token.Definition"/> and the token's <see cref="Token.Value"/> has type <c>T</c>; otherwise, <c>false</c>.</returns>
-        public bool IsMatch(Token token, out T value)
+        /// <param name="tokens">The token stream.</param>
+        /// <param name="parameters">The number of parameters to expect.</param>
+        /// <returns>A list of collected parameter values with length equal to <c>parameters</c>. If a parameter could not be found, it is assigned to <c>null</c>.</returns>
+        public override IList<object> FindParameters(IEnumerable<Token> tokens, int parameters)
         {
-            if (base.IsMatch(token) && token.Value is T tokenValue)
+            // We may have a single parameter if the property is assigned a valid index.
+            object[] parameterList = new object[parameters];
+            if (Parameter.HasValue)
             {
-                value = tokenValue;
-                return true;
+                if (0 <= Parameter && Parameter < parameters)
+                    parameterList[Parameter.Value] = tokens.FirstOrDefault().Value;
             }
-            else
-            {
-                value = default(T);
-                return false;
-            }
+            return parameterList;
         }
     }
 }
