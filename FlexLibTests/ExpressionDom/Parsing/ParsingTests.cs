@@ -163,13 +163,56 @@ namespace FlexLibTests.ExpressionDom.Parsing
             var const2 = op2.Operand2 as ConstantExpression<RealFieldElement>;
             var const3 = op3.Operand1 as ConstantExpression<RealFieldElement>;
             var const4 = op3.Operand2 as ConstantExpression<RealFieldElement>;
+
+            Assert.IsTrue(Field.ElementsEqual(25.0, op1.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(9.0, op2.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(16.0, op3.Evaluate()));
             Assert.IsTrue(Field.ElementsEqual(3.0, const1.Evaluate()));
             Assert.IsTrue(Field.ElementsEqual(2.0, const2.Evaluate()));
             Assert.IsTrue(Field.ElementsEqual(4.0, const3.Evaluate()));
             Assert.IsTrue(Field.ElementsEqual(2.0, const4.Evaluate()));
-            Assert.IsTrue(Field.ElementsEqual(25.0, op1.Evaluate()));
-            Assert.IsTrue(Field.ElementsEqual(9.0, op2.Evaluate()));
-            Assert.IsTrue(Field.ElementsEqual(16.0, op3.Evaluate()));
+        }
+
+        [Test]
+        public void TestLeftToRightAssociativity()
+        {
+            // input: 4 - 3 + 2 - 1
+            // tokens: [Real=4] [Op-] [Real=3] [Op+] [Real=2] [Op-] [Real=1]
+            IEnumerable<Token> tokens = new Token[]
+            {
+                new Token(null, LexerRuleReal, new RealFieldElement(4.0)),
+                new Token(null, LexerRuleOpSub),
+                new Token(null, LexerRuleReal, new RealFieldElement(3.0)),
+                new Token(null, LexerRuleOpAdd),
+                new Token(null, LexerRuleReal, new RealFieldElement(2.0)),
+                new Token(null, LexerRuleOpSub),
+                new Token(null, LexerRuleReal, new RealFieldElement(1.0))
+            };
+
+            // Check parsing results.
+            Token result = Parser.ParseSingular(tokens);
+            Assert.IsInstanceOf(typeof(OperationExpression<RealFieldElement, RealFieldElement, RealFieldElement>), result.Value);
+            var op1 = result.Value as OperationExpression<RealFieldElement, RealFieldElement, RealFieldElement>;
+            Assert.IsInstanceOf(typeof(OperationExpression<RealFieldElement, RealFieldElement, RealFieldElement>), op1.Operand1);
+            Assert.IsInstanceOf(typeof(ConstantExpression<RealFieldElement>), op1.Operand2);
+            var op2 = op1.Operand1 as OperationExpression<RealFieldElement, RealFieldElement, RealFieldElement>;
+            var const4 = op1.Operand2 as ConstantExpression<RealFieldElement>;
+            Assert.IsInstanceOf(typeof(OperationExpression<RealFieldElement, RealFieldElement, RealFieldElement>), op2.Operand1);
+            Assert.IsInstanceOf(typeof(ConstantExpression<RealFieldElement>), op2.Operand2);
+            var op3 = op2.Operand1 as OperationExpression<RealFieldElement, RealFieldElement, RealFieldElement>;
+            var const3 = op2.Operand2 as ConstantExpression<RealFieldElement>;
+            Assert.IsInstanceOf(typeof(ConstantExpression<RealFieldElement>), op3.Operand1);
+            Assert.IsInstanceOf(typeof(ConstantExpression<RealFieldElement>), op3.Operand2);
+            var const1 = op3.Operand1 as ConstantExpression<RealFieldElement>;
+            var const2 = op3.Operand2 as ConstantExpression<RealFieldElement>;
+
+            Assert.IsTrue(Field.ElementsEqual(2.0, op1.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(3.0, op2.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(1.0, op3.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(4.0, const1.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(3.0, const2.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(2.0, const3.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(1.0, const4.Evaluate()));
         }
     }
 }
