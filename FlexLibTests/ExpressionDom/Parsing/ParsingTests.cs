@@ -118,7 +118,7 @@ namespace FlexLibTests.ExpressionDom.Parsing
                         {
                             parseRuleExp
                         }
-                    ),
+                    ) { Associativity = ParserAssociativity.RightToLeft },
                     new ParserLevel
                     (
                         new ParserRule[]
