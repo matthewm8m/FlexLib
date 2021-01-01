@@ -248,5 +248,46 @@ namespace FlexLibTests.ExpressionDom.Parsing
             Assert.IsTrue(Field.ElementsEqual(3.0, const2.Evaluate()));
             Assert.IsTrue(Field.ElementsEqual(2.0, const3.Evaluate()));
         }
+
+        [Test]
+        public void TestMultipleReduction()
+        {
+            // input: 10 + 3 10 - 3
+            // tokens: [Real=10] [Op+] [Real=3] [Real=10] [Op-] [Real=3]
+            IEnumerable<Token> tokens = new Token[]
+            {
+                new Token(null, LexerRuleReal, new RealFieldElement(10.0)),
+                new Token(null, LexerRuleOpAdd),
+                new Token(null, LexerRuleReal, new RealFieldElement(3.0)),
+                new Token(null, LexerRuleReal, new RealFieldElement(10.0)),
+                new Token(null, LexerRuleOpSub),
+                new Token(null, LexerRuleReal, new RealFieldElement(3.0))
+            };
+
+            // Check parsing results.
+            IList<Token> results = new List<Token>(Parser.Parse(tokens));
+            Assert.AreEqual(2, results.Count);
+            Token result1 = results[0];
+            Token result2 = results[1];
+            Assert.IsInstanceOf(typeof(OperationExpression<RealFieldElement, RealFieldElement, RealFieldElement>), result1.Value);
+            Assert.IsInstanceOf(typeof(OperationExpression<RealFieldElement, RealFieldElement, RealFieldElement>), result2.Value);
+            var op1 = result1.Value as OperationExpression<RealFieldElement, RealFieldElement, RealFieldElement>;
+            var op2 = result2.Value as OperationExpression<RealFieldElement, RealFieldElement, RealFieldElement>;
+            Assert.IsInstanceOf(typeof(ConstantExpression<RealFieldElement>), op1.Operand1);
+            Assert.IsInstanceOf(typeof(ConstantExpression<RealFieldElement>), op1.Operand2);
+            Assert.IsInstanceOf(typeof(ConstantExpression<RealFieldElement>), op2.Operand1);
+            Assert.IsInstanceOf(typeof(ConstantExpression<RealFieldElement>), op2.Operand2);
+            var const1 = op1.Operand1 as ConstantExpression<RealFieldElement>;
+            var const2 = op1.Operand2 as ConstantExpression<RealFieldElement>;
+            var const3 = op2.Operand1 as ConstantExpression<RealFieldElement>;
+            var const4 = op2.Operand2 as ConstantExpression<RealFieldElement>;
+
+            Assert.IsTrue(Field.ElementsEqual(13.0, op1.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(7.0, op2.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(10.0, const1.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(3.0, const2.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(10.0, const3.Evaluate()));
+            Assert.IsTrue(Field.ElementsEqual(3.0, const4.Evaluate()));
+        }
     }
 }
