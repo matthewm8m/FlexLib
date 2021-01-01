@@ -305,10 +305,30 @@ namespace FlexLibTests.ExpressionDom.Parsing
             // Check ability to parse singular.
             Assert.DoesNotThrow
             (
-                () =>
-                {
-                    Parser.ParseSingular(tokens);
-                }
+                () => Parser.ParseSingular(tokens)
+            );
+        }
+
+        [Test]
+        public void TestSingularReductionException()
+        {
+            // input: 1 ^ 2 3 ^ 4
+            // tokens: [Real=1.0] [Op^] [Real=2.0] [Real=3.0] [Op^] [Real=4.0]
+            string input = "1 ^ 2 3 ^ 4";
+            IEnumerable<Token> tokens = new Token[]
+            {
+                new Token(new TokenSource(input, "1", 0), LexerRuleReal, new RealFieldElement(1.0)),
+                new Token(new TokenSource(input, "^", 2), LexerRuleOpExp),
+                new Token(new TokenSource(input, "2", 4), LexerRuleReal, new RealFieldElement(2.0)),
+                new Token(new TokenSource(input, "3", 6), LexerRuleReal, new RealFieldElement(3.0)),
+                new Token(new TokenSource(input, "^", 8), LexerRuleOpExp),
+                new Token(new TokenSource(input, "4", 10), LexerRuleReal, new RealFieldElement(4.0))
+            };
+
+            // Check inability to parse singular.
+            ParserIncompleteException ex = Assert.Throws<ParserIncompleteException>
+            (
+                () => Parser.ParseSingular(tokens)
             );
         }
     }
