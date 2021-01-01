@@ -289,5 +289,27 @@ namespace FlexLibTests.ExpressionDom.Parsing
             Assert.IsTrue(Field.ElementsEqual(10.0, const3.Evaluate()));
             Assert.IsTrue(Field.ElementsEqual(3.0, const4.Evaluate()));
         }
+
+        [Test]
+        public void TestSingularReduction()
+        {
+            // input: 1 - 3
+            // tokens: [Real=1] [Op-] [Real=3]
+            IEnumerable<Token> tokens = new Token[]
+            {
+                new Token(null, LexerRuleReal, new RealFieldElement(1.0)),
+                new Token(null, LexerRuleOpSub),
+                new Token(null, LexerRuleReal, new RealFieldElement(3.0))
+            };
+
+            // Check ability to parse singular.
+            Assert.DoesNotThrow
+            (
+                () =>
+                {
+                    Parser.ParseSingular(tokens);
+                }
+            );
+        }
     }
 }
