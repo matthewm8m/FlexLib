@@ -46,6 +46,15 @@ namespace FlexLib.ExpressionDom.Parsing
             object[] parameterList = new object[parameters];
             return parameterList;
         }
+
+        /// <summary>
+        /// Creates a string representation of the <see cref="TokenRulePattern"/> object.
+        /// </summary>
+        /// <returns>A string that represents the token rule pattern.</returns>
+        public override string ToString()
+        {
+            return $"({Rule.Name})";
+        }
     }
 
     /// <summary>

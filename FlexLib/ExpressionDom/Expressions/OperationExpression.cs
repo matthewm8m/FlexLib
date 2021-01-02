@@ -58,6 +58,15 @@ namespace FlexLib.ExpressionDom.Expressions
                 );
             else return default(TResult);
         }
+
+        /// <summary>
+        /// Creates a string representation of the <see cref="OperationExpression{T1, TResult}"/> object.
+        /// </summary>
+        /// <returns>A string that represents the value of the expression.</returns>
+        public override string ToString()
+        {
+            return $"Op({Operand1})";
+        }
     }
     /// <summary>
     /// Represents an expression node in an abstract syntax tree that is an operation on 2 operands.
@@ -124,6 +133,15 @@ namespace FlexLib.ExpressionDom.Expressions
                     Operand2.Evaluate()
                 );
             else return default(TResult);
+        }
+
+        /// <summary>
+        /// Creates a string representation of the <see cref="OperationExpression{T1, T2, TResult}"/> object.
+        /// </summary>
+        /// <returns>A string that represents the value of the expression.</returns>
+        public override string ToString()
+        {
+            return $"Op({Operand1}, {Operand2})";
         }
     }
     /// <summary>
@@ -201,6 +219,15 @@ namespace FlexLib.ExpressionDom.Expressions
                     Operand3.Evaluate()
                 );
             else return default(TResult);
+        }
+
+        /// <summary>
+        /// Creates a string representation of the <see cref="OperationExpression{T1, T2, T3, TResult}"/> object.
+        /// </summary>
+        /// <returns>A string that represents the value of the expression.</returns>
+        public override string ToString()
+        {
+            return $"Op({Operand1}, {Operand2}, {Operand3})";
         }
     }
     /// <summary>
@@ -288,6 +315,15 @@ namespace FlexLib.ExpressionDom.Expressions
                     Operand4.Evaluate()
                 );
             else return default(TResult);
+        }
+
+        /// <summary>
+        /// Creates a string representation of the <see cref="OperationExpression{T1, T2, T3, T4, TResult}"/> object.
+        /// </summary>
+        /// <returns>A string that represents the value of the expression.</returns>
+        public override string ToString()
+        {
+            return $"Op({Operand1}, {Operand2}, {Operand3}, {Operand4})";
         }
     }
 }

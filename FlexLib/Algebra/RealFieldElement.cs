@@ -22,6 +22,15 @@ namespace FlexLib.Algebra
         }
 
         /// <summary>
+        /// Creates a string representation of the <see cref="RealFieldElement"/> object.
+        /// </summary>
+        /// <returns>A string that represents the value of the element.</returns>
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
+
+        /// <summary>
         /// Implicitly converts a <see cref="double"/> object to a <see cref="RealFieldElement"/> object.
         /// </summary>
         /// <param name="value">The value of the real element.</param>

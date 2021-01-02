@@ -40,6 +40,15 @@ namespace FlexLib.ExpressionDom.Expressions
         }
 
         /// <summary>
+        /// Creates a string representation of the <see cref="ConstantExpression{T}"/> object.
+        /// </summary>
+        /// <returns>A string that represents the value of the expression.</returns>
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
+
+        /// <summary>
         /// Converts a value of generic type to its corresponding <see cref="ConstantExpression{T}"/> instance.
         /// </summary>
         /// <param name="value">The constant value.</param>

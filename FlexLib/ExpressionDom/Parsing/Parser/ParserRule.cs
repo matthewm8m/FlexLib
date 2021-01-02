@@ -13,6 +13,15 @@ namespace FlexLib.ExpressionDom.Parsing
         /// The token pattern used to find matching sequences of tokens in the source stream.
         /// </summary>
         public ITokenPattern Pattern;
+
+        /// <summary>
+        /// Creates a string representation of the <see cref="ParserRule"/> object.
+        /// </summary>
+        /// <returns>A string that represents the name and pattern of the rule.</returns>
+        public override string ToString()
+        {
+            return $"{Name} = {Pattern}";
+        }
     }
 
     /// <summary>

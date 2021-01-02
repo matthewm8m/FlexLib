@@ -34,5 +34,27 @@ namespace FlexLib.ExpressionDom.Parsing
             Rule = rule;
             Value = value;
         }
+
+        /// <summary>
+        /// Creates a string representation of the <see cref="Token"/> object.
+        /// </summary>
+        /// <returns>A string that represents the rule, source, and/or value of the token.</returns>
+        public override string ToString()
+        {
+            if (Rule == null)
+            {
+                if (Value == null)
+                    return $"[{Source?.Snippet}]";
+                else
+                    return $"[{Value}]";
+            }
+            else
+            {
+                if (Value == null)
+                    return $"[{Rule.Name}:{Source?.Snippet}]";
+                else
+                    return $"[{Rule.Name}={Value}]";
+            }
+        }
     }
 }

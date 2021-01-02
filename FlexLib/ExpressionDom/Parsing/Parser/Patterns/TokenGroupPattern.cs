@@ -74,5 +74,14 @@ namespace FlexLib.ExpressionDom.Parsing
             }
             return parameterList;
         }
+
+        /// <summary>
+        /// Create a string representation of the <see cref="TokenGroupPattern"/> object.
+        /// </summary>
+        /// <returns>A string that represents the token rule pattern.</returns>
+        public override string ToString()
+        {
+            return $"({string.Join(" ", Patterns)})";
+        }
     }
 }
