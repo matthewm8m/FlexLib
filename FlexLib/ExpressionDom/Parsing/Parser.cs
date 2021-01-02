@@ -147,7 +147,13 @@ namespace FlexLib.ExpressionDom.Parsing
         /// <returns>The output single token.</returns>
         public Token ParseSingular(IEnumerable<Token> tokens)
         {
-            return null;
+            // Return a single token if one exists.
+            // If more than one token exists, throw an error.
+            IEnumerable<Token> results = Parse(tokens);
+            if (results.Count() > 1)
+                return results.FirstOrDefault();
+            else
+                throw new ParserIncompleteException();
         }
     }
 }
