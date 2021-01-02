@@ -42,6 +42,7 @@ namespace FlexLib.ExpressionDom.Parsing
         public static TokenSource Join(IEnumerable<TokenSource> sources)
         {
             // Check if there are any sources and if not, return null.
+            sources = sources?.Where(source => source != null);
             if (sources == null || !sources.Any())
                 return null;
 
