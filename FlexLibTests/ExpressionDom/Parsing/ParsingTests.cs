@@ -330,6 +330,9 @@ namespace FlexLibTests.ExpressionDom.Parsing
             (
                 () => Parser.ParseSingular(tokens)
             );
+            Assert.AreEqual(input, ex.TokenSource.Source);
+            Assert.AreEqual("3^4", ex.TokenSource.Snippet);
+            Assert.AreEqual(6, ex.TokenSource.Location);
         }
     }
 }

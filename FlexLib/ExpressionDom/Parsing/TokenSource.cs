@@ -52,7 +52,7 @@ namespace FlexLib.ExpressionDom.Parsing
 
             // Join the snippets together to get a new snippet.
             // Otherwise, the source and location should be the same as the first source.
-            string snippetNew = string.Join(" ", sourcesSorted);
+            string snippetNew = string.Join("", sourcesSorted.Select(source => source.Snippet));
             string sourceNew = sourceFirst.Source;
             int locationNew = sourceFirst.Location;
 
