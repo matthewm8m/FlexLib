@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FlexLib.ExpressionDom.Parsing
 {
@@ -7,13 +8,15 @@ namespace FlexLib.ExpressionDom.Parsing
     /// </summary>
     public class TokenGroupPattern : ITokenPattern
     {
+        private readonly IList<ITokenPattern> Patterns;
+
         /// <summary>
         /// Creates a new <see cref="TokenGroupPattern"/> object with the specified sub-patterns.
         /// </summary>
         /// <param name="patterns">The ordered sub-patterns.</param>
         public TokenGroupPattern(IEnumerable<ITokenPattern> patterns)
         {
-
+            Patterns = new List<ITokenPattern>(patterns);
         }
 
         /// <summary>
@@ -23,7 +26,28 @@ namespace FlexLib.ExpressionDom.Parsing
         /// <returns>The number of tokens that match the pattern from the start of the enumerable. Set to the number of sub-patterns if a match was successful; otherwise, set to <c>0</c>.</returns>
         public int FindMatch(IEnumerable<Token> tokens)
         {
-            throw new System.NotImplementedException();
+            // In order to match the given enumerable, the tokens must not be null.
+            if (tokens != null)
+            {
+                int matched = 0;
+                foreach (ITokenPattern pattern in Patterns)
+                {
+                    // Check each pattern for matching (0 indicates no match).
+                    // We skip ahead the number of tokens matched so patterns match in order correctly.
+                    int matchedPattern = pattern.FindMatch(tokens);
+                    if (matchedPattern > 0)
+                        matched += matchedPattern;
+                    else
+                        return 0;
+                    tokens = tokens.Skip(matchedPattern);
+                }
+
+                // Return the number of total tokens matched.
+                return matched;
+            }
+
+            // We eat no tokens if there is no match.
+            return 0;
         }
         /// <summary>
         /// Collects the parameter values from a specified token stream.
