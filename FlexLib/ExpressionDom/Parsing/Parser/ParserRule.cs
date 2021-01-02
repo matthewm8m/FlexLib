@@ -36,7 +36,7 @@ namespace FlexLib.ExpressionDom.Parsing
             TResult result = Transform();
 
             TokenSource source = TokenSource.Join(tokens.Select(token => token.Source));
-            yield return new Token(source, this, result);
+            yield return new Token(this, source, result);
         }
     }
     /// <summary>
@@ -63,7 +63,7 @@ namespace FlexLib.ExpressionDom.Parsing
             TResult result = Transform(value1);
 
             TokenSource source = TokenSource.Join(tokens.Select(token => token.Source));
-            yield return new Token(source, this, result);
+            yield return new Token(this, source, result);
         }
     }
     /// <summary>
@@ -92,7 +92,7 @@ namespace FlexLib.ExpressionDom.Parsing
             TResult result = Transform(value1, value2);
 
             TokenSource source = TokenSource.Join(tokens.Select(token => token.Source));
-            yield return new Token(source, this, result);
+            yield return new Token(this, source, result);
         }
     }
     /// <summary>
@@ -123,7 +123,7 @@ namespace FlexLib.ExpressionDom.Parsing
             TResult result = Transform(value1, value2, value3);
 
             TokenSource source = TokenSource.Join(tokens.Select(token => token.Source));
-            yield return new Token(source, this, result);
+            yield return new Token(this, source, result);
         }
     }
     /// <summary>
@@ -156,7 +156,7 @@ namespace FlexLib.ExpressionDom.Parsing
             TResult result = Transform(value1, value2, value3, value4);
 
             TokenSource source = TokenSource.Join(tokens.Select(token => token.Source));
-            yield return new Token(source, this, result);
+            yield return new Token(this, source, result);
         }
     }
 }

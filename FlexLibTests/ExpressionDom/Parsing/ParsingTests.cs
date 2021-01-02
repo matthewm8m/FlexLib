@@ -138,13 +138,13 @@ namespace FlexLibTests.ExpressionDom.Parsing
             // tokens: [Real=3] [Op^] [Real=2] [Op+] [Real=4] [Op^] [Real=2]
             IEnumerable<Token> tokens = new Token[]
             {
-                new Token(null, LexerRuleReal, new RealFieldElement(3.0)),
-                new Token(null, LexerRuleOpExp),
-                new Token(null, LexerRuleReal, new RealFieldElement(2.0)),
-                new Token(null, LexerRuleOpAdd),
-                new Token(null, LexerRuleReal, new RealFieldElement(4.0)),
-                new Token(null, LexerRuleOpExp),
-                new Token(null, LexerRuleReal, new RealFieldElement(2.0))
+                new Token(LexerRuleReal, value: new RealFieldElement(3.0)),
+                new Token(LexerRuleOpExp),
+                new Token(LexerRuleReal, value: new RealFieldElement(2.0)),
+                new Token(LexerRuleOpAdd),
+                new Token(LexerRuleReal, value: new RealFieldElement(4.0)),
+                new Token(LexerRuleOpExp),
+                new Token(LexerRuleReal, value: new RealFieldElement(2.0))
             };
 
             // Check parsing results.
@@ -180,13 +180,13 @@ namespace FlexLibTests.ExpressionDom.Parsing
             // tokens: [Real=4] [Op-] [Real=3] [Op+] [Real=2] [Op-] [Real=1]
             IEnumerable<Token> tokens = new Token[]
             {
-                new Token(null, LexerRuleReal, new RealFieldElement(4.0)),
-                new Token(null, LexerRuleOpSub),
-                new Token(null, LexerRuleReal, new RealFieldElement(3.0)),
-                new Token(null, LexerRuleOpAdd),
-                new Token(null, LexerRuleReal, new RealFieldElement(2.0)),
-                new Token(null, LexerRuleOpSub),
-                new Token(null, LexerRuleReal, new RealFieldElement(1.0))
+                new Token(LexerRuleReal, value: new RealFieldElement(4.0)),
+                new Token(LexerRuleOpSub),
+                new Token(LexerRuleReal, value: new RealFieldElement(3.0)),
+                new Token(LexerRuleOpAdd),
+                new Token(LexerRuleReal, value: new RealFieldElement(2.0)),
+                new Token(LexerRuleOpSub),
+                new Token(LexerRuleReal, value: new RealFieldElement(1.0))
             };
 
             // Check parsing results.
@@ -222,11 +222,11 @@ namespace FlexLibTests.ExpressionDom.Parsing
             // tokens: [Real=4] [Op^] [Real=3] [Op^] [Real=2]
             IEnumerable<Token> tokens = new Token[]
             {
-                new Token(null, LexerRuleReal, new RealFieldElement(4.0)),
-                new Token(null, LexerRuleOpExp),
-                new Token(null, LexerRuleReal, new RealFieldElement(3.0)),
-                new Token(null, LexerRuleOpExp),
-                new Token(null, LexerRuleReal, new RealFieldElement(2.0))
+                new Token(LexerRuleReal, value: new RealFieldElement(4.0)),
+                new Token(LexerRuleOpExp),
+                new Token(LexerRuleReal, value: new RealFieldElement(3.0)),
+                new Token(LexerRuleOpExp),
+                new Token(LexerRuleReal, value: new RealFieldElement(2.0))
             };
 
             // Check parsing results.
@@ -256,12 +256,12 @@ namespace FlexLibTests.ExpressionDom.Parsing
             // tokens: [Real=10] [Op+] [Real=3] [Real=10] [Op-] [Real=3]
             IEnumerable<Token> tokens = new Token[]
             {
-                new Token(null, LexerRuleReal, new RealFieldElement(10.0)),
-                new Token(null, LexerRuleOpAdd),
-                new Token(null, LexerRuleReal, new RealFieldElement(3.0)),
-                new Token(null, LexerRuleReal, new RealFieldElement(10.0)),
-                new Token(null, LexerRuleOpSub),
-                new Token(null, LexerRuleReal, new RealFieldElement(3.0))
+                new Token(LexerRuleReal, value: new RealFieldElement(10.0)),
+                new Token(LexerRuleOpAdd),
+                new Token(LexerRuleReal, value: new RealFieldElement(3.0)),
+                new Token(LexerRuleReal, value: new RealFieldElement(10.0)),
+                new Token(LexerRuleOpSub),
+                new Token(LexerRuleReal, value: new RealFieldElement(3.0))
             };
 
             // Check parsing results.
@@ -297,9 +297,9 @@ namespace FlexLibTests.ExpressionDom.Parsing
             // tokens: [Real=1] [Op-] [Real=3]
             IEnumerable<Token> tokens = new Token[]
             {
-                new Token(null, LexerRuleReal, new RealFieldElement(1.0)),
-                new Token(null, LexerRuleOpSub),
-                new Token(null, LexerRuleReal, new RealFieldElement(3.0))
+                new Token(LexerRuleReal, value: new RealFieldElement(1.0)),
+                new Token(LexerRuleOpSub),
+                new Token(LexerRuleReal, value: new RealFieldElement(3.0))
             };
 
             // Check ability to parse singular.
@@ -317,12 +317,12 @@ namespace FlexLibTests.ExpressionDom.Parsing
             string input = "1 ^ 2 3 ^ 4";
             IEnumerable<Token> tokens = new Token[]
             {
-                new Token(new TokenSource(input, "1", 0), LexerRuleReal, new RealFieldElement(1.0)),
-                new Token(new TokenSource(input, "^", 2), LexerRuleOpExp),
-                new Token(new TokenSource(input, "2", 4), LexerRuleReal, new RealFieldElement(2.0)),
-                new Token(new TokenSource(input, "3", 6), LexerRuleReal, new RealFieldElement(3.0)),
-                new Token(new TokenSource(input, "^", 8), LexerRuleOpExp),
-                new Token(new TokenSource(input, "4", 10), LexerRuleReal, new RealFieldElement(4.0))
+                new Token(LexerRuleReal, new TokenSource(input, "1", 0), value: new RealFieldElement(1.0)),
+                new Token(LexerRuleOpExp, new TokenSource(input, "^", 2)),
+                new Token(LexerRuleReal, new TokenSource(input, "2", 4), value: new RealFieldElement(2.0)),
+                new Token(LexerRuleReal, new TokenSource(input, "3", 6), value: new RealFieldElement(3.0)),
+                new Token(LexerRuleOpExp, new TokenSource(input, "^", 8)),
+                new Token(LexerRuleReal, new TokenSource(input, "4", 10), value: new RealFieldElement(4.0))
             };
 
             // Check inability to parse singular.

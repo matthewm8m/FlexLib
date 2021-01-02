@@ -27,7 +27,7 @@ namespace FlexLib.ExpressionDom.Parsing
             // When using the untyped lexer rule, there is no token data.
             // We only emit the token if the ignore flag is not raised.
             if (!Ignore)
-                yield return new Token(source, this);
+                yield return new Token(this, source);
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace FlexLib.ExpressionDom.Parsing
 
             // If a parser is not defined, we yield a token with the default data value.
             if (Parser == null)
-                yield return new Token(source, this, default(T));
+                yield return new Token(this, source, default(T));
 
             // Otherwise, we attempt to parse the snippet into a data value.
             // If we succeed, we yield a token with that data.
@@ -75,7 +75,7 @@ namespace FlexLib.ExpressionDom.Parsing
             else
             {
                 if (Parser(source.Snippet, out T value))
-                    yield return new Token(source, this, value);
+                    yield return new Token(this, source, value);
                 else
                     throw new FormatException($"Regular expression and parser are incompatible in lexer rule: {this}");
             }

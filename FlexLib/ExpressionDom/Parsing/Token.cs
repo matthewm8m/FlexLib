@@ -25,8 +25,8 @@ namespace FlexLib.ExpressionDom.Parsing
         /// <param name="rule">The rule used to generate the token.</param>
         /// <param name="value">The internal value of the token.</param>
         public Token(
-            TokenSource source,
             ITokenRule rule,
+            TokenSource source = null,
             object value = null
         )
         {
