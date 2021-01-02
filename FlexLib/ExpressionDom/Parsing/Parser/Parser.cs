@@ -156,9 +156,16 @@ namespace FlexLib.ExpressionDom.Parsing
             // If more than one token exists, throw an error.
             IEnumerable<Token> results = Parse(tokens);
             if (results.Count() > 1)
-                throw new ParserIncompleteException();
-            else
-                return results.FirstOrDefault();
+            {
+                // Throw an exception for every result besides the first.
+                int resultIndex = 0;
+                foreach (Token result in results)
+                {
+                    if (resultIndex > 0)
+                        throw new ParserIncompleteException(result.Source, "Unexpected expression encountered.");
+                }
+            }
+            return results.FirstOrDefault();
         }
     }
 }
