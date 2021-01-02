@@ -52,7 +52,7 @@ namespace FlexLib.ExpressionDom.Parsing
         /// <summary>
         /// The parsing function to turn the source string into another value and pass it to the created token.
         /// </summary>
-        public TokenParser<T> Parser;
+        public TokenConverter<T> Parser;
 
         /// <summary>
         /// Parses the snippet of source code in order to generate a sequence of typed tokens to replace it. Subclasses should override this method to yield sequences of tokens or typed tokens.
