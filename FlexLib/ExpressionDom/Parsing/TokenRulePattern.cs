@@ -91,7 +91,7 @@ namespace FlexLib.ExpressionDom.Parsing
         {
             // We may have a single parameter if the property is assigned a valid index.
             object[] parameterList = new object[parameters];
-            if (Parameter.HasValue)
+            if (Parameter.HasValue && FindMatch(tokens) > 0)
             {
                 if (0 <= Parameter && Parameter < parameters)
                     parameterList[Parameter.Value] = tokens.FirstOrDefault().Value;
