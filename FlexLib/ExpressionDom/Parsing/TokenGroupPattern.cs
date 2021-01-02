@@ -57,7 +57,22 @@ namespace FlexLib.ExpressionDom.Parsing
         /// <returns>A list of collected parameter values with length equal to <c>parameters</c>. If a parameter could not be found, it is assigned to <c>null</c>.</returns>
         public IList<object> FindParameters(IEnumerable<Token> tokens, int parameters)
         {
-            throw new System.NotImplementedException();
+            // We collect parameters from all of the sub-patterns in order.
+            object[] parameterList = new object[parameters];
+            foreach (ITokenPattern pattern in Patterns)
+            {
+                // We need the number of tokens that match in order to obtain valid parameters.
+                int matchedTokens = pattern.FindMatch(tokens);
+
+                // We only set a parameter if the pattern yields a non-null value.
+                IList<object> parameterListPattern = pattern.FindParameters(tokens.Take(matchedTokens), parameters);
+                for (int k = 0; k < parameters; k++)
+                    parameterList[k] = parameterListPattern[k] ?? parameterList[k];
+
+                // We need to skip ahead based on the number of matched tokens.
+                tokens = tokens.Skip(matchedTokens);
+            }
+            return parameterList;
         }
     }
 }
