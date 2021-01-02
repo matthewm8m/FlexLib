@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 using FlexLib.Algebra;
 using FlexLib.ExpressionDom.Expressions;
@@ -28,6 +29,31 @@ namespace FlexLib.ExpressionDom.Parsing
         {
             Lexer = lexer;
             Parser = parser;
+        }
+
+        /// <summary>
+        /// Parses a source stream into a token stream.
+        /// </summary>
+        /// <param name="source">The source stream.</param>
+        /// <param name="strict">Whether syntax errors should be thrown.</param>
+        /// <returns></returns>
+        public IEnumerable<Token> Parse(string source, bool strict = true)
+        {
+            IEnumerable<Token> lexerOut = Lexer.Lex(source, strict);
+            IEnumerable<Token> parserOut = Parser.Parse(lexerOut);
+            return parserOut;
+        }
+        /// <summary>
+        /// Parses a source stream into a single token.
+        /// </summary>
+        /// <param name="source">The source stream.</param>
+        /// <param name="strict">Whether syntax errors should be thrown.</param>
+        /// <returns></returns>
+        public Token ParseSingular(string source, bool strict = true)
+        {
+            IEnumerable<Token> lexerOut = Lexer.Lex(source, strict);
+            Token parserOut = Parser.ParseSingular(lexerOut);
+            return parserOut;
         }
 
         /// <summary>
