@@ -121,8 +121,8 @@ namespace FlexLibTests.ExpressionDom.Parsing
             Assert.IsInstanceOf(typeof(IExpression<RealFieldElement>), results[1].Value);
             Assert.IsInstanceOf(typeof(IExpression<RealFieldElement>), results[2].Value);
             IExpression<RealFieldElement> expr1 = results[0].Value as IExpression<RealFieldElement>;
-            IExpression<RealFieldElement> expr2 = results[0].Value as IExpression<RealFieldElement>;
-            IExpression<RealFieldElement> expr3 = results[0].Value as IExpression<RealFieldElement>;
+            IExpression<RealFieldElement> expr2 = results[1].Value as IExpression<RealFieldElement>;
+            IExpression<RealFieldElement> expr3 = results[2].Value as IExpression<RealFieldElement>;
             Assert.IsTrue(Field.ElementsEqual(2.9, expr1.Evaluate()));
             Assert.IsTrue(Field.ElementsEqual(-2.1, expr2.Evaluate()));
             Assert.IsTrue(Field.ElementsEqual(1.5, expr3.Evaluate()));
