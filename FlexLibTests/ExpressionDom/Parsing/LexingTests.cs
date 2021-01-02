@@ -71,8 +71,8 @@ namespace FlexLibTests.ExpressionDom.Parsing
             Assert.AreEqual(source, tokens[1].Source.Source);
             Assert.AreEqual("2", tokens[0].Source.Snippet);
             Assert.AreEqual("3", tokens[1].Source.Snippet);
-            Assert.AreEqual(0, tokens[0].Source.Location);
-            Assert.AreEqual(2, tokens[1].Source.Location);
+            Assert.AreEqual(0, tokens[0].Source.IndexStart);
+            Assert.AreEqual(2, tokens[1].Source.IndexStart);
         }
         [Test]
         public void TestIgnoreWhitespace()
@@ -89,8 +89,8 @@ namespace FlexLibTests.ExpressionDom.Parsing
             Assert.AreEqual(source, tokens[1].Source.Source);
             Assert.AreEqual("1.0", tokens[0].Source.Snippet);
             Assert.AreEqual("*", tokens[1].Source.Snippet);
-            Assert.AreEqual(1, tokens[0].Source.Location);
-            Assert.AreEqual(9, tokens[1].Source.Location);
+            Assert.AreEqual(1, tokens[0].Source.IndexStart);
+            Assert.AreEqual(9, tokens[1].Source.IndexStart);
         }
         [Test]
         public void TestIgnoreComments()
@@ -127,11 +127,11 @@ namespace FlexLibTests.ExpressionDom.Parsing
             Assert.AreEqual("2.0", tokens[2].Source.Snippet);
             Assert.AreEqual("*", tokens[3].Source.Snippet);
             Assert.AreEqual(".5", tokens[4].Source.Snippet);
-            Assert.AreEqual(0, tokens[0].Source.Location);
-            Assert.AreEqual(2, tokens[1].Source.Location);
-            Assert.AreEqual(4, tokens[2].Source.Location);
-            Assert.AreEqual(8, tokens[3].Source.Location);
-            Assert.AreEqual(10, tokens[4].Source.Location);
+            Assert.AreEqual(0, tokens[0].Source.IndexStart);
+            Assert.AreEqual(2, tokens[1].Source.IndexStart);
+            Assert.AreEqual(4, tokens[2].Source.IndexStart);
+            Assert.AreEqual(8, tokens[3].Source.IndexStart);
+            Assert.AreEqual(10, tokens[4].Source.IndexStart);
         }
         [Test]
         public void TestNoRule()
@@ -145,7 +145,7 @@ namespace FlexLibTests.ExpressionDom.Parsing
 
             Assert.AreEqual(source, ex.TokenSource.Source);
             Assert.AreEqual("a", ex.TokenSource.Snippet);
-            Assert.AreEqual(0, ex.TokenSource.Location);
+            Assert.AreEqual(0, ex.TokenSource.IndexStart);
         }
         [Test]
         public void TestNearMatch()
@@ -159,7 +159,7 @@ namespace FlexLibTests.ExpressionDom.Parsing
 
             Assert.AreEqual(source, ex.TokenSource.Source);
             Assert.AreEqual(".", ex.TokenSource.Snippet);
-            Assert.AreEqual(5, ex.TokenSource.Location);
+            Assert.AreEqual(5, ex.TokenSource.IndexStart);
         }
         [Test]
         public void TestNonStrict()
@@ -183,9 +183,9 @@ namespace FlexLibTests.ExpressionDom.Parsing
                 Assert.AreEqual("1", tokens[0].Source.Snippet);
                 Assert.AreEqual("2", tokens[1].Source.Snippet);
                 Assert.AreEqual("3", tokens[2].Source.Snippet);
-                Assert.AreEqual(2, tokens[0].Source.Location);
-                Assert.AreEqual(6, tokens[1].Source.Location);
-                Assert.AreEqual(10, tokens[2].Source.Location);
+                Assert.AreEqual(2, tokens[0].Source.IndexStart);
+                Assert.AreEqual(6, tokens[1].Source.IndexStart);
+                Assert.AreEqual(10, tokens[2].Source.IndexStart);
             });
         }
     }

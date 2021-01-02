@@ -13,25 +13,33 @@ namespace FlexLib.ExpressionDom.Parsing
         /// </summary>
         public readonly string Source;
         /// <summary>
+        /// The index start location of the snippet source within the entire source.
+        /// </summary>
+        public readonly int IndexStart;
+        /// <summary>
+        /// The index end location of the snippet source within the entire source.
+        /// </summary>
+        public readonly int IndexEnd;
+
+        /// <summary>
         /// The particular segment of source code that represents the token.
         /// </summary>
-        public readonly string Snippet;
-        /// <summary>
-        /// The index location of the snippet source within the entire source.
-        /// </summary>
-        public readonly int Location;
+        public string Snippet
+        {
+            get => Source.Substring(IndexStart, IndexEnd - IndexStart);
+        }
 
         /// <summary>
         /// Creates a new <see cref="TokenSource"/> object with the specified source, snippet, and location.
         /// </summary>
         /// <param name="source">The entire source code.</param>
-        /// <param name="snippet">The snippet of source code.</param>
-        /// <param name="location">The location of the snippet.</param>
-        public TokenSource(string source, string snippet, int location)
+        /// <param name="indexStart">The start location of the snippet.</param>
+        /// <param name="indexEnd">The end location of the snippet.</param>
+        public TokenSource(string source, int indexStart, int indexEnd)
         {
             Source = source;
-            Snippet = snippet;
-            Location = location;
+            IndexStart = indexStart;
+            IndexEnd = indexEnd;
         }
 
         /// <summary>
@@ -46,20 +54,17 @@ namespace FlexLib.ExpressionDom.Parsing
             if (sources == null || !sources.Any())
                 return null;
 
-            // Sort the sources by location and obtain the first source.
-            var sourcesSorted = sources.OrderBy(source => source.Location);
-            var sourceFirst = sourcesSorted.First();
+            // Find the start and end indexes of the union of sources.
+            int indexStartNew = sources.Min(source => source.IndexStart);
+            int indexEndNew = sources.Max(source => source.IndexEnd);
 
-            // Join the snippets together to get a new snippet.
-            // Otherwise, the source and location should be the same as the first source.
-            string snippetNew = string.Join("", sourcesSorted.Select(source => source.Snippet));
-            string sourceNew = sourceFirst.Source;
-            int locationNew = sourceFirst.Location;
+            // The new source is the same as any of the previous sources.
+            string sourceNew = sources.First().Source;
 
             return new TokenSource(
                 sourceNew,
-                snippetNew,
-                locationNew
+                indexStartNew,
+                indexEndNew
             );
         }
     }

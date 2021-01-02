@@ -317,12 +317,12 @@ namespace FlexLibTests.ExpressionDom.Parsing
             string input = "1 ^ 2 3 ^ 4";
             IEnumerable<Token> tokens = new Token[]
             {
-                new Token(LexerRuleReal, new TokenSource(input, "1", 0), value: new RealFieldElement(1.0)),
-                new Token(LexerRuleOpExp, new TokenSource(input, "^", 2)),
-                new Token(LexerRuleReal, new TokenSource(input, "2", 4), value: new RealFieldElement(2.0)),
-                new Token(LexerRuleReal, new TokenSource(input, "3", 6), value: new RealFieldElement(3.0)),
-                new Token(LexerRuleOpExp, new TokenSource(input, "^", 8)),
-                new Token(LexerRuleReal, new TokenSource(input, "4", 10), value: new RealFieldElement(4.0))
+                new Token(LexerRuleReal, new TokenSource(input, 0, 1), value: new RealFieldElement(1.0)),
+                new Token(LexerRuleOpExp, new TokenSource(input, 2, 3)),
+                new Token(LexerRuleReal, new TokenSource(input, 4, 5), value: new RealFieldElement(2.0)),
+                new Token(LexerRuleReal, new TokenSource(input, 6, 7), value: new RealFieldElement(3.0)),
+                new Token(LexerRuleOpExp, new TokenSource(input, 8, 9)),
+                new Token(LexerRuleReal, new TokenSource(input, 10, 11), value: new RealFieldElement(4.0))
             };
 
             // Check inability to parse singular.
@@ -331,8 +331,8 @@ namespace FlexLibTests.ExpressionDom.Parsing
                 () => Parser.ParseSingular(tokens)
             );
             Assert.AreEqual(input, ex.TokenSource.Source);
-            Assert.AreEqual("3^4", ex.TokenSource.Snippet);
-            Assert.AreEqual(6, ex.TokenSource.Location);
+            Assert.AreEqual("3 ^ 4", ex.TokenSource.Snippet);
+            Assert.AreEqual(6, ex.TokenSource.IndexStart);
         }
     }
 }
