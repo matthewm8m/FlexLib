@@ -13,6 +13,15 @@ namespace FlexLib.ExpressionDom.Parsing
         /// The token pattern used to find matching sequences of tokens in the source stream.
         /// </summary>
         public ITokenPattern Pattern;
+
+        /// <summary>
+        /// Creates a string representation of the <see cref="ParserRule"/> object.
+        /// </summary>
+        /// <returns>A string that represents the name and pattern of the rule.</returns>
+        public override string ToString()
+        {
+            return $"{Name} = {Pattern}";
+        }
     }
 
     /// <summary>
@@ -36,7 +45,7 @@ namespace FlexLib.ExpressionDom.Parsing
             TResult result = Transform();
 
             TokenSource source = TokenSource.Join(tokens.Select(token => token.Source));
-            yield return new Token(source, this, result);
+            yield return new Token(this, source, result);
         }
     }
     /// <summary>
@@ -63,7 +72,7 @@ namespace FlexLib.ExpressionDom.Parsing
             TResult result = Transform(value1);
 
             TokenSource source = TokenSource.Join(tokens.Select(token => token.Source));
-            yield return new Token(source, this, result);
+            yield return new Token(this, source, result);
         }
     }
     /// <summary>
@@ -92,7 +101,7 @@ namespace FlexLib.ExpressionDom.Parsing
             TResult result = Transform(value1, value2);
 
             TokenSource source = TokenSource.Join(tokens.Select(token => token.Source));
-            yield return new Token(source, this, result);
+            yield return new Token(this, source, result);
         }
     }
     /// <summary>
@@ -123,7 +132,7 @@ namespace FlexLib.ExpressionDom.Parsing
             TResult result = Transform(value1, value2, value3);
 
             TokenSource source = TokenSource.Join(tokens.Select(token => token.Source));
-            yield return new Token(source, this, result);
+            yield return new Token(this, source, result);
         }
     }
     /// <summary>
@@ -156,7 +165,7 @@ namespace FlexLib.ExpressionDom.Parsing
             TResult result = Transform(value1, value2, value3, value4);
 
             TokenSource source = TokenSource.Join(tokens.Select(token => token.Source));
-            yield return new Token(source, this, result);
+            yield return new Token(this, source, result);
         }
     }
 }

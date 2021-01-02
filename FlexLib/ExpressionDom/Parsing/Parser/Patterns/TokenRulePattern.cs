@@ -46,6 +46,15 @@ namespace FlexLib.ExpressionDom.Parsing
             object[] parameterList = new object[parameters];
             return parameterList;
         }
+
+        /// <summary>
+        /// Creates a string representation of the <see cref="TokenRulePattern"/> object.
+        /// </summary>
+        /// <returns>A string that represents the token rule pattern.</returns>
+        public override string ToString()
+        {
+            return $"({Rule.Name})";
+        }
     }
 
     /// <summary>
@@ -91,7 +100,7 @@ namespace FlexLib.ExpressionDom.Parsing
         {
             // We may have a single parameter if the property is assigned a valid index.
             object[] parameterList = new object[parameters];
-            if (Parameter.HasValue)
+            if (Parameter.HasValue && FindMatch(tokens) > 0)
             {
                 if (0 <= Parameter && Parameter < parameters)
                     parameterList[Parameter.Value] = tokens.FirstOrDefault().Value;

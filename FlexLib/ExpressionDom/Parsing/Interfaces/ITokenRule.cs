@@ -9,6 +9,11 @@ namespace FlexLib.ExpressionDom.Parsing
     public interface ITokenRule
     {
         /// <summary>
+        /// The user-friendly name of the rule. Does not need to be specified.
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
         /// Uses a source object to generate a sequence of tokens to replace it.
         /// </summary>
         /// <param name="source">The source of the tokens</param>
@@ -25,7 +30,7 @@ namespace FlexLib.ExpressionDom.Parsing
         /// <summary>
         /// The user-friendly name of the rule. Does not need to be specified.
         /// </summary>
-        public string Name;
+        public string Name { get; set; }
 
         /// <summary>
         /// Uses a source object to generate a sequence of tokens to replace it.

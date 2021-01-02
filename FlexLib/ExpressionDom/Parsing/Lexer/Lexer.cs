@@ -74,7 +74,7 @@ namespace FlexLib.ExpressionDom.Parsing
                     if (matchGroup.Success)
                     {
                         // This is the location of the match with a reference to the source text.
-                        TokenSource tokenSource = new TokenSource(source, matchGroup.Value, matchGroup.Index);
+                        TokenSource tokenSource = new TokenSource(source, matchGroup.Index, matchGroup.Index + matchGroup.Length);
 
                         // If the group that matched was the last group (unknown token), we throw a syntax exception if
                         // strict mode was specified. We continue lexing regardless.
