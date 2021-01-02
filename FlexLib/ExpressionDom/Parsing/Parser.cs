@@ -64,6 +64,7 @@ namespace FlexLib.ExpressionDom.Parsing
                     while (tokenNode != null)
                     {
                         // We apply each parser rule in the level per location in the token stream.
+                        bool reducibleLevel = false;
                         foreach (ParserRule rule in level.Rules)
                         {
                             // We determine how many tokens are matched by the current rule starting from our head node.
@@ -114,10 +115,14 @@ namespace FlexLib.ExpressionDom.Parsing
                                 tokenNode = tokenNodeReplacement;
 
                                 // Set reduction flag.
-                                reducible = true;
-                                continue;
+                                reducible = reducibleLevel = true;
+                                break;
                             }
                         }
+
+                        // If we reduced in this level, we need to retry all rules in order without moving the head.
+                        if (reducibleLevel)
+                            continue;
 
                         // We need to move our token stream head in the correct direction based on the level associativity.
                         switch (level.Associativity)
