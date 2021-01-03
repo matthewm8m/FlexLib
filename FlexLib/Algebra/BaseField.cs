@@ -46,6 +46,27 @@ namespace FlexLib.Algebra
         public abstract T Inverse(T element);
 
         /// <summary>
+        /// Computes the difference of two elements of type <c>T</c>.
+        /// </summary>
+        /// <param name="elementA">The first element of the difference.</param>
+        /// <param name="elementB">The second element of the difference.</param>
+        /// <returns>The difference of the elements.</returns>
+        public T Subtract(T elementA, T elementB)
+        {
+            return Add(elementA, Negative(elementB));
+        }
+        /// <summary>
+        /// Computes the quotient of two elements of type <c>T</c>.
+        /// </summary>
+        /// <param name="elementA">The first element of the quotient.</param>
+        /// <param name="elementB">The second element of the quotient.</param>
+        /// <returns>The quotient of the elements.</returns>
+        public T Divide(T elementA, T elementB)
+        {
+            return Multiply(elementA, Inverse(elementB));
+        }
+
+        /// <summary>
         /// Creates a clone of an element of type <c>T</c>.
         /// </summary>
         /// <param name="element">The object to clone.</param>

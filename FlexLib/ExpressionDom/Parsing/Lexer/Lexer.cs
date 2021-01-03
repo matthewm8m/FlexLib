@@ -81,7 +81,7 @@ namespace FlexLib.ExpressionDom.Parsing
                         if (id == Rules.Count)
                         {
                             if (strict)
-                                throw new LexerSyntaxException(tokenSource, "Unknown syntax encountered.");
+                                throw new LexerSyntaxException(tokenSource, "Unknown syntax encountered");
                             continue;
                         }
 
