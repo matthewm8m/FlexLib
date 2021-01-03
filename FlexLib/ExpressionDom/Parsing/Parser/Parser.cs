@@ -162,7 +162,7 @@ namespace FlexLib.ExpressionDom.Parsing
                 foreach (Token result in results)
                 {
                     if (resultIndex++ > 0)
-                        throw new ParserIncompleteException(result.Source, "Unexpected expression encountered.");
+                        throw new ParserIncompleteException(result.Source, "Unexpected expression encountered");
                 }
             }
             return results.FirstOrDefault();

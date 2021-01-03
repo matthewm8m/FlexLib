@@ -34,11 +34,11 @@ namespace MathemediaConsole
                 }
                 catch (LexerSyntaxException lexEx)
                 {
-                    output = $"{lexEx.Message}: {lexEx.TokenSource.Snippet}";
+                    output = $"{lexEx.Message}: '{lexEx.TokenSource.Snippet}'";
                 }
                 catch (ParserIncompleteException parEx)
                 {
-                    output = $"{parEx.Message}: {parEx.TokenSource.Snippet}";
+                    output = $"{parEx.Message}: '{parEx.TokenSource.Snippet}'";
                 }
 
                 // Print
